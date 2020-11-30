@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nmap &#8212; Penetration Testing 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Domain Enumeration" href="Domain%20Enumeration.html" />
+    <link rel="prev" title="DNS" href="DNS.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="nmap">
+<h1>Nmap<a class="headerlink" href="#nmap" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="nmap-target-selection">
+<h2>Nmap Target Selection<a class="headerlink" href="#nmap-target-selection" title="Permalink to this headline">¶</a></h2>
+<p>Scan a single IP</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nmap <span class="m">192</span>.168.1.1
+</pre></div>
+</div>
+<p>Scan a host</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nmap www.testhostname.com
+</pre></div>
+</div>
+<p>Scan a range of IPs</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nmap <span class="m">192</span>.168.1.1-20
+</pre></div>
+</div>
+<p>Scan a subnet</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nmap <span class="m">192</span>.168.1.0/24
+</pre></div>
+</div>
+<p>Scan targets from a text file</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nmap -iL list-of-ips.txt
+<span class="sb">```</span>	
+
+<span class="c1">## Nmap Port Selection</span>
+
+Scan a single Port
+<span class="sb">```</span>shell
+nmap -p <span class="m">22</span> <span class="m">192</span>.168.1.1
+</pre></div>
+</div>
+<p>Scan a range of ports</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nmap -p <span class="m">1</span>-100 <span class="m">192</span>.168.1.1
+</pre></div>
+</div>
+<p>Scan 100 most common ports (Fast)</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nmap -F <span class="m">192</span>.168.1.1
+</pre></div>
+</div>
+<p>Scan all 65535 ports</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nmap -p- <span class="m">192</span>.168.1.1
+</pre></div>
+</div>
+</div>
+<div class="section" id="nmap-port-scan-types">
+<h2>Nmap Port Scan types<a class="headerlink" href="#nmap-port-scan-types" title="Permalink to this headline">¶</a></h2>
+<p>Scan using TCP connect</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nmap -sT <span class="m">192</span>.168.1.1
+</pre></div>
+</div>
+<p>Scan using TCP SYN scan (default)</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nmap -sS <span class="m">192</span>.168.1.1
+</pre></div>
+</div>
+<p>Scan UDP ports</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nmap -sU -p <span class="m">123</span>,161,162 <span class="m">192</span>.168.1.1
+</pre></div>
+</div>
+<p>Scan selected ports - ignore discovery</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nmap -Pn -F <span class="m">192</span>.168.1.1
+</pre></div>
+</div>
+</div>
+<div class="section" id="nmap-service-and-os-detection">
+<h2>Nmap Service and OS Detection<a class="headerlink" href="#nmap-service-and-os-detection" title="Permalink to this headline">¶</a></h2>
+<p>Detect OS and Services</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nmap -A <span class="m">192</span>.168.1.1
+</pre></div>
+</div>
+<p>Standard service detection</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nmap -sV <span class="m">192</span>.168.1.1
+</pre></div>
+</div>
+<p>More aggressive Service Detection</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nmap -sV --version-intensity <span class="m">5</span> <span class="m">192</span>.168.1.1
+</pre></div>
+</div>
+<p>Lighter banner grabbing detection</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nmap -sV --version-intensity <span class="m">0</span> <span class="m">192</span>.168.1.1
+</pre></div>
+</div>
+</div>
+<div class="section" id="nmap-output-formats">
+<h2>NMAP Output Formats<a class="headerlink" href="#nmap-output-formats" title="Permalink to this headline">¶</a></h2>
+<p>Save default output to file</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nmap -oN outputfile.txt <span class="m">192</span>.168.1.1
+</pre></div>
+</div>
+<p>Save results as XML</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nmap -oX outputfile.xml <span class="m">192</span>.168.1.1
+</pre></div>
+</div>
+<p>Nmap Output to CSV
+https://github.com/hackertarget/nmap-csv-xlsx</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo nmap -F -sV -oX nmapresults <span class="m">192</span>.168.1.0/24
+python3 nmap-xml-to-csv.py nmapresults.xml
+</pre></div>
+</div>
+</div>
+<div class="section" id="nmap-http-service-information">
+<h2>Nmap HTTP Service Information<a class="headerlink" href="#nmap-http-service-information" title="Permalink to this headline">¶</a></h2>
+<p>Gather page titles from HTTP services</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nmap --script<span class="o">=</span>http-title <span class="m">192</span>.168.1.0/24
+</pre></div>
+</div>
+<p>Get HTTP headers of web services</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nmap --script<span class="o">=</span>http-headers <span class="m">192</span>.168.1.0/24
+</pre></div>
+</div>
+<p>Find web apps from known paths</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nmap --script<span class="o">=</span>http-enum <span class="m">192</span>.168.1.0/24
+</pre></div>
+</div>
+<p>Find Information about IP address</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nmap --script<span class="o">=</span>asn-query,whois,ip-geolocation-maxmind <span class="m">192</span>.168.1.0/24
+</pre></div>
+</div>
+</div>
+<div class="section" id="nmap-vulnerability-detection">
+<h2>Nmap Vulnerability Detection<a class="headerlink" href="#nmap-vulnerability-detection" title="Permalink to this headline">¶</a></h2>
+<p>Nmap Heartbleed Testing</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nmap -sV -p <span class="m">443</span> --script<span class="o">=</span>ssl-heartbleed <span class="m">192</span>.168.1.0/24
+</pre></div>
+</div>
+<p>Nmap CVE detection</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>map -Pn --script vuln <span class="m">192</span>.168.1.0/24
+</pre></div>
+</div>
+<p>Nmap Malware Scan</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nmap -sV --script<span class="o">=</span>http-malware-host <span class="m">192</span>.168.1.0
+</pre></div>
+</div>
+<p>Nmap Malware Scan using Google’s Malware check</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nmap -p80 --script http-google-malware infectedsite.com
+</pre></div>
+</div>
+</div>
+<div class="section" id="nmap-tools">
+<h2>Nmap Tools<a class="headerlink" href="#nmap-tools" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>https://hackertarget.com/nmap-cheatsheet-a-quick-reference-guide/</p></li>
+<li><p>https://securitytrails.com/blog/top-15-nmap-commands-to-scan-remote-hosts</p></li>
+<li><p>https://github.com/hackertarget/nmap-csv-xlsx</p></li>
+<li><p>https://github.com/EvolvingSysadmin/Penetration-Testing/blob/master/Resources/Nmap%206%20Network%20Exploration%20and%20Security%20Auditing%20Cookbook.pdf</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Penetration Testing</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="DNS.html">DNS</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Nmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Domain%20Enumeration.html">Domain Enumeration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PowerView.html">PowerView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Windows%20OS%20Enumeration.html">Windows OS Enumration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Shodan.html">Shodan</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Windows%20Exploit%20Suggester.html">Windows Exploit Suggester</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Linux%20Exploits.html">Linux Exploits</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Web%20App%20Exploits.html">Web App Exploits</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Penetration%20Testing%20Resources.html">Penetration Testing Resources</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="DNS.html" title="previous chapter">DNS</a></li>
+      <li>Next: <a href="Domain%20Enumeration.html" title="next chapter">Domain Enumeration</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Ryan Heavican.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/Nmap.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
