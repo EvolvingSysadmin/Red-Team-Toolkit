@@ -2,4 +2,4 @@
 
 
 ## Recon
-* /docs/source/DNS.md
+* [DNS](/docs/source/DNS.md)
