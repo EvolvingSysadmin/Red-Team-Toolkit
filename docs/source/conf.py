@@ -54,3 +54,12 @@ html_theme = 'latest'
 html_static_path = ['_static']
 
 master_doc = 'index'
+
+import sphinx_glpi_theme
+
+html_theme = "glpi"
+
+html_theme_path = [sphinx_glpi_theme.get_html_themes_path()]
+
+html_theme = "sphinx_glpi_theme"
+html_theme_path = ["_themes", ]
