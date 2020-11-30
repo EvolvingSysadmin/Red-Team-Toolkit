@@ -1,5 +1,5 @@
-Penetration Testing Toolkit
-===========================
+Penetration Testing
+====================
 
 Recon
 ------
