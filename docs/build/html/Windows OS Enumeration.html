@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Windows OS Enumration &#8212; Penetration Testing 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Shodan" href="Shodan.html" />
+    <link rel="prev" title="PowerView" href="PowerView.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="windows-os-enumration">
+<h1>Windows OS Enumration<a class="headerlink" href="#windows-os-enumration" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="windows-system-information">
+<h2>Windows System Information<a class="headerlink" href="#windows-system-information" title="Permalink to this headline">¶</a></h2>
+<p>Display Full Local System Info</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>systeminfo
+</pre></div>
+</div>
+<p>Display OS Name and Version</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>systeminfo | findstr /B /C:&quot;OS Name&quot; /C:&quot;OS Version
+</pre></div>
+</div>
+<p>Display System Drives</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>fsutil fsinfo drives
+</pre></div>
+</div>
+<p>Display Running System Processes</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>tasklist /v
+</pre></div>
+</div>
+<p>Display Started Windows Services</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>net start
+</pre></div>
+</div>
+<p>Display Scheduled Jobs</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>schtasks /query /fo LIST /v
+</pre></div>
+</div>
+<p>Display Windows Patches</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>wmic qfe get Caption,Description,HotFixID,InstalledOn
+</pre></div>
+</div>
+</div>
+<div class="section" id="windows-network-information">
+<h2>Windows Network Information<a class="headerlink" href="#windows-network-information" title="Permalink to this headline">¶</a></h2>
+<p>Display IP and Interfaces</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>ipconfig /all
+</pre></div>
+</div>
+<p>Display Routing Table</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>route print
+</pre></div>
+</div>
+<p>Display ARP Table</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>arp -A
+</pre></div>
+</div>
+<p>Display Active TCP Connections</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>netstat -an
+</pre></div>
+</div>
+</div>
+<div class="section" id="windows-user-information">
+<h2>Windows User Information<a class="headerlink" href="#windows-user-information" title="Permalink to this headline">¶</a></h2>
+<p>Display Username Associated with Current User ID</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>whoami
+</pre></div>
+</div>
+<p>Display All whoami Access Token Info</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>whoami /all
+</pre></div>
+</div>
+<p>Display Local Users</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>net users
+</pre></div>
+</div>
+<p>Display Detailed User Info</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>net user $USERNAME
+</pre></div>
+</div>
+<p>Display Users with RDP Privileges</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>qwinsta
+</pre></div>
+</div>
+<p>Display Local Groups</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>net localgroup
+</pre></div>
+</div>
+<p>Display Local Administrators</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>net localgroup &quot;administrators&quot;
+</pre></div>
+</div>
+<p>Display Domain Group (must be run on DC)</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>net groups
+</pre></div>
+</div>
+<p>Display Domain Password Policy</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>net accounts /domain
+</pre></div>
+</div>
+</div>
+<div class="section" id="windows-user-administration">
+<h2>Windows User Administration<a class="headerlink" href="#windows-user-administration" title="Permalink to this headline">¶</a></h2>
+<p>Add User on Local Computer</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>net user /add $USERNAME *
+</pre></div>
+</div>
+<p>Change Local User Password</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>net user $USERNAME *
+</pre></div>
+</div>
+<p>Add New User Account to Domain</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>net user $USERNAME * /ADD /DOMAIN
+</pre></div>
+</div>
+<p>Add User to Local Group</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>net localgroup $GROUPNAME $USERNAME /add
+</pre></div>
+</div>
+<p>Add user to Remote Desktop User Group</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>net group &quot;Remote Desktop User&quot; $USERNAME /add
+</pre></div>
+</div>
+<p>Add user to Domain Group</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>net group $GROUPNAME $USERNAME /add /domain
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Penetration Testing</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="DNS.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Nmap.html">Nmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Domain%20Enumeration.html">Domain Enumeration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PowerView.html">PowerView</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Windows OS Enumration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Shodan.html">Shodan</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Windows%20Exploit%20Suggester.html">Windows Exploit Suggester</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Linux%20Exploits.html">Linux Exploits</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Web%20App%20Exploits.html">Web App Exploits</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Penetration%20Testing%20Resources.html">Penetration Testing Resources</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="PowerView.html" title="previous chapter">PowerView</a></li>
+      <li>Next: <a href="Shodan.html" title="next chapter">Shodan</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Ryan Heavican.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/Windows OS Enumeration.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
