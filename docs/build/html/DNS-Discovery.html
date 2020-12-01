@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Penetration Testing &mdash; Penetration Testing 1.0 documentation</title>
+  <title>DNS Discovery &mdash; Penetration Testing 1.0 documentation</title>
   
 
   
@@ -36,7 +36,8 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="DNS Discovery" href="DNS-Discovery.html" /> 
+    <link rel="next" title="Nmap" href="Nmap.html" />
+    <link rel="prev" title="Penetration Testing" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -50,7 +51,7 @@
           
 
           
-            <a href="#" class="icon icon-home" alt="Documentation Home"> Penetration Testing
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Penetration Testing
           
 
           
@@ -81,8 +82,15 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="DNS-Discovery.html">DNS Discovery</a></li>
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DNS Discovery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#nslookup">Nslookup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reverse-dns-lookup">Reverse DNS lookup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mx-mail-exchange-lookup">MX (Mail Exchange) lookup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ns-nameserver-lookup">NS (Nameserver) lookup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dns-online-tools">DNS Online Tools</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="Nmap.html">Nmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Domain-Enumeration.html">Domain Enumeration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="PowerView.html">PowerView</a></li>
@@ -102,7 +110,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">Penetration Testing</a>
+          <a href="index.html">Penetration Testing</a>
         
       </nav>
 
@@ -131,15 +139,15 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Penetration Testing</li>
+      <li>DNS Discovery</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/DNS-Discovery.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -152,39 +160,44 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="penetration-testing">
-<h1>Penetration Testing<a class="headerlink" href="#penetration-testing" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="recon">
-<h2>Recon<a class="headerlink" href="#recon" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="DNS-Discovery.html">DNS Discovery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Nmap.html">Nmap</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Domain-Enumeration.html">Domain Enumeration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="PowerView.html">PowerView</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Shodan.html">Shodan</a></li>
+  <div class="section" id="dns-discovery">
+<h1>DNS Discovery<a class="headerlink" href="#dns-discovery" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="nslookup">
+<h2>Nslookup<a class="headerlink" href="#nslookup" title="Permalink to this headline">¶</a></h2>
+<p>Resolve a given hostname to the corresponding IP</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nslookup targetorganization.com
+</pre></div>
+</div>
+</div>
+<div class="section" id="reverse-dns-lookup">
+<h2>Reverse DNS lookup<a class="headerlink" href="#reverse-dns-lookup" title="Permalink to this headline">¶</a></h2>
+<p>Resolve a given IP to the corresponding hostname PTR record</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nslookup -type<span class="o">=</span>PTR IP_address
+</pre></div>
+</div>
+</div>
+<div class="section" id="mx-mail-exchange-lookup">
+<h2>MX (Mail Exchange) lookup<a class="headerlink" href="#mx-mail-exchange-lookup" title="Permalink to this headline">¶</a></h2>
+<p>Resolves a given domain hostname to the MX record</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nslookup -type<span class="o">=</span>MX domain
+</pre></div>
+</div>
+</div>
+<div class="section" id="ns-nameserver-lookup">
+<h2>NS (Nameserver) lookup<a class="headerlink" href="#ns-nameserver-lookup" title="Permalink to this headline">¶</a></h2>
+<p>Displays nameservers for given domain</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nslookup -type<span class="o">=</span>ns domain
+</pre></div>
+</div>
+</div>
+<div class="section" id="dns-online-tools">
+<h2>DNS Online Tools<a class="headerlink" href="#dns-online-tools" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>https://dnsdumpster.com/</p></li>
+<li><p>https://network-tools.com/nslook/</p></li>
+<li><p>https://www.dnsqueries.com/en/</p></li>
+<li><p>https://mxtoolbox.com/</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="windows-exploits">
-<h2>Windows Exploits<a class="headerlink" href="#windows-exploits" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-</div>
-</div>
-<div class="section" id="linux-exploits">
-<h2>Linux Exploits<a class="headerlink" href="#linux-exploits" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-</div>
-</div>
-<div class="section" id="web-app-exploits">
-<h2>Web App Exploits<a class="headerlink" href="#web-app-exploits" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-</div>
-</div>
-<div class="section" id="resources">
-<h2>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-</div>
 </div>
 </div>
 
@@ -196,8 +209,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="DNS-Discovery.html" class="btn btn-neutral float-right" title="DNS Discovery" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Nmap.html" class="btn btn-neutral float-right" title="Nmap" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Penetration Testing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
