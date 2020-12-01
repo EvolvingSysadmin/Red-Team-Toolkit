@@ -36,8 +36,8 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Windows OS Enumration" href="Windows%20OS%20Enumeration.html" />
-    <link rel="prev" title="Domain Enumeration" href="Domain%20Enumeration.html" /> 
+    <link rel="next" title="Windows OS Enumration" href="Windows-OS-Enumeration.html" />
+    <link rel="prev" title="Domain Enumeration" href="Domain-Enumeration.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -83,27 +83,34 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="DNS.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DNS-Discovery.html">DNS Discovery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Nmap.html">Nmap</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Domain%20Enumeration.html">Domain Enumeration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Domain-Enumeration.html">Domain Enumeration</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">PowerView</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#powersploit">PowerSploit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-powersploit-powerview">Adding PowerSploit/PowerView</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-powerview">Using PowerView</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-ad-module">Using AD Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-bloodhound">Using BloodHound</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#useful-enumeration-tools">Useful Enumeration Tools</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Windows%20OS%20Enumeration.html">Windows OS Enumration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Windows-OS-Enumeration.html">Windows OS Enumration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Shodan.html">Shodan</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Windows%20Exploit%20Suggester.html">Windows Exploit Suggester</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Windows-Exploits.html">Windows Exploits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Windows-Exploit-Suggester.html">Windows Exploit Suggester</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Linux%20Exploits.html">Linux Exploits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux-Exploits.html">Linux Exploits</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Web%20App%20Exploits.html">Web App Exploits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Web-App-Exploits.html">Web App Exploits</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Penetration%20Testing%20Resources.html">Penetration Testing Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Penetration-Testing-Resources.html">Penetration Testing Resources</a></li>
 </ul>
 
             
@@ -171,18 +178,230 @@
             
   <div class="section" id="powerview">
 <h1>PowerView<a class="headerlink" href="#powerview" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="powersploit">
-<h2>PowerSploit<a class="headerlink" href="#powersploit" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="adding-powersploit-powerview">
+<h2>Adding PowerSploit/PowerView<a class="headerlink" href="#adding-powersploit-powerview" title="Permalink to this headline">¶</a></h2>
 <p>https://github.com/PowerShellMafia/PowerSploit/tree/dev</p>
 <p>Add folders as exclusion within windows defender
 Installation Folder Path: C:\Windows\System32\WindowsPowerShell\v1.0\Modules
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted
 Import-Module PowerSploit</p>
 <p>https://github.com/PowerShellMafia/PowerSploit/tree/master/Recon</p>
-<p>Powershell Domain Enumeration</p>
+</div>
+<div class="section" id="using-powerview">
+<h2>Using PowerView<a class="headerlink" href="#using-powerview" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p><strong>Get Current Domain:</strong> <code class="docutils literal notranslate"><span class="pre">Get-NetDomain</span></code></p></li>
+<li><p><strong>Enum Other Domains:</strong> <code class="docutils literal notranslate"><span class="pre">Get-NetDomain</span> <span class="pre">-Domain</span> <span class="pre">&lt;DomainName&gt;</span></code></p></li>
+<li><p><strong>Get Domain SID:</strong> <code class="docutils literal notranslate"><span class="pre">Get-DomainSID</span></code></p></li>
+<li><p><strong>Get Domain Policy:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Get</span><span class="o">-</span><span class="n">DomainPolicy</span>
+
+<span class="c1">#Will show us the policy configurations of the Domain about system access or kerberos</span>
+<span class="p">(</span><span class="n">Get</span><span class="o">-</span><span class="n">DomainPolicy</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot;system access&quot;</span>
+<span class="p">(</span><span class="n">Get</span><span class="o">-</span><span class="n">DomainPolicy</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot;kerberos policy&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Get Domain Controlers:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Get</span><span class="o">-</span><span class="n">NetDomainController</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">NetDomainController</span> <span class="o">-</span><span class="n">Domain</span> <span class="o">&lt;</span><span class="n">DomainName</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Enumerate Domain Users:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Get</span><span class="o">-</span><span class="n">NetUser</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">NetUser</span> <span class="o">-</span><span class="n">SamAccountName</span> <span class="o">&lt;</span><span class="n">user</span><span class="o">&gt;</span> 
+<span class="n">Get</span><span class="o">-</span><span class="n">NetUser</span> <span class="o">|</span> <span class="n">select</span> <span class="n">cn</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">UserProperty</span>
+
+<span class="c1">#Check last password change</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">UserProperty</span> <span class="o">-</span><span class="n">Properties</span> <span class="n">pwdlastset</span>
+
+<span class="c1">#Get a spesific &quot;string&quot; on a user&#39;s attribute</span>
+<span class="n">Find</span><span class="o">-</span><span class="n">UserField</span> <span class="o">-</span><span class="n">SearchField</span> <span class="n">Description</span> <span class="o">-</span><span class="n">SearchTerm</span> <span class="s2">&quot;wtver&quot;</span>
+
+<span class="c1">#Enumerate user logged on a machine</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">NetLoggedon</span> <span class="o">-</span><span class="n">ComputerName</span> <span class="o">&lt;</span><span class="n">ComputerName</span><span class="o">&gt;</span>
+
+<span class="c1">#Enumerate Session Information for a machine</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">NetSession</span> <span class="o">-</span><span class="n">ComputerName</span> <span class="o">&lt;</span><span class="n">ComputerName</span><span class="o">&gt;</span>
+
+<span class="c1">#Enumerate domain machines of the current/specified domain where specific users are logged into</span>
+<span class="n">Find</span><span class="o">-</span><span class="n">DomainUserLocation</span> <span class="o">-</span><span class="n">Domain</span> <span class="o">&lt;</span><span class="n">DomainName</span><span class="o">&gt;</span> <span class="o">|</span> <span class="n">Select</span><span class="o">-</span><span class="n">Object</span> <span class="n">UserName</span><span class="p">,</span> <span class="n">SessionFromName</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Enum Domain Computers:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Get</span><span class="o">-</span><span class="n">NetComputer</span> <span class="o">-</span><span class="n">FullData</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">DomainGroup</span>
+
+<span class="c1">#Enumerate Live machines </span>
+<span class="n">Get</span><span class="o">-</span><span class="n">NetComputer</span> <span class="o">-</span><span class="n">Ping</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Enum Groups and Group Members:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Get</span><span class="o">-</span><span class="n">NetGroupMember</span> <span class="o">-</span><span class="n">GroupName</span> <span class="s2">&quot;&lt;GroupName&gt;&quot;</span> <span class="o">-</span><span class="n">Domain</span> <span class="o">&lt;</span><span class="n">DomainName</span><span class="o">&gt;</span>
+
+<span class="c1">#Enumerate the members of a specified group of the domain</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">DomainGroup</span> <span class="o">-</span><span class="n">Identity</span> <span class="o">&lt;</span><span class="n">GroupName</span><span class="o">&gt;</span> <span class="o">|</span> <span class="n">Select</span><span class="o">-</span><span class="n">Object</span> <span class="o">-</span><span class="n">ExpandProperty</span> <span class="n">Member</span>
+
+<span class="c1">#Returns all GPOs in a domain that modify local group memberships through Restricted Groups or Group Policy Preferences</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">DomainGPOLocalGroup</span> <span class="o">|</span> <span class="n">Select</span><span class="o">-</span><span class="n">Object</span> <span class="n">GPODisplayName</span><span class="p">,</span> <span class="n">GroupName</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Enumerate Shares</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Enumerate Domain Shares</span>
+<span class="n">Find</span><span class="o">-</span><span class="n">DomainShare</span>
+
+<span class="c1">#Enumerate Domain Shares the current user has access</span>
+<span class="n">Find</span><span class="o">-</span><span class="n">DomainShare</span> <span class="o">-</span><span class="n">CheckShareAccess</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Enum Group Policies:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Get</span><span class="o">-</span><span class="n">NetGPO</span>
+
+<span class="c1"># Shows active Policy on specified machine</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">NetGPO</span> <span class="o">-</span><span class="n">ComputerName</span> <span class="o">&lt;</span><span class="n">Name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">PC</span><span class="o">&gt;</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">NetGPOGroup</span>
+
+<span class="c1">#Get users that are part of a Machine&#39;s local Admin group</span>
+<span class="n">Find</span><span class="o">-</span><span class="n">GPOComputerAdmin</span> <span class="o">-</span><span class="n">ComputerName</span> <span class="o">&lt;</span><span class="n">ComputerName</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Enum OUs:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Get</span><span class="o">-</span><span class="n">NetOU</span> <span class="o">-</span><span class="n">FullData</span> 
+<span class="n">Get</span><span class="o">-</span><span class="n">NetGPO</span> <span class="o">-</span><span class="n">GPOname</span> <span class="o">&lt;</span><span class="n">The</span> <span class="n">GUID</span> <span class="n">of</span> <span class="n">the</span> <span class="n">GPO</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Enum ACLs:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Returns the ACLs associated with the specified account</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">ObjectAcl</span> <span class="o">-</span><span class="n">SamAccountName</span> <span class="o">&lt;</span><span class="n">AccountName</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">ResolveGUIDs</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">ObjectAcl</span> <span class="o">-</span><span class="n">ADSprefix</span> <span class="s1">&#39;CN=Administrator, CN=Users&#39;</span> <span class="o">-</span><span class="n">Verbose</span>
+
+<span class="c1">#Search for interesting ACEs</span>
+<span class="n">Invoke</span><span class="o">-</span><span class="n">ACLScanner</span> <span class="o">-</span><span class="n">ResolveGUIDs</span>
+
+<span class="c1">#Check the ACLs associated with a specified path (e.g smb share)</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">PathAcl</span> <span class="o">-</span><span class="n">Path</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">Path\Of\A\Share&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Enum Domain Trust:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Get</span><span class="o">-</span><span class="n">NetDomainTrust</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">NetDomainTrust</span> <span class="o">-</span><span class="n">Domain</span> <span class="o">&lt;</span><span class="n">DomainName</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Enum Forest Trust:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Get</span><span class="o">-</span><span class="n">NetForestDomain</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">NetForestDomain</span> <span class="n">Forest</span> <span class="o">&lt;</span><span class="n">ForestName</span><span class="o">&gt;</span>
+
+<span class="c1">#Domains of Forest Enumeration</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">NetForestDomain</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">NetForestDomain</span> <span class="n">Forest</span> <span class="o">&lt;</span><span class="n">ForestName</span><span class="o">&gt;</span>
+
+<span class="c1">#Map the Trust of the Forest</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">NetForestTrust</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">NetDomainTrust</span> <span class="o">-</span><span class="n">Forest</span> <span class="o">&lt;</span><span class="n">ForestName</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>User Hunting:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Finds all machines on the current domain where the current user has local admin access</span>
+<span class="n">Find</span><span class="o">-</span><span class="n">LocalAdminAccess</span> <span class="o">-</span><span class="n">Verbose</span>
+
+<span class="c1">#Find local admins on all machines of the domain:</span>
+<span class="n">Invoke</span><span class="o">-</span><span class="n">EnumerateLocalAdmin</span> <span class="o">-</span><span class="n">Verbose</span>
+
+<span class="c1">#Find computers were a Domain Admin OR a spesified user has a session</span>
+<span class="n">Invoke</span><span class="o">-</span><span class="n">UserHunter</span>
+<span class="n">Invoke</span><span class="o">-</span><span class="n">UserHunter</span> <span class="o">-</span><span class="n">GroupName</span> <span class="s2">&quot;RDPUsers&quot;</span>
+<span class="n">Invoke</span><span class="o">-</span><span class="n">UserHunter</span> <span class="o">-</span><span class="n">Stealth</span>
+
+<span class="c1">#Confirming admin access:</span>
+<span class="n">Invoke</span><span class="o">-</span><span class="n">UserHunter</span> <span class="o">-</span><span class="n">CheckAccess</span>
+</pre></div>
+</div>
+<p>:heavy_exclamation_mark: <strong>Priv Esc to Domain Admin with User Hunting:</strong> <br />I have local admin access on a machine -&gt; A Domain Admin has a session on that machine -&gt; I steal his token and impersonate him -&gt;<br />Profit!</p>
+<p><a class="reference external" href="https://gist.github.com/HarmJ0y/184f9822b195c52dd50c379ed3117993">PowerView 3.0 Tricks</a></p>
+</li>
+</ul>
+<div class="section" id="using-ad-module">
+<h3>Using AD Module<a class="headerlink" href="#using-ad-module" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p><strong>Get Current Domain:</strong> <code class="docutils literal notranslate"><span class="pre">Get-ADDomain</span></code></p></li>
+<li><p><strong>Enum Other Domains:</strong> <code class="docutils literal notranslate"><span class="pre">Get-ADDomain</span> <span class="pre">-Identity</span> <span class="pre">&lt;Domain&gt;</span></code></p></li>
+<li><p><strong>Get Domain SID:</strong> <code class="docutils literal notranslate"><span class="pre">Get-DomainSID</span></code></p></li>
+<li><p><strong>Get Domain Controlers:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Get</span><span class="o">-</span><span class="n">ADDomainController</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">ADDomainController</span> <span class="o">-</span><span class="n">Identity</span> <span class="o">&lt;</span><span class="n">DomainName</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Enumerate Domain Users:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Get</span><span class="o">-</span><span class="n">ADUser</span> <span class="o">-</span><span class="n">Filter</span> <span class="o">*</span> <span class="o">-</span><span class="n">Identity</span> <span class="o">&lt;</span><span class="n">user</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">Properties</span> <span class="o">*</span>
+
+<span class="c1">#Get a spesific &quot;string&quot; on a user&#39;s attribute</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">ADUser</span> <span class="o">-</span><span class="n">Filter</span> <span class="s1">&#39;Description -like &quot;*wtver*&quot;&#39;</span> <span class="o">-</span><span class="n">Properties</span> <span class="n">Description</span> <span class="o">|</span> <span class="n">select</span> <span class="n">Name</span><span class="p">,</span> <span class="n">Description</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Enum Domain Computers:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Get</span><span class="o">-</span><span class="n">ADComputer</span> <span class="o">-</span><span class="n">Filter</span> <span class="o">*</span> <span class="o">-</span><span class="n">Properties</span> <span class="o">*</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">ADGroup</span> <span class="o">-</span><span class="n">Filter</span> <span class="o">*</span> 
+</pre></div>
+</div>
+</li>
+<li><p><strong>Enum Domain Trust:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Get</span><span class="o">-</span><span class="n">ADTrust</span> <span class="o">-</span><span class="n">Filter</span> <span class="o">*</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">ADTrust</span> <span class="o">-</span><span class="n">Identity</span> <span class="o">&lt;</span><span class="n">DomainName</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Enum Forest Trust:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Get</span><span class="o">-</span><span class="n">ADForest</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">ADForest</span> <span class="o">-</span><span class="n">Identity</span> <span class="o">&lt;</span><span class="n">ForestName</span><span class="o">&gt;</span>
+
+<span class="c1">#Domains of Forest Enumeration</span>
+<span class="p">(</span><span class="n">Get</span><span class="o">-</span><span class="n">ADForest</span><span class="p">)</span><span class="o">.</span><span class="n">Domains</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Enum Local AppLocker Effective Policy:</strong></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Get</span><span class="o">-</span><span class="n">AppLockerPolicy</span> <span class="o">-</span><span class="n">Effective</span> <span class="o">|</span> <span class="n">select</span> <span class="o">-</span><span class="n">ExpandProperty</span> <span class="n">RuleCollections</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-bloodhound">
+<h3>Using BloodHound<a class="headerlink" href="#using-bloodhound" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Using exe ingestor</span>
+<span class="o">.</span>\<span class="n">SharpHound</span><span class="o">.</span><span class="n">exe</span> <span class="o">--</span><span class="n">CollectionMethod</span> <span class="n">All</span> <span class="o">--</span><span class="n">LDAPUser</span> <span class="o">&lt;</span><span class="n">UserName</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">LDAPPass</span> <span class="o">&lt;</span><span class="n">Password</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">JSONFolder</span> <span class="o">&lt;</span><span class="n">PathToFile</span><span class="o">&gt;</span>
+    
+<span class="c1">#Using powershell module ingestor</span>
+<span class="o">.</span> <span class="o">.</span>\<span class="n">SharpHound</span><span class="o">.</span><span class="n">ps1</span>
+<span class="n">Invoke</span><span class="o">-</span><span class="n">BloodHound</span> <span class="o">-</span><span class="n">CollectionMethod</span> <span class="n">All</span>  <span class="o">-</span><span class="n">LDAPUser</span> <span class="o">&lt;</span><span class="n">UserName</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">LDAPPass</span> <span class="o">&lt;</span><span class="n">Password</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">OutputDirectory</span> <span class="o">&lt;</span><span class="n">PathToFile</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="useful-enumeration-tools">
+<h3>Useful Enumeration Tools<a class="headerlink" href="#useful-enumeration-tools" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/dirkjanm/ldapdomaindump">ldapdomaindump</a> Information dumper via LDAP</p></li>
+<li><p><a class="reference external" href="https://github.com/dirkjanm/adidnsdump">adidnsdump</a> Integrated DNS dumping by any authenticated user</p></li>
+<li><p><a class="reference external" href="https://github.com/cyberark/ACLight">ACLight</a> Advanced Discovery of Privileged Accounts</p></li>
+<li><p><a class="reference external" href="https://github.com/sense-of-security/ADRecon">ADRecon</a> Detailed Active Directory Recon Tool</p></li>
+<li><p>Powershell Domain Enumeration</p></li>
+</ul>
 <ul class="simple">
 <li><p>https://www.exploit-db.com/docs/english/46990-active-directory-enumeration-with-powershell.pdf</p></li>
 </ul>
+</div>
 </div>
 </div>
 
@@ -194,10 +413,10 @@ Import-Module PowerSploit</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Windows%20OS%20Enumeration.html" class="btn btn-neutral float-right" title="Windows OS Enumration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Windows-OS-Enumeration.html" class="btn btn-neutral float-right" title="Windows OS Enumration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Domain%20Enumeration.html" class="btn btn-neutral float-left" title="Domain Enumeration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Domain-Enumeration.html" class="btn btn-neutral float-left" title="Domain Enumeration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

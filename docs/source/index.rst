@@ -22,6 +22,8 @@ Windows Exploits
  
    Windows-Exploits
    Windows-Exploit-Suggester
+   Local-Privilege-Escalation
+   Domain-Privilege-Escalation
 
 Linux Exploits
 --------------
