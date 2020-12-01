@@ -20,6 +20,7 @@ Windows Exploits
 .. toctree::
    :maxdepth: 1
  
+   Windows Exploits
    Windows Exploit Suggester
 
 Linux Exploits
@@ -43,7 +44,7 @@ Resources
 
 .. toctree::
    :maxdepth: 1
-
+   
    Penetration Testing Resources
 
 ..

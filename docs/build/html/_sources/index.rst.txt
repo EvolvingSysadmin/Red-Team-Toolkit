@@ -1,5 +1,5 @@
-Penetration Testing Toolkit
-===========================
+Penetration Testing
+====================
 
 Recon
 ------
@@ -43,7 +43,7 @@ Resources
 
 .. toctree::
    :maxdepth: 1
-
+   
    Penetration Testing Resources
 
 ..
