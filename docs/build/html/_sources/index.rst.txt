@@ -7,11 +7,11 @@ Recon
 .. toctree::
    :maxdepth: 1
 
-   DNS
+   DNS-Discovery
    Nmap
    Domain-Enumeration
    PowerView
-   Windows OS Enumeration
+   Windows-OS-Enumeration
    Shodan
 
 Windows Exploits
@@ -20,8 +20,8 @@ Windows Exploits
 .. toctree::
    :maxdepth: 1
  
-   Windows Exploits
-   Windows Exploit Suggester
+   Windows-Exploits
+   Windows-Exploit-Suggester
 
 Linux Exploits
 --------------
@@ -29,7 +29,7 @@ Linux Exploits
 .. toctree::
    :maxdepth: 1
 
-   Linux Exploits
+   Linux-Exploits
 
 Web App Exploits
 ----------------
@@ -37,7 +37,7 @@ Web App Exploits
 .. toctree::
    :maxdepth: 1
 
-   Web App Exploits
+   Web-App-Exploits
 
 Resources
 ---------
@@ -45,7 +45,7 @@ Resources
 .. toctree::
    :maxdepth: 1
    
-   Penetration Testing Resources
+   Penetration-Testing-Resources
 
 ..
  _comment-index-page:`genindex`
