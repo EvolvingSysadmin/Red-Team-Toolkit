@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Penetration Testing &mdash; Penetration Testing 1.0 documentation</title>
+  <title>Domain Enumeration &mdash; Penetration Testing 1.0 documentation</title>
   
 
   
@@ -36,7 +36,8 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="DNS" href="DNS.html" /> 
+    <link rel="next" title="PowerView" href="PowerView.html" />
+    <link rel="prev" title="Nmap" href="Nmap.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -50,7 +51,7 @@
           
 
           
-            <a href="#" class="icon icon-home" alt="Documentation Home"> Penetration Testing
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Penetration Testing
           
 
           
@@ -81,10 +82,10 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="DNS.html">DNS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Nmap.html">Nmap</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Domain-Enumeration.html">Domain Enumeration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Domain Enumeration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="PowerView.html">PowerView</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Windows%20OS%20Enumeration.html">Windows OS Enumration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Shodan.html">Shodan</a></li>
@@ -116,7 +117,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">Penetration Testing</a>
+          <a href="index.html">Penetration Testing</a>
         
       </nav>
 
@@ -145,15 +146,15 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Penetration Testing</li>
+      <li>Domain Enumeration</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/Domain-Enumeration.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -166,53 +167,39 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="penetration-testing">
-<h1>Penetration Testing<a class="headerlink" href="#penetration-testing" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="recon">
-<h2>Recon<a class="headerlink" href="#recon" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="DNS.html">DNS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Nmap.html">Nmap</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Domain-Enumeration.html">Domain Enumeration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="PowerView.html">PowerView</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Windows%20OS%20Enumeration.html">Windows OS Enumration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Shodan.html">Shodan</a></li>
-</ul>
+  <div class="section" id="domain-enumeration">
+<h1>Domain Enumeration<a class="headerlink" href="#domain-enumeration" title="Permalink to this headline">¶</a></h1>
+<p>Display Networking Info</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>ipconfig /all
+</pre></div>
 </div>
+<p>Display Domain</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>echo %USERDOMAIN%
+</pre></div>
 </div>
-<div class="section" id="windows-exploits">
-<h2>Windows Exploits<a class="headerlink" href="#windows-exploits" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Windows%20Exploits.html">Windows Exploits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Windows%20Exploit%20Suggester.html">Windows Exploit Suggester</a></li>
-</ul>
+<p>Display Domain Controller</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>echo %logonserver%
+</pre></div>
 </div>
+<p>Display Domain Password Policy</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>net accounts /domain
+</pre></div>
 </div>
-<div class="section" id="linux-exploits">
-<h2>Linux Exploits<a class="headerlink" href="#linux-exploits" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Linux%20Exploits.html">Linux Exploits</a></li>
-</ul>
+<p>Display DC Address, Domain Name, Roles</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>wmic ntdomain
+</pre></div>
 </div>
+<p>Display All Domain Users</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>wmic /NAMESPACE:\\root\directory\ldap PATH ds_user GET ds_samaccountname
+</pre></div>
 </div>
-<div class="section" id="web-app-exploits">
-<h2>Web App Exploits<a class="headerlink" href="#web-app-exploits" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Web%20App%20Exploits.html">Web App Exploits</a></li>
-</ul>
+<p>Display All Domain Groups</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>wmic /NAMESPACE:\\root\directory\ldap PATH ds_group GET ds_samaccountname
+</pre></div>
 </div>
-</div>
-<div class="section" id="resources">
-<h2>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Penetration%20Testing%20Resources.html">Penetration Testing Resources</a></li>
-</ul>
-</div>
+<p>Display All Domain Computers</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>wmic /NAMESPACE:\\root\directory\ldap PATH ds_computer GET ds_samaccountname
+</pre></div>
 </div>
 </div>
 
@@ -224,8 +211,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="DNS.html" class="btn btn-neutral float-right" title="DNS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="PowerView.html" class="btn btn-neutral float-right" title="PowerView" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+      
+        <a href="Nmap.html" class="btn btn-neutral float-left" title="Nmap" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

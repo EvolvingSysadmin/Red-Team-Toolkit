@@ -9,7 +9,7 @@ Recon
 
    DNS
    Nmap
-   Domain Enumeration
+   Domain-Enumeration
    PowerView
    Windows OS Enumeration
    Shodan
