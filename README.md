@@ -12,7 +12,7 @@ Practical tools and techniques for penetration testing. Also available at [Read 
 * __Windows Exploits__
   * [Windows Exploit Suggester](/docs/source/Windows-Exploit-Suggester.md)
   * [Local Privilege Escalation]
-  * [Domain Privilege Escalation]
+  * [Domain Privilege Escalation](/docs/source/Domain-Privilege-Escalation.md)
 * __Linux Exploits__
 * __Web App Exploits__
 * __Penetration Testing Resources__
