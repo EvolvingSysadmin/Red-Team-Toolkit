@@ -9,7 +9,7 @@ Recon
 
    DNS
    Nmap
-   Domain Enumeration
+   Domain-Enumeration
    PowerView
    Windows OS Enumeration
    Shodan
@@ -20,6 +20,7 @@ Windows Exploits
 .. toctree::
    :maxdepth: 1
  
+   Windows Exploits
    Windows Exploit Suggester
 
 Linux Exploits
