@@ -11,8 +11,9 @@ Practical tools and techniques for penetration testing. Also available at [Read 
   * [Shodan](/docs/source/Shodan.md)
 * __Windows Exploits__
   * [Windows Exploit Suggester](/docs/source/Windows-Exploit-Suggester.md)
+  * [Local Privilege Escalation]
+  * [Domain Privilege Escalation]
 * __Linux Exploits__
-* __Windows Exploits__
 * __Web App Exploits__
 * __Penetration Testing Resources__
   * [Penetration Testing Resources](/docs/source/Penetration-Testing-Resources.md)
