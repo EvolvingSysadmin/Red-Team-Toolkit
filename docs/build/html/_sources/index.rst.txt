@@ -1,11 +1,9 @@
 Penetration Testing
 ====================
 
-Recon
-------
-
 .. toctree::
    :maxdepth: 1
+   :caption: Recon
 
    DNS-Discovery
    Nmap
@@ -14,36 +12,30 @@ Recon
    Windows-OS-Enumeration
    Shodan
 
-Windows Exploits
-----------------
-
 .. toctree::
    :maxdepth: 1
+   :caption: Windows Exploits
  
    Windows-Exploits
    Windows-Exploit-Suggester
-
-Linux Exploits
---------------
+   Local-Privilege-Escalation
+   Domain-Privilege-Escalation
 
 .. toctree::
    :maxdepth: 1
+   :caption: Linux Exploits
 
    Linux-Exploits
 
-Web App Exploits
-----------------
-
 .. toctree::
    :maxdepth: 1
+   :caption: Web App Exploits
 
    Web-App-Exploits
 
-Resources
----------
-
 .. toctree::
    :maxdepth: 1
+   :caption: Resources
    
    Penetration-Testing-Resources
 
