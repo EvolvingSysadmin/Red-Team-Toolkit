@@ -10,11 +10,11 @@
     ``` PowerShell 
     Set-ExecutionPolicy -ExecutionPolicy Unrestricted
     ```
-* Import PowerView and/or Recon module:
+* Import PowerSploit and/or Recon module:
     ``` PowerShell 
     Import-Module Recon
     ```
-    
+
 ## Domain Info
 
 Display Current Domain
@@ -35,8 +35,11 @@ Get Domain Controllers
 ```PowerShell
 Get-ADDomainController
 Get-NetDomainController
- Get-NetDomainController -Domain <DomainName>
+ Get-NetDomainController -Identity <DomainName>
 ```
+
+## Detailed Domain Info
+
 Get Domain Policy (might be deprecated)
 ```PowerShell
 Get-DomainPolicy
@@ -50,12 +53,48 @@ Get GPOs
 ```PowerShell
 Get-NetGPO
  Get-NetGPO -ComputerName <Name of the PC>
+ Get-NetGPO -GPOname <GUID of GPO>
 ```
 Display OUs
 ```PowerShell
-Get-NetOU -FullData
+Get-NetOU
+```
+Display ACLs
+```PowerShell
+Get-ObjectAcl -SamAccountName <Account Name> -ResolveGUIDs
+```
+Find Interesting Access Control Entries
+```PowerShell
+Invoke-ACLScanner -ResolveGUIDs
+```
+Display ACL of Specified Path
+```PowerShell
+Get-PathAcl -Path "\\Path\Of\A\Share"
+```
+Display Domains of Forest
+```PowerShell
+Get-NetForestDomain
+```
+Display Domain Trust (may be deprecated)
+```PowerShell
+Get-ADTrust -Filter *
+ Get-ADTrust -Identity <DomainName>
+```
+Display Local AppLocker Effective Policy
+```PowerShell
+Get-AppLockerPolicy -Effective
 ```
 
+## Computer Info
+
+Display Domain Computers
+```PowerShell
+Get-ADComputer -Filter *
+```
+More Detailed All Computer Info
+```PowerShell
+Get-NetComputer
+```
 
 ## User Info
 
@@ -69,39 +108,42 @@ Get Logged on User Info
 ```PowerShell
 Get-NetLoggedon -ComputerName <ComputerName>
 ```
+Get Session Info for Machine
+```PowerShell
+Get-NetSession -ComputerName <ComputerName>
+```
 Get Machines Where Current User is Logged In
 ```PowerShell
 Find-DomainUserLocation
 ```
+
+## Group Info
+
 Get Members of a Specified Group
 ```PowerShell
 Get-DomainGroup -Identity <GroupName> | Select-Object -ExpandProperty Member
 ```
-
-## Computer Info
-
-Display Domain Computers
+Display All Groups
 ```PowerShell
-Get-ADComputer -Filter *
-```
-More Detailed All Computer Info & Just Live Machines
-```PowerShell
-Get-NetComputer
- Get-NetComputer -Ping
+Get-NetGroup
 ```
 
+## User Hunting
 
-
-
-
-
-New
+Find all Machines Where Current User is Local Admin
 ```PowerShell
-Code
+Find-LocalAdminAccess -Verbose
 ```
-New
+Find Local Admins on Machines
 ```PowerShell
-Code
+Invoke-EnumerateLocalAdmin -Verbose
 ```
-
-
+Find Machines Where Domain Admin or Specified User Has Session
+```PowerShell
+Invoke-UserHunter
+ Invoke-UserHunter -GroupName <GroupName>
+ Invoke-UserHunter -CheckAccess
+```
+## PowerView Resources
+* https://powersploit.readthedocs.io/en/latest/Recon/
+* https://github.com/PowerShellMafia/PowerSploit/tree/master/Recon
