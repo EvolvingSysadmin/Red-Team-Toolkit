@@ -20,10 +20,12 @@
 Display Current Domain
 ```PowerShell
 Get-NetDomain
+ Get-NetDomain -Domain <DomainName>
 ```
-Display Other Domains
+Display Verbose Domain Info
 ```PowerShell
-Get-NetDomain -Domain <DomainName>
+Get-ADDomain
+ Get-ADDomain -Domain <DomainName>
 ```
 Get Domain SID
 ```PowerShell
@@ -31,61 +33,75 @@ Get-DomainSID
 ```
 Get Domain Controllers
 ```PowerShell
+Get-ADDomainController
 Get-NetDomainController
-Get-NetDomainController -Domain <DomainName>
+ Get-NetDomainController -Domain <DomainName>
 ```
-
-
-
-- **Get Domain Policy:** 
-  ```
-  Get-DomainPolicy
-
-  #Will show us the policy configurations of the Domain about system access or kerberos
-  (Get-DomainPolicy)."system access"
-  (Get-DomainPolicy)."kerberos policy"
-  ```
-
-
-
-
-
-
-
-
-
-## Domain Users ##
-New
+Get Domain Policy (might be deprecated)
 ```PowerShell
-Code
+Get-DomainPolicy
 ```
-New
+Get Domain Shares
 ```PowerShell
-Code
+Find-DomainShare
+ Find-DomainShare -CheckShareAccess
 ```
-New
+Get GPOs
 ```PowerShell
-Code
+Get-NetGPO
+ Get-NetGPO -ComputerName <Name of the PC>
 ```
-New
+Display OUs
 ```PowerShell
-Code
-```
-New
-```PowerShell
-Code
-```
-New
-```PowerShell
-Code
-```
-New
-```PowerShell
-Code
+Get-NetOU -FullData
 ```
 
 
- Get-NetUser
+## User Info
+
+Get User Info
+```PowerShell
+Get-NetUser
   Get-NetUser -SamAccountName <user> 
   Get-NetUser | select cn
-  Get-UserProperty
+```
+Get Logged on User Info
+```PowerShell
+Get-NetLoggedon -ComputerName <ComputerName>
+```
+Get Machines Where Current User is Logged In
+```PowerShell
+Find-DomainUserLocation
+```
+Get Members of a Specified Group
+```PowerShell
+Get-DomainGroup -Identity <GroupName> | Select-Object -ExpandProperty Member
+```
+
+## Computer Info
+
+Display Domain Computers
+```PowerShell
+Get-ADComputer -Filter *
+```
+More Detailed All Computer Info & Just Live Machines
+```PowerShell
+Get-NetComputer
+ Get-NetComputer -Ping
+```
+
+
+
+
+
+
+New
+```PowerShell
+Code
+```
+New
+```PowerShell
+Code
+```
+
+
