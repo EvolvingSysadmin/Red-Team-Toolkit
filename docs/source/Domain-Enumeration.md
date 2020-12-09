@@ -41,3 +41,4 @@ wmic /NAMESPACE:\\root\directory\ldap PATH ds_computer GET ds_samaccountname
 * Advanced Discovery of Privileged Accounts: https://github.com/cyberark/ACLight
 * Detailed Active Directory Recon Tool: https://github.com/sense-of-security/ADRecon
 * Powershell AD Enumeration: https://www.exploit-db.com/docs/english/46990-active-directory-enumeration-with-powershell.pdf
+* Data collector tool: https://bloodhound.readthedocs.io/en/latest/data-collection/sharphound.html
