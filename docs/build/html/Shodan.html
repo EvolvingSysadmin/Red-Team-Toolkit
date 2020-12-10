@@ -90,6 +90,14 @@
 <li class="toctree-l1"><a class="reference internal" href="PowerView.html">PowerView</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Windows-OS-Enumeration.html">Windows OS Enumration Using CMD.exe</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Shodan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#list-of-shodan-filters">List of Shodan Filters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#general-filters">General Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#http-filters">HTTP Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ntp-filters">NTP Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ssl-filters">SSL Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#telnet-filters">Telnet Filters</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Windows Exploits</span></p>
 <ul>
@@ -178,6 +186,86 @@
 <ul class="simple">
 <li><p>https://www.shodan.io/</p></li>
 </ul>
+</div>
+<div class="section" id="list-of-shodan-filters">
+<h1>List of Shodan Filters<a class="headerlink" href="#list-of-shodan-filters" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="general-filters">
+<h2>General Filters<a class="headerlink" href="#general-filters" title="Permalink to this headline">¶</a></h2>
+<p>| <strong>Name</strong>           | <strong>Description</strong>                                                                                                                                                                                                            | <strong>Type</strong> |
+| —————— | ————————————————————————————————————————————————————————————————————————– | ——– |
+| <strong>after</strong>          | Only show results after the given date (dd/mm/yyyy) string                                                                                                                                                                 | string   |
+| <strong>asn</strong>            | Autonomous system number string                                                                                                                                                                                            | string   |
+| <strong>before</strong>         | Only show results before the given date (dd/mm/yyyy) string                                                                                                                                                                | string   |
+| <strong>category</strong>       | Available categories: ics, malware string                                                                                                                                                                                  | string   |
+| <strong>city</strong>           | Name of the city string                                                                                                                                                                                                    | string   |
+| <strong>country</strong>        | 2-letter country code string                                                                                                                                                                                               | string   |
+| <strong>geo</strong>            | Accepts between 2 and 4 parameters. If 2 parameters: latitude,longitude. If 3 parameters: latitude,longitude,range. If 4 parameters: top left latitude, top left longitude, bottom right latitude, bottom right longitude. | string   |
+| <strong>hash</strong>           | Hash of the data property integer                                                                                                                                                                                          | integer  |
+| <strong>has_ipv6</strong>       | True/ False boolean                                                                                                                                                                                                        | boolean  |
+| <strong>has_screenshot</strong> | True/ False boolean                                                                                                                                                                                                        | boolean  |
+| <strong>hostname</strong>       | Full hostname for the device string                                                                                                                                                                                        | string   |
+| <strong>ip</strong>             | Alias for net filter string                                                                                                                                                                                                | string   |
+| <strong>isp</strong>            | ISP managing the netblock string                                                                                                                                                                                           | string   |
+| <strong>net</strong>            | Network range in CIDR notation (ex. 199.4.1.0/24) string                                                                                                                                                                   | string   |
+| <strong>org</strong>            | Organization assigned the netblock string                                                                                                                                                                                  | string   |
+| <strong>os</strong>             | Operating system string                                                                                                                                                                                                    | string   |
+| <strong>port</strong>           | Port number for the service integer                                                                                                                                                                                        | string   |
+| <strong>postal</strong>         | Postal code (US-only) string                                                                                                                                                                                               | string   |
+| <strong>product</strong>        | Name of the software/ product providing the banner string                                                                                                                                                                  | string   |
+| <strong>region</strong>         | Name of the region/ state string                                                                                                                                                                                           | string   |
+| <strong>state</strong>          | Alias for region string                                                                                                                                                                                                    | string   |
+| <strong>version</strong>        | Version for the product string                                                                                                                                                                                             | string   |
+| <strong>vuln</strong>           | CVE ID for a vulnerability string                                                                                                                                                                                          | string   |</p>
+</div>
+<div class="section" id="http-filters">
+<h2>HTTP Filters<a class="headerlink" href="#http-filters" title="Permalink to this headline">¶</a></h2>
+<p>| <strong>Name</strong>                    | <strong>Description</strong>                                  | <strong>Type</strong> |
+| ————————— | ———————————————— | ——– |
+| <strong>http.component</strong>          | Name of web technology used on the website       | string   |
+| <strong>http.component_category</strong> | Category of web components used on the   website | string   |
+| <strong>http.html</strong>               | HTML of web banners                              | string   |
+| <strong>http.html_hash</strong>          | Hash of the website HTML                         | integer  |
+| <strong>http.status</strong>             | Response status code                             | integer  |
+| <strong>http.title</strong>              | Title for the web banners website                | string   |</p>
+</div>
+<div class="section" id="ntp-filters">
+<h2>NTP Filters<a class="headerlink" href="#ntp-filters" title="Permalink to this headline">¶</a></h2>
+<p>| <strong>Name</strong>         | <strong>Description</strong>                                                              | <strong>Type</strong> |
+| —————- | —————————————————————————- | ——– |
+| <strong>ntp.ip</strong>       | IP addresses returned by monlist                                             | string   |
+| <strong>ntp.ip_count</strong> | Number of IPs returned by initial monlist                                    | integer  |
+| <strong>ntp.more</strong>     | True/ False; whether there are more IP addresses to be gathered from monlist | boolean  |
+| <strong>ntp.port</strong>     | Port used by IP addresses in monlist                                         | integer  |</p>
+</div>
+<div class="section" id="ssl-filters">
+<h2>SSL Filters<a class="headerlink" href="#ssl-filters" title="Permalink to this headline">¶</a></h2>
+<p>| <strong>Name</strong>                 | <strong>Description</strong>                                       | <strong>Type</strong>         |
+| ———————— | —————————————————– | —————- |
+| <strong>has_ssl</strong>              | True / False                                          | boolean          |
+| <strong>ssl</strong>                  | Search all SSL data                                   | string           |
+| <strong>ssl.alpn</strong>             | Application layer protocols such as HTTP/2 (“h2”)     | string           |
+| <strong>ssl.chain_count</strong>      | Number of certificates in the chain                   | integer          |
+| <strong>ssl.version</strong>          | Possible values: SSLv2, SSLv3, TLSv1,TLSv1.1, TLSv1.2 | string           |
+| <strong>ssl.cert.alg</strong>         | Certificate algorithm                                 | string           |
+| <strong>ssl.cert.expired</strong>     | True / False                                          | boolean          |
+| <strong>ssl.cert.extension</strong>   | vNames of extensions in the certificate               | string           |
+| <strong>ssl.cert.serial</strong>      | Serial number as an integer or hexadecimal string     | integer / string |
+| <strong>ssl.cert.pubkey.bits</strong> | Number of bits in the public key                      | integer          |
+| <strong>ssl.cert.pubkey.type</strong> | Public key type                                       | string           |
+| <strong>ssl.cipher.version</strong>   | SSL version of the preferred cipher                   | string           |
+| <strong>ssl.cipher.bits</strong>      | Number of bits in the preferred cipher                | integer          |
+| <strong>ssl.cipher.name</strong>      | Name of the preferred cipher                          | string           |</p>
+</div>
+<div class="section" id="telnet-filters">
+<h2>Telnet Filters<a class="headerlink" href="#telnet-filters" title="Permalink to this headline">¶</a></h2>
+<p>| <strong>Name</strong>          | <strong>Description</strong>                                             | <strong>Type</strong> |
+| —————– | ———————————————————– | ——– |
+| <strong>telnet.option</strong> | Search all the options                                      | string   |
+| <strong>telnet.do</strong>     | The server requests the client do support these options     | string   |
+| <strong>telnet.dont</strong>   | The server requests the client to not support these options | string   |
+| <strong>telnet.will</strong>   | The server supports these options                           | string   |
+| <strong>telnet.wont</strong>   | The server doesnt support these options                     | string   |</p>
+</div>
 </div>
 
 
