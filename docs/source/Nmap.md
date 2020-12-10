@@ -1,5 +1,28 @@
 # Nmap
 
+## Nmap Verbose Scans
+
+Nmap verbose scan, runs syn stealth, T4 timing (should be ok on LAN), OS and service version info, traceroute and scripts against services
+```shell
+nmap -v -sS -A -T4 target
+```
+
+As above but scans all TCP ports (takes a lot longer)
+```shell
+nmap -v -sS -p--A -T4 target
+```
+
+As above but scans all TCP ports and UDP scan (takes even longer)
+```shell
+nmap -v -sU -sS -p- -A -T4 target
+```
+
+Nmap script to scan for vulnerable SMB servers - WARNING: unsafe=1 may cause knockover
+```shell
+nmap -v -p 445 --script=smb-check-vulns 
+--script-args=unsafe=1 192.168.1.X
+```
+
 ## Nmap Target Selection
 
 Scan a single IP

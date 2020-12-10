@@ -9,6 +9,7 @@ Practical tools and techniques for penetration testing. Also available at [Read 
   * [PowerView](/docs/source/PowerView.md)
   * [Windows OS Enumeration](/docs/source/Windows-OS-Enumeration.md)
   * [Shodan](/docs/source/Shodan.md)
+  * [Other Recon Tools](/docs/source/Other-Recon-Tools.md)
 * __Windows Exploits__
   * [Windows Exploit Suggester](/docs/source/Windows-Exploit-Suggester.md)
   * [Local Privilege Escalation]

@@ -71,7 +71,30 @@ Add Firewall Rule
 New-NetFirewallRule -Action Allow -DisplayName Pentester-C2 -RemoteAddress <IPADDR>
 ```
 
- 
+ ## Linux/Kali Tools
+
+ SMB Enumeration Tools
+ ```bash
+nmblookup -A target
+smbclient //MOUNT/share -I target -N
+rpcclient -U "" target
+enum4linux target
+```
+
+Discover Windows / Samba servers on subnet, finds Windows MAC addresses, netbios name and discover client workgroup / domain
+```bash
+nbtscan 192.168.1.0/24
+```
+
+Do Everything, runs all options (find windows client domain / workgroup) apart from dictionary based share name guessing
+```bash
+enum4linux -a target-ip
+```
+
+Fingerprint SMB Version
+```bash
+smbclient -L //192.168.1.100 
+```
 
 
 
@@ -79,6 +102,7 @@ New-NetFirewallRule -Action Allow -DisplayName Pentester-C2 -RemoteAddress <IPAD
  https://www.sans.org/blog/pen-test-poster-white-board-powershell-built-in-port-scanner/
 
 ## Domain Enumeration Resources
+
 * Information dumper via LDAP: https://github.com/dirkjanm/ldapdomaindump
 * Integrated DNS dumping by any authenticated user: https://github.com/dirkjanm/adidnsdump
 * Advanced Discovery of Privileged Accounts: https://github.com/cyberark/ACLight
