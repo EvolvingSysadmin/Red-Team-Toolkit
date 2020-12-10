@@ -1,6 +1,8 @@
 # Shodan
 
-* https://www.shodan.io/
+* [https://www.shodan.io/](https://www.shodan.io/)
+* [https://github.com/JavierOlmedo/shodan-filters](https://github.com/JavierOlmedo/shodan-filters)
+* [https://beta.shodan.io/search/filters](https://beta.shodan.io/search/filters) 
 
 
 # List of Shodan Filters

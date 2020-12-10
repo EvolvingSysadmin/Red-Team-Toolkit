@@ -1,10 +1,11 @@
 # Shodan
 
-* https://www.shodan.io/
+* [https://www.shodan.io/](https://www.shodan.io/)
+* [https://github.com/JavierOlmedo/shodan-filters](https://github.com/JavierOlmedo/shodan-filters)
+* [https://beta.shodan.io/search/filters](https://beta.shodan.io/search/filters) 
 
-
-# List of Shodan Filters
-## General Filters
+## List of Shodan Filters
+### General Filters
 | **Name**           | **Description**                                                                                                                                                                                                            | **Type** |
 | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | **after**          | Only show results after the given date (dd/mm/yyyy) string                                                                                                                                                                 | string   |
@@ -30,7 +31,7 @@
 | **state**          | Alias for region string                                                                                                                                                                                                    | string   |
 | **version**        | Version for the product string                                                                                                                                                                                             | string   |
 | **vuln**           | CVE ID for a vulnerability string                                                                                                                                                                                          | string   |
-## HTTP Filters
+### HTTP Filters
 | **Name**                    | **Description**                                  | **Type** |
 | --------------------------- | ------------------------------------------------ | -------- |
 | **http.component**          | Name of web technology used on the website       | string   |
@@ -40,7 +41,7 @@
 | **http.status**             | Response status code                             | integer  |
 | **http.title**              | Title for the web banners website                | string   |
 
-## NTP Filters
+### NTP Filters
 | **Name**         | **Description**                                                              | **Type** |
 | ---------------- | ---------------------------------------------------------------------------- | -------- |
 | **ntp.ip**       | IP addresses returned by monlist                                             | string   |
@@ -48,7 +49,7 @@
 | **ntp.more**     | True/ False; whether there are more IP addresses to be gathered from monlist | boolean  |
 | **ntp.port**     | Port used by IP addresses in monlist                                         | integer  |
 
-## SSL Filters
+### SSL Filters
 | **Name**                 | **Description**                                       | **Type**         |
 | ------------------------ | ----------------------------------------------------- | ---------------- |
 | **has_ssl**              | True / False                                          | boolean          |
@@ -66,7 +67,7 @@
 | **ssl.cipher.bits**      | Number of bits in the preferred cipher                | integer          |
 | **ssl.cipher.name**      | Name of the preferred cipher                          | string           |
 
-## Telnet Filters
+### Telnet Filters
 | **Name**          | **Description**                                             | **Type** |
 | ----------------- | ----------------------------------------------------------- | -------- |
 | **telnet.option** | Search all the options                                      | string   |
