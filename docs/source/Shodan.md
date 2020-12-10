@@ -3,6 +3,7 @@
 * [https://www.shodan.io/](https://www.shodan.io/)
 * [https://github.com/JavierOlmedo/shodan-filters](https://github.com/JavierOlmedo/shodan-filters)
 * [https://beta.shodan.io/search/filters](https://beta.shodan.io/search/filters) 
+* [https://ahrefs.com/blog/google-advanced-search-operators/](https://ahrefs.com/blog/google-advanced-search-operators/)
 
 ## List of Shodan Filters
 ### General Filters

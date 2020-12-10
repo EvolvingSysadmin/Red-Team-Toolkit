@@ -1,7 +1,0 @@
-https://www.robvanderwoude.com/ntadmincommands.php
-
-CobaltStrike and Metasploit
-
-https://github.com/fireeye/commando-vm
-
-https://github.com/fireeye/red_team_tool_countermeasures
