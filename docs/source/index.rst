@@ -19,6 +19,7 @@ Penetration Testing
    Windows-Exploits
    Windows-Exploit-Suggester
    Local-Privilege-Escalation
+   Windows-System-Exploits
    Domain-Privilege-Escalation
 
 .. toctree::

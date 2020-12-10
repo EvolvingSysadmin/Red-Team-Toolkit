@@ -22,6 +22,16 @@ Display Running System Processes
 tasklist /v
 ```
 
+Services Running Inside Each Process
+```CMD
+ tasklist /svc
+```
+
+Attributes of All Running Processes
+```CMD
+wmic process list full
+```
+
 Display Started Windows Services
 ```CMD
 net start
@@ -57,6 +67,11 @@ arp -A
 Display Active TCP Connections
 ```CMD
 netstat -an
+```
+
+List of TCP and UDP activity every 1 second
+```CMD
+netstat -naob 1 | find "<IPADDR or PORT>"
 ```
 
 ## Windows User Information
