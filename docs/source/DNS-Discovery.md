@@ -7,6 +7,11 @@ Resolve a given hostname to the corresponding IP
 nslookup targetorganization.com
 ```
 
+## DNS IP Lookup
+```shell
+dig a domain-name-here.com @nameserver 
+```
+
 ## Reverse DNS lookup
 
 Resolve a given IP to the corresponding hostname PTR record
@@ -19,6 +24,7 @@ nslookup -type=PTR IP_address
 Resolves a given domain hostname to the MX record
 ```shell
 nslookup -type=MX domain
+ dig mx domain-name-here.com @nameserver
 ```
 
 ## NS (Nameserver) lookup 
@@ -26,6 +32,23 @@ nslookup -type=MX domain
 Displays nameservers for given domain
 ```shell
 nslookup -type=ns domain
+```
+
+## Zone Transfers
+
+Perform Zone Transfer with DIG
+```shell
+dig axfr domain-name-here.com @nameserver
+```
+
+Windows Zone Transfer
+```CMD
+nslookup -> set type=any -> ls -d blah.com
+```
+
+## Kali DNS Bruteforce
+```bash
+dnsrecon -d TARGET -D /usr/share/wordlists/dnsmap.txt -t std --xml ouput.xml
 ```
 
 ## DNS Online Tools
