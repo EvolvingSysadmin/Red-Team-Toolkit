@@ -52,7 +52,13 @@ Display Network Shares
 ```CMD
 net share
 ```
-
+Display Domain Trust Info
+```CMD
+nltest
+ nltest /finduser:sweppler
+ nltest /dclist:mydomain
+ nltest /trusted_domains
+```
 
 ## PowerShell Tools
 
@@ -75,6 +81,10 @@ Sweep IPs and Ports
 Test Egress Filtering
 ```PowerShell
 1..1024 | % {echo ((new-object Net.Sockets.TcpClient).Connect("allports.exposed",$_)) "Port $_ is open" } 2>$null
+```
+Display Domain Admins
+```PowerShell
+([adsisearcher]"(&(objectClass=User)(admincount=1))").FindAll().Properties.samaccountname
 ```
 Web Client to Download Files (eg NetCat)
 ```PowerShell
