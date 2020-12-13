@@ -9,6 +9,7 @@ ipconfig /all
 Display Domain
 ```CMD
 echo %USERDOMAIN%
+    net config workstation/server
 ```
 Display Domain Controller
 ```CMD
@@ -34,6 +35,24 @@ Display All Domain Computers
 ```CMD
 wmic /NAMESPACE:\\root\directory\ldap PATH ds_computer GET ds_samaccountname
 ```
+View Domain User Info
+```CMD
+net user /domain
+ net user pentestuser /domain
+```
+Display Domain Admin Users
+```CMD
+net group “Domain Admins” /domain
+```
+View All Hosts in Domain/Workgroup
+```CMD
+net view
+```
+Display Network Shares
+```CMD
+net share
+```
+
 
 ## PowerShell Tools
 
@@ -96,8 +115,38 @@ Fingerprint SMB Version
 smbclient -L //192.168.1.100 
 ```
 
+Find open SMB Shares in Nmap
+```bash
+nmap -T4 -v -oA shares --script smb-enum-shares --script-args smbuser=username,smbpass=password -p445 192.168.1.0/24   
+```
+
+Enumerate SMB Users in Nmap
+```bash
+nmap -sU -sS --script=smb-enum-users -p U:137,T:139 192.168.11.200-254 
+```
 
 
+Enumerate SMB Using Samrdump Python Impacket
+
+```bash
+python /usr/share/doc/python-impacket-doc/examples
+/samrdump.py 192.168.XXX.XXX
+```
+
+
+ridenum.py 192.168.XXX.XXX 500 50000 dict.txt
+https://github.com/trustedsec/ridenum
+
+
+Metasploit RID Cycling
+
+```bash
+use auxiliary/scanner/smb/smb_lookupsid
+```
+
+https://github.com/SecureAuthCorp/impacket
+
+https://www.hackingarticles.in/impacket-guide-smb-msrpc/
 
  https://www.sans.org/blog/pen-test-poster-white-board-powershell-built-in-port-scanner/
 

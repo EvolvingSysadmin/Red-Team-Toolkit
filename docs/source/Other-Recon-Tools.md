@@ -11,6 +11,12 @@ git clone https://github.com/killswitch-GUI/SimplyEmail.git
 ./SimplyEmail.py -all -e TARGET-DOMAIN
 ```
 
+## Gitleaks
+
+Gitleaks is a SAST tool for detecting hardcoded secrets like passwords, api keys, and tokens in git repos. Gitleaks aims to be the easy-to-use, all-in-one solution for finding secrets, past or present, in your code.
+
+[https://github.com/zricethezav/gitleaks](https://github.com/zricethezav/gitleaks)
+
 ## Banner Grabbing
 
 Basic versioning / finger printing via displayed banner

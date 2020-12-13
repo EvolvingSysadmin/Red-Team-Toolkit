@@ -47,11 +47,17 @@ Display Windows Patches
 wmic qfe get Caption,Description,HotFixID,InstalledOn
 ```
 
+Display All Installed Application Names
+```CMD
+wmic product get name
+```
+
 ## Windows Network Information
 
-Display IP and Interfaces
+Display IP and Interfaces/Copy to Clipboard
 ```CMD
 ipconfig /all
+ ipconfig | clip
 ```
 
 Display Routing Table
@@ -108,7 +114,7 @@ net localgroup
 
 Display Local Administrators
 ```CMD
-net localgroup "administrators"
+net localgroup administrators
 ```
 
 Display Domain Group (must be run on DC)
