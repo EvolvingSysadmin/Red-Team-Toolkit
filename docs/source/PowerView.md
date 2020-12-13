@@ -89,7 +89,7 @@ Get-AppLockerPolicy -Effective
 
 Display Domain Computers
 ```PowerShell
-Get-ADComputer -Filter *
+Get-ADComputer -Filter * -Properties *
 ```
 More Detailed All Computer Info
 ```PowerShell
@@ -116,6 +116,10 @@ Get Machines Where Current User is Logged In
 ```PowerShell
 Find-DomainUserLocation
 ```
+Get Detailed User Info
+```PowerShell
+Get-ADUser -Properties * -Filter *
+```
 
 ## Group Info
 
@@ -126,6 +130,10 @@ Get-DomainGroup -Identity <GroupName> | Select-Object -ExpandProperty Member
 Display All Groups
 ```PowerShell
 Get-NetGroup
+```
+Display Detailed Info on All Groups
+```PowerShell
+Get-ADGroup -Properties * -Filter *
 ```
 
 ## User Hunting
