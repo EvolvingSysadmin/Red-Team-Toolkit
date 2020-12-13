@@ -18,7 +18,7 @@ Penetration Testing
  
    Windows-Exploits
    Windows-Exploit-Suggester
-   Local-Privilege-Escalation
+   Local-Windows-Privilege-Escalation
    Windows-System-Exploits
    Domain-Privilege-Escalation
 
