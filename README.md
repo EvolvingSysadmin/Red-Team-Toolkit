@@ -2,7 +2,7 @@
 
 Practical tools and techniques for penetration testing. Also available at [Read the Docs](https://penetration-testing.readthedocs.io/).
 
- **_NOTE:_** This toolkit is in beta and  will update constantly until at least the early part of 2021.
+ **_Please Note:_** This toolkit is in very beta form and will update constantly until at least the early part of 2021.
 
 * __Recon__
   * [DNS Discovery](/docs/source/DNS-Discovery.md)
