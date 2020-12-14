@@ -17,6 +17,16 @@ Display System Drives
 fsutil fsinfo drives
 ```
 
+Display System Environment Table
+```CMD
+set
+```
+
+Display SET using PowerShell
+```PowerShell
+Get-ChildItem Env: | ft Key,Value
+```
+
 Display Running System Processes
 ```CMD
 tasklist /v
@@ -52,6 +62,17 @@ Display All Installed Application Names
 wmic product get name
 ```
 
+Display Connected Devices
+```CMD
+net use
+ wmic logicaldisk get caption,description,providername
+```
+
+Display Connected Devices in PowerShell
+```PowerShell
+Get-PSDrive | where {$_.Provider -like "Microsoft.PowerShell.Core\FileSystem"}| ft Name,Root
+```
+
 ## Windows Network Information
 
 Display IP and Interfaces/Copy to Clipboard
@@ -85,6 +106,7 @@ netstat -naob 1 | find "<IPADDR or PORT>"
 Display Username Associated with Current User ID
 ```CMD
 whoami
+ echo %USERNAME%
 ```
 
 Display All whoami Access Token Info
