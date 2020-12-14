@@ -12,3 +12,25 @@
 - [BloodHound](https://github.com/BloodHoundAD/BloodHound)
 - [AD Module](https://github.com/samratashok/ADModule)
 - [ASREPRoast](https://github.com/HarmJ0y/ASREPRoast)
+
+
+
+nbtscan Cheat Sheet: https://highon.coffee/blog/nbtscan-cheat-sheet/
+
+Linux Commands Cheat Sheet: https://highon.coffee/blog/linux-commands-cheat-sheet/
+
+Cheat Sheets: https://imgur.com/gallery/U5jqgik
+
+Shodan Query Filters https://github.com/JavierOlmedo/shodan-filters
+
+XSS: https://labs.f-secure.com/blog/getting-real-with-xss/
+
+https://www.hackingarticles.in/linux-for-pentester-apt-privilege-escalation/
+
+https://www.robvanderwoude.com/ntadmincommands.php
+
+CobaltStrike and Metasploit
+
+https://github.com/fireeye/commando-vm
+
+https://github.com/fireeye/red_team_tool_countermeasures
