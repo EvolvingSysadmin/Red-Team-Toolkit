@@ -207,9 +207,67 @@ Is AlwaysInstallElevated enabled? I have not ran across this but it doesn’t hu
 reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
 ```
 
+##  Networking
 
+What NICs are connected? Are there multiple networks?
+```CMD
+ipconfig /all
+```
 
+```PowerShell
+Get-NetIPConfiguration | ft InterfaceAlias,InterfaceDescription,IPv4Address
+Get-DnsClientServerAddress -AddressFamily IPv4 | ft
+```
 
+Anything in the ARP cache?
+```CMD
+arp -a
+```
+
+```PowerShell
+Get-NetNeighbor -AddressFamily IPv4 | ft ifIndex,IPAddress,LinkLayerAddress,State
+```
+
+Are there connections to other hosts?
+```CMD
+netstat -ano
+```
+
+Anything in the hosts file?
+```CMD
+C:\WINDOWS\System32\drivers\etc\hosts
+```
+
+Is the firewall turned on? If so what’s configured?
+```CMD
+netsh firewall show state
+netsh firewall show config
+netsh advfirewall firewall show rule name=all
+netsh advfirewall export "firewall.txt"
+```
+
+Any other interesting interface configurations?
+```CMD
+netsh dump
+```
+
+Are there any SNMP configurations?
+```CMD
+reg query HKLM\SYSTEM\CurrentControlSet\Services\SNMP /s
+```
+
+```PowerShell
+Get-ChildItem -path HKLM:\SYSTEM\CurrentControlSet\Services\SNMP -Recurse
+```
+
+## Interesting Files and Sensitive Information
+
+Any passwords in the registry?
+
+```CMD
+reg query HKCU /f password /t REG_SZ /s
+reg query HKLM /f password /t REG_SZ /s 
+```
 
 
 
