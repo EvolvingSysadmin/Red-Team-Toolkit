@@ -103,7 +103,7 @@ netstat -naob 1 | find "<IPADDR or PORT>"
 
 ## Windows User Information
 
-A simple CMD script that outputs these commands to txt is here: [tools\user-info.cmd](../tools/user-info.cmd)
+A simple CMD script that outputs these commands to txt is here: [tools\user-info.cmd](../blob/tools/user-info.cmd)
 
 Display Username Associated with Current User ID
 ```CMD
