@@ -14,8 +14,8 @@ Practical tools and techniques for penetration testing. Also available at [Read 
   * [Other Recon Tools](/docs/source/Other-Recon-Tools.md)
 * __Windows Exploits__
   * [Windows Exploit Suggester](/docs/source/Windows-Exploit-Suggester.md)
-  * [Local Privilege Escalation](/docs/source/Local-Windows-Privilege-Escalation.md)
-  * [Domain Privilege Escalation](/docs/source/Domain-Privilege-Escalation.md)
+  * [Local Windows Privilege Escalation](/docs/source/Local-Windows-Privilege-Escalation.md)
+  * [Domain Windows Privilege Escalation](/docs/source/Domain-Privilege-Escalation.md)
 * __Linux Exploits__
   * [Linux Exploits](/docs/source/Linux-Exploits.md)
 * __Web App Exploits__
