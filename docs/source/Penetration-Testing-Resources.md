@@ -34,3 +34,6 @@ CobaltStrike and Metasploit
 https://github.com/fireeye/commando-vm
 
 https://github.com/fireeye/red_team_tool_countermeasures
+
+https://github.com/absolomb/Pentesting/tree/master/guides
+

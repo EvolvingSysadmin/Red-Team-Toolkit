@@ -269,6 +269,70 @@ reg query HKCU /f password /t REG_SZ /s
 reg query HKLM /f password /t REG_SZ /s 
 ```
 
+Are there sysprep or unattend files available that weren’t cleaned up?
+```CMD
+dir /s *sysprep.inf *sysprep.xml *unattended.xml *unattend.xml *unattend.txt 2>nul
+```
+```PowerShell
+Get-Childitem –Path C:\ -Include *unattend*,*sysprep* -File -Recurse -ErrorAction SilentlyContinue | where {($_.Name -like "*.xml" -or $_.Name -like "*.txt" -or $_.Name -like "*.ini")}
+```
+
+If the server is an IIS webserver, what’s in inetpub? Any hidden directories? web.config files?
+```CMD
+dir /a C:\inetpub\
+dir /s web.config
+C:\Windows\System32\inetsrv\config\applicationHost.config
+```
+```PowerShell
+Get-Childitem –Path C:\inetpub\ -Include web.config -File -Recurse -ErrorAction SilentlyContinue
+```
+
+What’s in the IIS Logs?
+```CMD
+C:\inetpub\logs\LogFiles\W3SVC1\u_ex[YYMMDD].log
+C:\inetpub\logs\LogFiles\W3SVC2\u_ex[YYMMDD].log
+C:\inetpub\logs\LogFiles\FTPSVC1\u_ex[YYMMDD].log
+C:\inetpub\logs\LogFiles\FTPSVC2\u_ex[YYMMDD].log
+```
+
+Is XAMPP, Apache, or PHP installed? Any there any XAMPP, Apache, or PHP configuration files?
+```CMD
+dir /s php.ini httpd.conf httpd-xampp.conf my.ini my.cnf
+```
+```PowerShell
+Get-Childitem –Path C:\ -Include php.ini,httpd.conf,httpd-xampp.conf,my.ini,my.cnf -File -Recurse -ErrorAction SilentlyContinue
+```
+
+Any Apache web logs?
+```CMD
+dir /s access.log error.log
+```
+```PowerShell
+Get-Childitem –Path C:\ -Include access.log,error.log -File -Recurse -ErrorAction SilentlyContinue
+```
+
+Any interesting files to look at? Possibly inside User directories (Desktop, Documents, etc)?
+```CMD
+dir /s *pass* == *vnc* == *.config* 2>nul
+```
+```PowerShell
+Get-Childitem –Path C:\Users\ -Include *password*,*vnc*,*.config -File -Recurse -ErrorAction SilentlyContinue
+```
+
+Files containing password inside them?
+```CMD
+findstr /si password *.xml *.ini *.txt *.config 2>nul
+```
+```PowerShell
+Get-ChildItem C:\* -include *.xml,*.ini,*.txt,*.config -Recurse -ErrorAction SilentlyContinue | Select-String -Pattern "password"
+```
+
+## Techniques
+
+
+
+
+
 
 
 
@@ -276,3 +340,4 @@ reg query HKLM /f password /t REG_SZ /s
 ## Resources
 * https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/
 * https://live.sysinternals.com/
+* https://github.com/absolomb/WindowsEnum
