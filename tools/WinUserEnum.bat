@@ -17,7 +17,8 @@ echo  4    Local Groups
 echo  5    Local Administrators Group
 echo  6    Domain Groups (must be run on DC)
 echo  7    Domain Password Policy
-echo  8    Print all to .txt (opens when done)
+echo  8    Get Full User Info for Selected User
+echo  9    Print all to .txt (opens when done)
 echo  0    Close
 echo ------------------------------------------------------------------------------
 echo.
@@ -33,6 +34,7 @@ if "%var%"=="5" goto op5
 if "%var%"=="6" goto op6
 if "%var%"=="7" goto op7
 if "%var%"=="8" goto op8
+if "%var%"=="9" goto op9
 if "%var%"=="0" goto close
 
 :op1
@@ -85,7 +87,16 @@ if "%var%"=="0" goto close
     goto:start
 
 :op8
-    echo 1. ========== All Current User Access Token Info ========== > "WinUserEnum.txt"
+    echo.
+    SET /p setuser= ^> Input Selected User Account: 
+    echo.
+    net user %setuser%
+    pause
+    goto:start
+
+:op9
+    echo Windows User Enumeration - %COMPUTERNAME% ^| %DATE% - %TIME% > "WinUserEnum.txt"
+    echo 1. ========== All Current User Access Token Info ========== >> "WinUserEnum.txt"
     whoami /all >> "WinUserEnum.txt"
     echo 2. ========== Local Users ========== >> "WinUserEnum.txt"
     net users >> "WinUserEnum.txt"    
