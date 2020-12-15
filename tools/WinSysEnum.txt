@@ -1,0 +1,1573 @@
+1. ========== Display Full Local System Info  ========== 
+
+Host Name:                 VOYAGER
+OS Name:                   Microsoft Windows 10 Pro
+OS Version:                10.0.19042 N/A Build 19042
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Member Workstation
+OS Build Type:             Multiprocessor Free
+Registered Owner:          localuser
+Registered Organization:   
+Product ID:                00330-50831-98266-AAOEM
+Original Install Date:     6/3/2020, 4:33:08 PM
+System Boot Time:          12/7/2020, 2:11:53 PM
+System Manufacturer:       Alienware
+System Model:              Alienware 13 R3
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+                           [01]: Intel64 Family 6 Model 158 Stepping 9 GenuineIntel ~2800 Mhz
+BIOS Version:              Alienware 1.10.0, 7/21/2020
+Windows Directory:         C:\WINDOWS
+System Directory:          C:\WINDOWS\system32
+Boot Device:               \Device\HarddiskVolume3
+System Locale:             en-us;English (United States)
+Input Locale:              en-us;English (United States)
+Time Zone:                 (UTC-08:00) Pacific Time (US & Canada)
+Total Physical Memory:     32,637 MB
+Available Physical Memory: 16,536 MB
+Virtual Memory: Max Size:  44,413 MB
+Virtual Memory: Available: 25,044 MB
+Virtual Memory: In Use:    19,369 MB
+Page File Location(s):     C:\pagefile.sys
+Domain:                    bcwirerope.local
+Logon Server:              \\BC-SERVER
+Hotfix(s):                 12 Hotfix(s) Installed.
+                           [01]: KB2693643
+                           [02]: KB4578968
+                           [03]: KB4557968
+                           [04]: KB4560366
+                           [05]: KB4561600
+                           [06]: KB4562830
+                           [07]: KB4566785
+                           [08]: KB4570334
+                           [09]: KB4577266
+                           [10]: KB4580325
+                           [11]: KB4586864
+                           [12]: KB4586781
+Network Card(s):           9 NIC(s) Installed.
+                           [01]: TAP-Windows Adapter V9
+                                 Connection Name: Ethernet 3
+                                 Status:          Media disconnected
+                           [02]: Intel(R) Dual Band Wireless-AC 8265
+                                 Connection Name: Wi-Fi
+                                 DHCP Enabled:    Yes
+                                 DHCP Server:     192.168.30.1
+                                 IP address(es)
+                                 [01]: 192.168.30.2
+                                 [02]: fe80::fdd8:337f:f52c:8c5
+                           [03]: Hyper-V Virtual Ethernet Adapter
+                                 Connection Name: vEthernet (Default Switch)
+                                 DHCP Enabled:    No
+                                 IP address(es)
+                                 [01]: 172.22.80.1
+                                 [02]: fe80::e176:a9d6:fce3:b45c
+                           [04]: Hyper-V Virtual Ethernet Adapter
+                                 Connection Name: vEthernet (External)
+                                 Status:          Media disconnected
+                           [05]: Killer E2500 Gigabit Ethernet Controller
+                                 Connection Name: Ethernet
+                                 Status:          Media disconnected
+                           [06]: Bluetooth Device (Personal Area Network)
+                                 Connection Name: Bluetooth Network Connection
+                                 Status:          Media disconnected
+                           [07]: VirtualBox Host-Only Ethernet Adapter
+                                 Connection Name: Ethernet 5
+                                 DHCP Enabled:    No
+                                 IP address(es)
+                                 [01]: 192.168.56.1
+                                 [02]: fe80::e4d0:7af2:4b5e:3ae0
+                           [08]: VMware Virtual Ethernet Adapter for VMnet1
+                                 Connection Name: VMware Network Adapter VMnet1
+                                 DHCP Enabled:    Yes
+                                 DHCP Server:     192.168.149.254
+                                 IP address(es)
+                                 [01]: 169.254.33.27
+                                 [02]: fe80::903d:9824:a053:211b
+                           [09]: VMware Virtual Ethernet Adapter for VMnet8
+                                 Connection Name: VMware Network Adapter VMnet8
+                                 DHCP Enabled:    Yes
+                                 DHCP Server:     192.168.112.254
+                                 IP address(es)
+                                 [01]: 169.254.154.116
+                                 [02]: fe80::f0b8:183b:937c:9a74
+Hyper-V Requirements:      A hypervisor has been detected. Features required for Hyper-V will not be displayed.
+2. ========== OS Name and Version ====================== 
+
+Drives: C:\ D:\ 
+3. ========== Disk Info ====================== 
+
+Drives: C:\ D:\ 
+4. ========== System Environment Table ====================== 
+ALLUSERSPROFILE=C:\ProgramData
+APPDATA=C:\Users\RyanHeavican\AppData\Roaming
+CommonProgramFiles=C:\Program Files\Common Files
+CommonProgramFiles(x86)=C:\Program Files (x86)\Common Files
+CommonProgramW6432=C:\Program Files\Common Files
+COMPUTERNAME=VOYAGER
+ComSpec=C:\WINDOWS\system32\cmd.exe
+DriverData=C:\Windows\System32\Drivers\DriverData
+HOMEDRIVE=C:
+HOMEPATH=\Users\RyanHeavican
+LOCALAPPDATA=C:\Users\RyanHeavican\AppData\Local
+LOGONSERVER=\\BC-SERVER
+NUMBER_OF_PROCESSORS=8
+OneDrive=C:\Users\RyanHeavican\OneDrive - BC Wire Rope & Rigging
+OneDriveCommercial=C:\Users\RyanHeavican\OneDrive - BC Wire Rope & Rigging
+OS=Windows_NT
+Path=C:\Program Files (x86)\VMware\VMware Player\bin\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Calibre2\;C:\Program Files\PuTTY\;C:\azcopy;D:\Code\Python\Mapit;c:\users\ryanheavican\appdata\local\programs\python\python38-32\Scripts;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Users\RyanHeavican\AppData\Local\Microsoft\WindowsApps;C:\Users\RyanHeavican\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\RyanHeavican\AppData\Local\Programs\Git\cmd
+PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+PROCESSOR_ARCHITECTURE=AMD64
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 158 Stepping 9, GenuineIntel
+PROCESSOR_LEVEL=6
+PROCESSOR_REVISION=9e09
+ProgramData=C:\ProgramData
+ProgramFiles=C:\Program Files
+ProgramFiles(x86)=C:\Program Files (x86)
+ProgramW6432=C:\Program Files
+PROMPT=$P$G
+PSModulePath=C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
+PUBLIC=C:\Users\Public
+SESSIONNAME=Console
+SynaProgDir=Synaptics\SynTP
+SystemDrive=C:
+SystemRoot=C:\WINDOWS
+TEMP=C:\Users\RYANHE~1\AppData\Local\Temp
+TMP=C:\Users\RYANHE~1\AppData\Local\Temp
+USERDNSDOMAIN=BCWIREROPE.LOCAL
+USERDOMAIN=BCWIREROPE
+USERDOMAIN_ROAMINGPROFILE=BCWIREROPE
+USERNAME=RyanHeavican
+USERPROFILE=C:\Users\RyanHeavican
+var=12
+VBOX_MSI_INSTALL_PATH=C:\Program Files\Oracle\VirtualBox\
+windir=C:\WINDOWS
+5. ========== Running System Processes ====================== 
+
+Image Name                     PID Session Name        Session#    Mem Usage Status          User Name                                              CPU Time Window Title                                                            
+========================= ======== ================ =========== ============ =============== ================================================== ============ ========================================================================
+System Idle Process              0 Services                   0          8 K Unknown         NT AUTHORITY\SYSTEM                                   286:11:02 N/A                                                                     
+System                           4 Services                   0      5,832 K Unknown         N/A                                                     0:45:56 N/A                                                                     
+Secure System                   72 Services                   0     73,112 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+Registry                       132 Services                   0     73,716 K Unknown         N/A                                                     0:00:04 N/A                                                                     
+smss.exe                       548 Services                   0      1,088 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+csrss.exe                      792 Services                   0      3,980 K Unknown         N/A                                                     0:00:09 N/A                                                                     
+wininit.exe                    892 Services                   0      4,028 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+csrss.exe                      900 Console                    1     22,080 K Running         N/A                                                     0:05:45 N/A                                                                     
+services.exe                   964 Services                   0     12,420 K Unknown         N/A                                                     0:01:08 N/A                                                                     
+LsaIso.exe                    1012 Services                   0      2,644 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+lsass.exe                     1020 Services                   0     24,092 K Unknown         N/A                                                     0:02:47 N/A                                                                     
+svchost.exe                   1036 Services                   0      3,100 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+svchost.exe                   1064 Services                   0     35,684 K Unknown         N/A                                                     0:02:29 N/A                                                                     
+fontdrvhost.exe               1088 Services                   0      3,132 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+WUDFHost.exe                  1104 Services                   0      7,928 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+WUDFHost.exe                  1212 Services                   0      5,132 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+svchost.exe                   1256 Services                   0     21,116 K Unknown         N/A                                                     0:06:10 N/A                                                                     
+svchost.exe                   1332 Services                   0      6,336 K Unknown         N/A                                                     0:00:09 N/A                                                                     
+winlogon.exe                  1412 Console                    1      9,924 K Unknown         N/A                                                     0:00:01 N/A                                                                     
+fontdrvhost.exe               1508 Console                    1      8,672 K Unknown         N/A                                                     0:00:38 N/A                                                                     
+svchost.exe                   1680 Services                   0      6,144 K Unknown         N/A                                                     0:00:02 N/A                                                                     
+svchost.exe                   1692 Services                   0      4,032 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+svchost.exe                   1716 Services                   0      5,460 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+svchost.exe                   1728 Services                   0      9,444 K Unknown         N/A                                                     0:00:05 N/A                                                                     
+svchost.exe                   1756 Services                   0     12,644 K Unknown         N/A                                                     0:00:23 N/A                                                                     
+svchost.exe                   1852 Services                   0     12,080 K Unknown         N/A                                                     0:04:26 N/A                                                                     
+svchost.exe                   1908 Services                   0      6,772 K Unknown         N/A                                                     0:01:07 N/A                                                                     
+dwm.exe                       1956 Console                    1    564,048 K Running         N/A                                                     0:30:45 DWM Notification Window                                                 
+svchost.exe                   2000 Services                   0     12,148 K Unknown         N/A                                                     0:00:26 N/A                                                                     
+svchost.exe                   2008 Services                   0      8,024 K Unknown         N/A                                                     0:00:02 N/A                                                                     
+svchost.exe                   2016 Services                   0      8,452 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+svchost.exe                    960 Services                   0      9,052 K Unknown         N/A                                                     0:21:30 N/A                                                                     
+svchost.exe                   2100 Services                   0      9,328 K Unknown         N/A                                                     0:00:17 N/A                                                                     
+IntelCpHDCPSvc.exe            2152 Services                   0      4,664 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+svchost.exe                   2252 Services                   0      6,348 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+svchost.exe                   2280 Services                   0      4,852 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+svchost.exe                   2296 Services                   0     16,040 K Unknown         N/A                                                     1:23:28 N/A                                                                     
+svchost.exe                   2428 Services                   0     15,408 K Unknown         N/A                                                     0:00:24 N/A                                                                     
+IntelCpHeciSvc.exe            2452 Services                   0      4,560 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+svchost.exe                   2508 Services                   0      5,636 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+svchost.exe                   2656 Services                   0      8,092 K Unknown         N/A                                                     0:00:03 N/A                                                                     
+svchost.exe                   2696 Services                   0     21,228 K Unknown         N/A                                                     0:01:42 N/A                                                                     
+svchost.exe                   2732 Services                   0     12,728 K Unknown         N/A                                                     0:03:43 N/A                                                                     
+svchost.exe                   2956 Services                   0     23,868 K Unknown         N/A                                                     0:24:19 N/A                                                                     
+svchost.exe                   3012 Services                   0      8,832 K Unknown         N/A                                                     0:00:54 N/A                                                                     
+vmms.exe                      3052 Services                   0     41,516 K Unknown         N/A                                                     0:03:14 N/A                                                                     
+svchost.exe                   2420 Services                   0     12,940 K Unknown         N/A                                                     0:00:39 N/A                                                                     
+svchost.exe                   3120 Services                   0      5,048 K Unknown         N/A                                                     0:00:03 N/A                                                                     
+NVDisplay.Container.exe       3164 Services                   0     10,104 K Unknown         N/A                                                     0:00:04 N/A                                                                     
+svchost.exe                   3216 Services                   0     23,648 K Unknown         N/A                                                     0:06:30 N/A                                                                     
+svchost.exe                   3252 Services                   0      6,908 K Unknown         N/A                                                     0:00:03 N/A                                                                     
+svchost.exe                   3312 Services                   0     10,040 K Unknown         N/A                                                     0:00:51 N/A                                                                     
+svchost.exe                   3320 Services                   0      4,416 K Unknown         N/A                                                     0:00:02 N/A                                                                     
+svchost.exe                   3328 Services                   0      6,312 K Unknown         N/A                                                     0:00:01 N/A                                                                     
+svchost.exe                   3416 Services                   0      4,864 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+igfxCUIService.exe            3440 Services                   0      5,640 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+Memory Compression            3456 Services                   0    946,640 K Unknown         N/A                                                     0:03:06 N/A                                                                     
+NVDisplay.Container.exe       3552 Console                    1     22,772 K Running         N/A                                                     0:00:53 NvSvc                                                                   
+svchost.exe                   3612 Services                   0      6,396 K Unknown         N/A                                                     0:00:18 N/A                                                                     
+svchost.exe                   3620 Services                   0      8,060 K Unknown         N/A                                                     0:01:14 N/A                                                                     
+svchost.exe                   3640 Services                   0      9,308 K Unknown         N/A                                                     0:00:08 N/A                                                                     
+svchost.exe                   3876 Services                   0      6,104 K Unknown         N/A                                                     0:00:27 N/A                                                                     
+svchost.exe                   3908 Services                   0      9,168 K Unknown         N/A                                                     0:00:08 N/A                                                                     
+svchost.exe                   4044 Services                   0      8,252 K Unknown         N/A                                                     0:00:04 N/A                                                                     
+svchost.exe                   4092 Services                   0      5,392 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+svchost.exe                   4188 Services                   0      7,336 K Unknown         N/A                                                     0:00:10 N/A                                                                     
+svchost.exe                   4200 Services                   0     12,680 K Unknown         N/A                                                     0:00:35 N/A                                                                     
+RtkAudioService64.exe         4300 Services                   0      5,036 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+svchost.exe                   4524 Services                   0      5,264 K Unknown         N/A                                                     0:00:04 N/A                                                                     
+svchost.exe                   4536 Services                   0      7,696 K Unknown         N/A                                                     0:00:23 N/A                                                                     
+svchost.exe                   4800 Services                   0     14,980 K Unknown         N/A                                                     0:00:22 N/A                                                                     
+RAVBg64.exe                   4868 Console                    1      9,736 K Running         N/A                                                     0:00:02 Realtek HD Audio Background Process for Vista                           
+RAVBg64.exe                   4880 Console                    1      8,712 K Running         N/A                                                     0:00:02 Realtek HD Audio Background Process for Vista                           
+svchost.exe                   4900 Services                   0     11,304 K Unknown         N/A                                                     0:00:03 N/A                                                                     
+spoolsv.exe                   5040 Services                   0     22,972 K Unknown         N/A                                                     0:00:45 N/A                                                                     
+svchost.exe                   4132 Services                   0     13,988 K Unknown         N/A                                                     0:00:01 N/A                                                                     
+svchost.exe                   4776 Services                   0      6,000 K Unknown         N/A                                                     0:00:03 N/A                                                                     
+dasHost.exe                   5132 Services                   0     10,636 K Unknown         N/A                                                     0:00:10 N/A                                                                     
+armsvc.exe                    5336 Services                   0      5,604 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+svchost.exe                   5344 Services                   0     15,756 K Unknown         N/A                                                     0:00:34 N/A                                                                     
+OfficeClickToRun.exe          5364 Services                   0     32,628 K Unknown         N/A                                                     0:00:19 N/A                                                                     
+AGSService.exe                5372 Services                   0     12,948 K Unknown         N/A                                                     0:00:01 N/A                                                                     
+svchost.exe                   5384 Services                   0     28,516 K Unknown         N/A                                                     0:00:27 N/A                                                                     
+svchost.exe                   5412 Services                   0     60,364 K Unknown         N/A                                                     0:04:02 N/A                                                                     
+esif_uf.exe                   5428 Services                   0      4,760 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+AGMService.exe                5448 Services                   0     10,088 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+OneApp.IGCC.WinService.ex     5504 Services                   0     25,608 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+MBAMService.exe               5556 Services                   0    200,340 K Unknown         N/A                                                     1:55:13 N/A                                                                     
+SMSvcHost.exe                 5620 Services                   0     14,880 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+openvpnserv.exe               5688 Services                   0      3,620 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+svchost.exe                   5700 Services                   0      9,360 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+svchost.exe                   5724 Services                   0      4,844 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+SynTPEnhService.exe           5792 Services                   0      4,120 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+svchost.exe                   5856 Services                   0      4,184 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+TeamViewer_Service.exe        5892 Services                   0     20,008 K Unknown         N/A                                                     0:00:19 N/A                                                                     
+vmware-authd.exe              5920 Services                   0     10,740 K Unknown         N/A                                                     0:04:03 N/A                                                                     
+vmnetdhcp.exe                 5928 Services                   0      4,820 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+vmware-usbarbitrator64.ex     5936 Services                   0      7,620 K Unknown         N/A                                                     0:00:03 N/A                                                                     
+vmnat.exe                     5964 Services                   0      6,324 K Unknown         N/A                                                     0:00:05 N/A                                                                     
+svchost.exe                   5976 Services                   0     16,620 K Unknown         N/A                                                     0:00:04 N/A                                                                     
+svchost.exe                   5988 Services                   0      7,668 K Unknown         N/A                                                     0:00:01 N/A                                                                     
+MsMpEng.exe                   5996 Services                   0    225,836 K Unknown         N/A                                                     0:29:01 N/A                                                                     
+mqsvc.exe                     6016 Services                   0      8,556 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+svchost.exe                   6044 Services                   0      6,828 K Unknown         N/A                                                     0:00:08 N/A                                                                     
+svchost.exe                   5440 Services                   0      5,868 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+KillerNetworkService.exe      5532 Services                   0     27,256 K Unknown         N/A                                                     0:02:42 N/A                                                                     
+svchost.exe                   6596 Services                   0      9,624 K Unknown         N/A                                                     0:00:14 N/A                                                                     
+xTendUtilityService.exe       7088 Services                   0     11,208 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+unsecapp.exe                  7164 Services                   0      5,828 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+xTendUtility.exe              7352 Services                   0      4,604 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+svchost.exe                   7388 Services                   0      7,116 K Unknown         N/A                                                     0:00:01 N/A                                                                     
+conhost.exe                   7428 Services                   0      5,652 K Unknown         N/A                                                     0:00:02 N/A                                                                     
+vmcompute.exe                 8004 Services                   0     10,340 K Unknown         N/A                                                     0:00:06 N/A                                                                     
+svchost.exe                   7532 Services                   0      6,204 K Unknown         N/A                                                     0:00:12 N/A                                                                     
+dasHost.exe                   8316 Services                   0      3,576 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+GamingServicesNet.exe         8696 Services                   0      4,468 K Unknown         N/A                                                     0:00:02 N/A                                                                     
+GamingServices.exe            8704 Services                   0     21,980 K Unknown         N/A                                                     0:00:20 N/A                                                                     
+svchost.exe                   8996 Services                   0      3,984 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+svchost.exe                   9212 Services                   0      8,708 K Unknown         N/A                                                     0:01:13 N/A                                                                     
+svchost.exe                   1704 Services                   0     21,388 K Unknown         N/A                                                     0:00:08 N/A                                                                     
+NisSrv.exe                    2172 Services                   0      9,824 K Unknown         N/A                                                     0:00:11 N/A                                                                     
+dllhost.exe                  10148 Services                   0      7,096 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+dptf_helper.exe               5280 Console                    1      3,584 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:08 N/A                                                                     
+mbamtray.exe                  5256 Console                    1     28,316 K Running         BCWIREROPE\RyanHeavican                                 0:00:20 N/A                                                                     
+SynTPEnh.exe                  8312 Console                    1     18,964 K Running         BCWIREROPE\RyanHeavican                                 0:26:26 N/A                                                                     
+sihost.exe                    1360 Console                    1     35,408 K Running         BCWIREROPE\RyanHeavican                                 0:00:54 OLEChannelWnd                                                           
+svchost.exe                   1708 Console                    1     11,356 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:03 N/A                                                                     
+svchost.exe                   1780 Console                    1     30,712 K Unknown         BCWIREROPE\RyanHeavican                                 0:07:47 N/A                                                                     
+PresentationFontCache.exe     1792 Services                   0      6,988 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+svchost.exe                   7128 Console                    1     48,720 K Running         BCWIREROPE\RyanHeavican                                 0:00:42 Windows Push Notifications Platform                                     
+taskhostw.exe                10368 Console                    1     24,896 K Running         BCWIREROPE\RyanHeavican                                 0:00:19 Task Host Window                                                        
+svchost.exe                  10520 Services                   0     11,216 K Unknown         N/A                                                     0:00:18 N/A                                                                     
+svchost.exe                  10540 Services                   0     16,692 K Unknown         N/A                                                     0:01:08 N/A                                                                     
+igfxEM.exe                   10808 Console                    1     21,440 K Running         BCWIREROPE\RyanHeavican                                 0:00:38 The Event Manager Dashboard                                             
+svchost.exe                  10848 Services                   0     16,280 K Unknown         N/A                                                     0:00:08 N/A                                                                     
+SynTPHelper.exe              10932 Console                    1      4,544 K Running         BCWIREROPE\RyanHeavican                                 0:00:07 N/A                                                                     
+svchost.exe                  10948 Services                   0      9,936 K Unknown         N/A                                                     0:00:10 N/A                                                                     
+svchost.exe                   5812 Console                    1     28,444 K Running         BCWIREROPE\RyanHeavican                                 0:00:12 N/A                                                                     
+AWCCServiceController.exe    10324 Console                    1        684 K Running         BCWIREROPE\RyanHeavican                                 0:00:01 N/A                                                                     
+RuntimeBroker.exe            11380 Console                    1     26,164 K Running         BCWIREROPE\RyanHeavican                                 0:00:10 OLEChannelWnd                                                           
+SearchIndexer.exe            11496 Services                   0     85,540 K Unknown         N/A                                                     0:11:35 N/A                                                                     
+RuntimeBroker.exe            11784 Console                    1     44,716 K Running         BCWIREROPE\RyanHeavican                                 0:01:05 N/A                                                                     
+svchost.exe                  12052 Services                   0     13,904 K Unknown         N/A                                                     0:00:06 N/A                                                                     
+YourPhone.exe                 8716 Console                    1     18,752 K Running         BCWIREROPE\RyanHeavican                                 0:00:04 N/A                                                                     
+ctfmon.exe                     644 Console                    1     47,068 K Running         BCWIREROPE\RyanHeavican                                 0:06:31 N/A                                                                     
+TabTip.exe                   11200 Console                    1     13,060 K Running         BCWIREROPE\RyanHeavican                                 0:00:26 GDI+ Window (TabTip.exe)                                                
+AlienFusionController.exe    13040 Console                    1        892 K Running         BCWIREROPE\RyanHeavican                                 0:00:00 N/A                                                                     
+svchost.exe                  13180 Console                    1     30,380 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:14 N/A                                                                     
+SettingSyncHost.exe           8456 Console                    1      4,252 K Running         BCWIREROPE\RyanHeavican                                 0:00:03 N/A                                                                     
+RuntimeBroker.exe            13384 Console                    1     19,212 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:05 N/A                                                                     
+AWCCApplicationWatcher32.    14000 Console                    1      1,076 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:00 N/A                                                                     
+conhost.exe                  14008 Console                    1        956 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:00 N/A                                                                     
+AWCCApplicationWatcher64.    14024 Console                    1      1,020 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:00 N/A                                                                     
+conhost.exe                  14056 Console                    1        944 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:00 N/A                                                                     
+RuntimeBroker.exe            14152 Console                    1     23,356 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:51 N/A                                                                     
+SecurityHealthSystray.exe    14304 Console                    1      7,268 K Running         BCWIREROPE\RyanHeavican                                 0:00:00 N/A                                                                     
+SecurityHealthService.exe     3036 Services                   0     11,800 K Unknown         N/A                                                     0:00:03 N/A                                                                     
+RtkNGUI64.exe                12176 Console                    1     15,140 K Running         BCWIREROPE\RyanHeavican                                 0:00:14 Realtek SpeakerTestManager                                              
+dllhost.exe                  11260 Console                    1     16,576 K Running         BCWIREROPE\RyanHeavican                                 0:00:03 OleMainThreadWndName                                                    
+RAVBg64.exe                  13904 Console                    1      8,844 K Running         BCWIREROPE\RyanHeavican                                 0:00:04 Realtek HD Audio Background Process for Vista                           
+LogiOptions.exe              12388 Console                    1      9,928 K Running         BCWIREROPE\RyanHeavican                                 0:03:54 LOGI_RAWINPUT_WND                                                       
+LogiOptionsMgr.exe           14212 Console                    1     28,028 K Running         BCWIREROPE\RyanHeavican                                 0:01:55 LDEVICEMGR_WINDOW_{49DCDDA1-BF03-46BC-B469-59A0616325A2}                
+LogiOverlay.exe               8612 Console                    1     52,364 K Running         BCWIREROPE\RyanHeavican                                 0:05:56 Hidden Window                                                           
+AWSoundCenterUILauncher.e    14476 Console                    1      8,348 K Running         BCWIREROPE\RyanHeavican                                 0:00:00 Alienware Sound Center                                                  
+AWSoundCenterSvc32.exe       14504 Console                    1     22,764 K Running         BCWIREROPE\RyanHeavican                                 0:02:04 N/A                                                                     
+AWSoundCenterSvc64.exe       14516 Console                    1      7,012 K Running         BCWIREROPE\RyanHeavican                                 0:01:12 N/A                                                                     
+CCXProcess.exe               15192 Console                    1      2,216 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:00 N/A                                                                     
+node.exe                     15240 Console                    1     39,308 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:37 N/A                                                                     
+conhost.exe                  15320 Console                    1      4,332 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:00 N/A                                                                     
+svchost.exe                  14700 Services                   0      4,364 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+AdobeIPCBroker.exe           16920 Console                    1     10,656 K Running         BCWIREROPE\RyanHeavican                                 0:00:37 N/A                                                                     
+openvpn-gui.exe              16948 Console                    1      7,380 K Running         BCWIREROPE\RyanHeavican                                 0:00:00 OpenVPN                                                                 
+Cortana.exe                  17228 Console                    1     35,620 K Running         BCWIREROPE\RyanHeavican                                 0:00:02 N/A                                                                     
+RuntimeBroker.exe            17404 Console                    1     15,964 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:04 N/A                                                                     
+Creative Cloud.exe           13948 Console                    1     51,708 K Running         BCWIREROPE\RyanHeavican                                 0:06:00 Creative Cloud Desktop                                                  
+svchost.exe                  16756 Console                    1     12,840 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:04 N/A                                                                     
+SpeechRuntime.exe             3228 Console                    1     14,784 K Running         BCWIREROPE\RyanHeavican                                 0:00:07 CSpThreadTask Window                                                    
+Adobe Desktop Service.exe    17644 Console                    1     65,680 K Running         BCWIREROPE\RyanHeavican                                 0:02:03 N/A                                                                     
+Adobe CEF Helper.exe         17732 Console                    1     36,288 K Not Responding  BCWIREROPE\RyanHeavican                                 0:00:27 OleMainThreadWndName                                                    
+jusched.exe                  19272 Console                    1     12,364 K Not Responding  BCWIREROPE\RyanHeavican                                 0:00:02 OleMainThreadWndName                                                    
+CCLibrary.exe                15500 Console                    1      2,340 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:00 N/A                                                                     
+node.exe                     15536 Console                    1     48,920 K Not Responding  BCWIREROPE\RyanHeavican                                 0:00:56 OleMainThreadWndName                                                    
+conhost.exe                  15676 Console                    1      4,640 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:02 N/A                                                                     
+Adobe CEF Helper.exe         16376 Console                    1     52,300 K Not Responding  BCWIREROPE\RyanHeavican                                 0:05:19 OleMainThreadWndName                                                    
+CoreSync.exe                  3560 Console                    1     18,908 K Running         BCWIREROPE\RyanHeavican                                 0:00:48 Core Sync                                                               
+svchost.exe                  14720 Services                   0      6,444 K Unknown         N/A                                                     0:00:12 N/A                                                                     
+IAStorIcon.exe               18888 Console                    1     27,856 K Running         BCWIREROPE\RyanHeavican                                 0:00:00 N/A                                                                     
+AlienFusionService.exe         632 Services                   0     21,828 K Unknown         N/A                                                     0:00:04 N/A                                                                     
+svchost.exe                   2264 Services                   0      9,516 K Unknown         N/A                                                     0:00:01 N/A                                                                     
+DDVRulesProcessor.exe         4696 Services                   0     10,844 K Unknown         N/A                                                     0:00:02 N/A                                                                     
+ServiceShell.exe              1808 Services                   0     55,160 K Unknown         N/A                                                     0:00:13 N/A                                                                     
+msdtc.exe                    16836 Services                   0      6,272 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+IAStorDataMgrSvc.exe         12044 Services                   0     62,120 K Unknown         N/A                                                     0:00:07 N/A                                                                     
+jhi_service.exe               3824 Services                   0      5,836 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+LMS.exe                       9648 Services                   0     10,256 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+SgrmBroker.exe                1996 Services                   0      8,360 K Unknown         N/A                                                     0:00:20 N/A                                                                     
+svchost.exe                   9308 Services                   0     16,560 K Unknown         N/A                                                     0:00:01 N/A                                                                     
+DDVDataCollector.exe         17652 Services                   0     19,540 K Unknown         N/A                                                     0:00:25 N/A                                                                     
+DDVCollectorSvcApi.exe       18136 Services                   0      5,220 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+chrome.exe                   12748 Console                    1    330,224 K Running         BCWIREROPE\RyanHeavican                                 1:03:27 Opening A Specific File With A Batch File? - Stack Overflow - Google Chr
+chrome.exe                   14236 Console                    1      7,740 K Running         BCWIREROPE\RyanHeavican                                 0:00:01 N/A                                                                     
+chrome.exe                    8876 Console                    1    368,988 K Running         BCWIREROPE\RyanHeavican                                 0:37:57 N/A                                                                     
+chrome.exe                    8884 Console                    1     59,700 K Unknown         BCWIREROPE\RyanHeavican                                 0:12:00 N/A                                                                     
+chrome.exe                   16708 Console                    1     16,616 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:53 N/A                                                                     
+chrome.exe                    1352 Console                    1     69,528 K Unknown         BCWIREROPE\RyanHeavican                                 0:02:31 N/A                                                                     
+chrome.exe                    3032 Console                    1     14,108 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:40 N/A                                                                     
+svchost.exe                  14528 Services                   0      9,972 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+nvapiw.exe                    7980 Console                    1      6,744 K Running         BCWIREROPE\RyanHeavican                                 0:00:00 N/A                                                                     
+ApplicationFrameHost.exe      8324 Console                    1     32,168 K Running         BCWIREROPE\RyanHeavican                                 0:00:05 Settings                                                                
+WinStore.App.exe             18760 Console                    1      3,028 K Running         BCWIREROPE\RyanHeavican                                 0:00:02 Microsoft Store                                                         
+RuntimeBroker.exe            20248 Console                    1     12,876 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:00 N/A                                                                     
+CompPkgSrv.exe               11984 Console                    1      6,052 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:00 N/A                                                                     
+svchost.exe                   4608 Console                    1      5,320 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:00 N/A                                                                     
+svchost.exe                  20092 Services                   0      8,116 K Unknown         N/A                                                     0:00:01 N/A                                                                     
+HelpPane.exe                   300 Console                    1     13,244 K Running         BCWIREROPE\RyanHeavican                                 0:00:00 Windows Help and Support                                                
+svchost.exe                  21388 Services                   0      7,980 K Unknown         N/A                                                     0:00:08 N/A                                                                     
+svchost.exe                  17376 Services                   0      7,348 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+svchost.exe                  23264 Services                   0      6,016 K Unknown         N/A                                                     0:00:04 N/A                                                                     
+WmiPrvSE.exe                 22072 Services                   0     44,388 K Unknown         N/A                                                     0:03:50 N/A                                                                     
+chrome.exe                    7148 Console                    1     54,768 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:28 N/A                                                                     
+vmconnect.exe                 2716 Console                    1    313,872 K Running         BCWIREROPE\RyanPatrickHeavican                          0:02:28 Evolve-DC on VOYAGER - Virtual Machine Connection                       
+svchost.exe                   8764 Services                   0      6,876 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+chrome.exe                   18500 Console                    1    151,944 K Unknown         BCWIREROPE\RyanHeavican                                 0:27:50 N/A                                                                     
+chrome.exe                    1156 Console                    1     21,632 K Unknown         BCWIREROPE\RyanHeavican                                 0:13:20 N/A                                                                     
+chrome.exe                    2632 Console                    1     64,776 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:20 N/A                                                                     
+chrome.exe                   15944 Console                    1     60,260 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:18 N/A                                                                     
+chrome.exe                   11928 Console                    1     96,964 K Unknown         BCWIREROPE\RyanHeavican                                 0:02:03 N/A                                                                     
+svchost.exe                  20168 Services                   0     10,548 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+svchost.exe                  15284 Services                   0      5,532 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+explorer.exe                  9808 Console                    1    192,464 K Running         BCWIREROPE\RyanHeavican                                 0:21:59 N/A                                                                     
+TextInputHost.exe            13120 Console                    1     46,424 K Running         BCWIREROPE\RyanHeavican                                 0:00:30 Microsoft Text Input Application                                        
+StartMenuExperienceHost.e    13640 Console                    1     62,000 K Running         BCWIREROPE\RyanHeavican                                 0:00:10 Start                                                                   
+SearchApp.exe                24980 Console                    1    300,012 K Running         BCWIREROPE\RyanHeavican                                 0:01:22 Search                                                                  
+ShellExperienceHost.exe      25184 Console                    1     90,928 K Running         BCWIREROPE\RyanHeavican                                 0:00:09 New notification                                                        
+RuntimeBroker.exe            12632 Console                    1     26,052 K Running         BCWIREROPE\RyanHeavican                                 0:00:01 OLEChannelWnd                                                           
+UserOOBEBroker.exe           21632 Console                    1      8,168 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:00 N/A                                                                     
+svchost.exe                   8628 Console                    1     11,960 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:01 N/A                                                                     
+WUDFHost.exe                 10456 Services                   0      8,712 K Unknown         N/A                                                     0:01:58 N/A                                                                     
+vmwp.exe                     24796 Services                   0     23,896 K Unknown         N/A                                                     0:00:40 N/A                                                                     
+SystemSettings.exe           15796 Console                    1     62,956 K Running         BCWIREROPE\RyanHeavican                                 0:00:49 N/A                                                                     
+vmwp.exe                     16608 Services                   0     22,516 K Unknown         N/A                                                     0:00:24 N/A                                                                     
+rundll32.exe                  4728 Console                    1      8,236 K Running         BCWIREROPE\RyanHeavican                                 0:00:00 OleMainThreadWndName                                                    
+chrome.exe                   12592 Console                    1     79,740 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:56 N/A                                                                     
+Microsoft.Photos.exe          3668 Console                    1     46,048 K Running         BCWIREROPE\RyanHeavican                                 0:00:03 OleMainThreadWndName                                                    
+RuntimeBroker.exe            21932 Console                    1     30,276 K Running         BCWIREROPE\RyanHeavican                                 0:00:05 N/A                                                                     
+wlanext.exe                  19516 Services                   0      4,716 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+conhost.exe                  25152 Services                   0      5,248 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+OneDrive.exe                  7420 Console                    1    122,744 K Running         BCWIREROPE\RyanHeavican                                 0:16:57 DDE Server Window                                                       
+chrome.exe                    3808 Console                    1     49,764 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:04 N/A                                                                     
+GameBar.exe                  22920 Console                    1      2,464 K Running         BCWIREROPE\RyanHeavican                                 0:00:00 N/A                                                                     
+GameBarFTServer.exe           6228 Console                    1     13,088 K Running         BCWIREROPE\RyanHeavican                                 0:00:00 OleMainThreadWndName                                                    
+RuntimeBroker.exe            13164 Console                    1     12,992 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:00 N/A                                                                     
+svchost.exe                  19588 Services                   0     13,380 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+chrome.exe                   25668 Console                    1     78,928 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:31 N/A                                                                     
+chrome.exe                    2404 Console                    1     90,768 K Unknown         BCWIREROPE\RyanHeavican                                 0:01:39 N/A                                                                     
+FileCoAuth.exe                 988 Console                    1     23,732 K Running         BCWIREROPE\RyanHeavican                                 0:01:54 OleMainThreadWndName                                                    
+svchost.exe                  23604 Services                   0     19,100 K Unknown         N/A                                                     0:00:28 N/A                                                                     
+LockApp.exe                   9664 Console                    1     64,028 K Running         BCWIREROPE\RyanHeavican                                 0:00:02 Windows Default Lock Screen                                             
+RuntimeBroker.exe            11528 Console                    1     33,312 K Running         BCWIREROPE\RyanHeavican                                 0:00:04 N/A                                                                     
+Video.UI.exe                 10604 Console                    1      2,444 K Running         BCWIREROPE\RyanHeavican                                 0:00:00 N/A                                                                     
+RuntimeBroker.exe            11824 Console                    1      7,896 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:00 N/A                                                                     
+svchost.exe                  14620 Services                   0      7,256 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+chrome.exe                   10280 Console                    1     85,544 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:28 N/A                                                                     
+dllhost.exe                  20708 Console                    1      8,668 K Running         BCWIREROPE\RyanHeavican                                 0:00:00 OleMainThreadWndName                                                    
+Code.exe                     23200 Console                    1     99,056 K Running         BCWIREROPE\RyanHeavican                                 0:02:44 WinSysEnum.bat - Penetration-Testing - Visual Studio Code               
+Code.exe                      6624 Console                    1     19,632 K Running         BCWIREROPE\RyanHeavican                                 0:00:00 N/A                                                                     
+Code.exe                     21200 Console                    1    217,224 K Running         BCWIREROPE\RyanHeavican                                 0:04:16 N/A                                                                     
+Code.exe                     25484 Console                    1     36,556 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:05 N/A                                                                     
+Code.exe                     25044 Console                    1     74,500 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:10 N/A                                                                     
+Code.exe                      9500 Console                    1    238,916 K Unknown         BCWIREROPE\RyanHeavican                                 0:14:39 N/A                                                                     
+CodeHelper.exe               21672 Console                    1     15,932 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:01 N/A                                                                     
+conhost.exe                  22252 Console                    1      5,596 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:00 N/A                                                                     
+Code.exe                      2136 Console                    1    108,312 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:29 N/A                                                                     
+conhost.exe                  22556 Console                    1      6,224 K Running         BCWIREROPE\RyanHeavican                                 0:00:00 N/A                                                                     
+powershell.exe                2792 Console                    1     46,652 K Running         BCWIREROPE\RyanHeavican                                 0:00:01 OleMainThreadWndName                                                    
+chrome.exe                    3048 Console                    1     91,524 K Unknown         BCWIREROPE\RyanHeavican                                 0:01:12 N/A                                                                     
+chrome.exe                   17316 Console                    1     75,844 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:08 N/A                                                                     
+chrome.exe                   22228 Console                    1     71,388 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:05 N/A                                                                     
+svchost.exe                   3128 Services                   0      6,088 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+conhost.exe                  24064 Console                    1      5,920 K Running         BCWIREROPE\RyanHeavican                                 0:00:03 N/A                                                                     
+powershell.exe               26004 Console                    1     74,144 K Running         BCWIREROPE\RyanHeavican                                 0:01:08 OLEChannelWnd                                                           
+svchost.exe                  17320 Services                   0      5,792 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+chrome.exe                    3836 Console                    1     53,244 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:02 N/A                                                                     
+chrome.exe                    1848 Console                    1     52,432 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:02 N/A                                                                     
+chrome.exe                    5736 Console                    1     85,744 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:04 N/A                                                                     
+chrome.exe                   13892 Console                    1     59,488 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:08 N/A                                                                     
+chrome.exe                   12284 Console                    1     55,280 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:01 N/A                                                                     
+chrome.exe                   21752 Console                    1     54,968 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:00 N/A                                                                     
+chrome.exe                    9800 Console                    1     87,944 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:05 N/A                                                                     
+conhost.exe                  17024 Console                    1      5,864 K Running         BCWIREROPE\RyanHeavican                                 0:00:00 N/A                                                                     
+powershell.exe               12548 Console                    1     46,936 K Running         BCWIREROPE\RyanHeavican                                 0:00:01 OleMainThreadWndName                                                    
+cmd.exe                      24788 Console                    1      6,096 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:00 N/A                                                                     
+chrome.exe                   24636 Console                    1     92,836 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:02 N/A                                                                     
+chrome.exe                   22760 Console                    1     80,776 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:01 N/A                                                                     
+chrome.exe                   20780 Console                    1     22,480 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:00 N/A                                                                     
+svchost.exe                   7000 Services                   0     12,020 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+smartscreen.exe               7264 Console                    1     23,156 K Running         BCWIREROPE\RyanHeavican                                 0:00:00 OleMainThreadWndName                                                    
+cmd.exe                      24184 Console                    1      7,844 K Running         BCWIREROPE\RyanHeavican                                 0:00:00 Command Prompt - WinSysEnum.bat                                         
+conhost.exe                  12380 Console                    1     19,884 K Running         BCWIREROPE\RyanHeavican                                 0:00:00 N/A                                                                     
+WmiPrvSE.exe                 15060 Services                   0     17,112 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+WmiPrvSE.exe                 25908 Services                   0      9,132 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+TrustedInstaller.exe         19444 Services                   0      7,604 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+TiWorker.exe                  9876 Services                   0     10,752 K Unknown         N/A                                                     0:00:00 N/A                                                                     
+tasklist.exe                 25324 Console                    1     10,944 K Unknown         BCWIREROPE\RyanHeavican                                 0:00:00 N/A                                                                     
+6. ========== Services Running Inside Each Process ============ 
+
+Image Name                     PID Services                                    
+========================= ======== ============================================
+System Idle Process              0 N/A                                         
+System                           4 N/A                                         
+Secure System                   72 N/A                                         
+Registry                       132 N/A                                         
+smss.exe                       548 N/A                                         
+csrss.exe                      792 N/A                                         
+wininit.exe                    892 N/A                                         
+csrss.exe                      900 N/A                                         
+services.exe                   964 N/A                                         
+LsaIso.exe                    1012 N/A                                         
+lsass.exe                     1020 KeyIso, Netlogon, SamSs, VaultSvc           
+svchost.exe                   1036 PlugPlay                                    
+svchost.exe                   1064 BrokerInfrastructure, DcomLaunch, Power,    
+                                   SystemEventsBroker                          
+fontdrvhost.exe               1088 N/A                                         
+WUDFHost.exe                  1104 N/A                                         
+WUDFHost.exe                  1212 N/A                                         
+svchost.exe                   1256 RpcEptMapper, RpcSs                         
+svchost.exe                   1332 LSM                                         
+winlogon.exe                  1412 N/A                                         
+fontdrvhost.exe               1508 N/A                                         
+svchost.exe                   1680 W32Time                                     
+svchost.exe                   1692 HvHost                                      
+svchost.exe                   1716 BTAGService                                 
+svchost.exe                   1728 BthAvctpSvc                                 
+svchost.exe                   1756 nsi                                         
+svchost.exe                   1852 bthserv                                     
+svchost.exe                   1908 Dhcp                                        
+dwm.exe                       1956 N/A                                         
+svchost.exe                   2000 Schedule                                    
+svchost.exe                   2008 NcbService                                  
+svchost.exe                   2016 TimeBrokerSvc                               
+svchost.exe                    960 Dnscache                                    
+svchost.exe                   2100 ProfSvc                                     
+IntelCpHDCPSvc.exe            2152 cplspcon                                    
+svchost.exe                   2252 DisplayEnhancementService                   
+svchost.exe                   2280 hidserv                                     
+svchost.exe                   2296 EventLog                                    
+svchost.exe                   2428 UserManager                                 
+IntelCpHeciSvc.exe            2452 cphs                                        
+svchost.exe                   2508 TabletInputService                          
+svchost.exe                   2656 SEMgrSvc                                    
+svchost.exe                   2696 BFE, mpssvc                                 
+svchost.exe                   2732 NlaSvc                                      
+svchost.exe                   2956 Winmgmt                                     
+svchost.exe                   3012 netprofm                                    
+vmms.exe                      3052 vmms                                        
+svchost.exe                   2420 camsvc                                      
+svchost.exe                   3120 CoreMessagingRegistrar                      
+NVDisplay.Container.exe       3164 NVDisplay.ContainerLocalSystem              
+svchost.exe                   3216 StateRepository                             
+svchost.exe                   3252 EventSystem                                 
+svchost.exe                   3312 SysMain                                     
+svchost.exe                   3320 Themes                                      
+svchost.exe                   3328 SENS                                        
+svchost.exe                   3416 DispBrokerDesktopSvc                        
+igfxCUIService.exe            3440 igfxCUIService2.0.0.0                       
+Memory Compression            3456 N/A                                         
+NVDisplay.Container.exe       3552 N/A                                         
+svchost.exe                   3612 AudioEndpointBuilder                        
+svchost.exe                   3620 FontCache                                   
+svchost.exe                   3640 DeviceAssociationService                    
+svchost.exe                   3876 WinHttpAutoProxySvc                         
+svchost.exe                   3908 hns                                         
+svchost.exe                   4044 iphlpsvc                                    
+svchost.exe                   4092 nvagent                                     
+svchost.exe                   4188 SharedAccess                                
+svchost.exe                   4200 Audiosrv                                    
+RtkAudioService64.exe         4300 RtkAudioService                             
+svchost.exe                   4524 DusmSvc                                     
+svchost.exe                   4536 Wcmsvc                                      
+svchost.exe                   4800 WlanSvc                                     
+RAVBg64.exe                   4868 N/A                                         
+RAVBg64.exe                   4880 N/A                                         
+svchost.exe                   4900 ShellHWDetection                            
+spoolsv.exe                   5040 Spooler                                     
+svchost.exe                   4132 WbioSrvc                                    
+svchost.exe                   4776 LanmanWorkstation                           
+dasHost.exe                   5132 N/A                                         
+armsvc.exe                    5336 AdobeARMservice                             
+svchost.exe                   5344 CryptSvc                                    
+OfficeClickToRun.exe          5364 ClickToRunSvc                               
+AGSService.exe                5372 AGSService                                  
+svchost.exe                   5384 DiagTrack                                   
+svchost.exe                   5412 DPS                                         
+esif_uf.exe                   5428 esifsvc                                     
+AGMService.exe                5448 AGMService                                  
+OneApp.IGCC.WinService.ex     5504 igccservice                                 
+MBAMService.exe               5556 MBAMService                                 
+SMSvcHost.exe                 5620 NetTcpPortSharing                           
+openvpnserv.exe               5688 OpenVPNServiceInteractive                   
+svchost.exe                   5700 WdiServiceHost                              
+svchost.exe                   5724 SstpSvc                                     
+SynTPEnhService.exe           5792 SynTPEnhService                             
+svchost.exe                   5856 TrkWks                                      
+TeamViewer_Service.exe        5892 TeamViewer                                  
+vmware-authd.exe              5920 VMAuthdService                              
+vmnetdhcp.exe                 5928 VMnetDHCP                                   
+vmware-usbarbitrator64.ex     5936 VMUSBArbService                             
+vmnat.exe                     5964 VMware NAT Service                          
+svchost.exe                   5976 WpnService                                  
+svchost.exe                   5988 Netman                                      
+MsMpEng.exe                   5996 WinDefend                                   
+mqsvc.exe                     6016 MSMQ                                        
+svchost.exe                   6044 LanmanServer                                
+svchost.exe                   5440 TapiSrv                                     
+KillerNetworkService.exe      5532 Killer Network Service                      
+svchost.exe                   6596 RasMan                                      
+xTendUtilityService.exe       7088 xTendUtilityService                         
+unsecapp.exe                  7164 N/A                                         
+xTendUtility.exe              7352 N/A                                         
+svchost.exe                   7388 RmSvc                                       
+conhost.exe                   7428 N/A                                         
+vmcompute.exe                 8004 vmcompute                                   
+svchost.exe                   7532 PolicyAgent                                 
+dasHost.exe                   8316 N/A                                         
+GamingServicesNet.exe         8696 GamingServicesNet                           
+GamingServices.exe            8704 GamingServices                              
+svchost.exe                   8996 DeviceInstall                               
+svchost.exe                   9212 StorSvc                                     
+svchost.exe                   1704 InstallService                              
+NisSrv.exe                    2172 WdNisSvc                                    
+dllhost.exe                  10148 N/A                                         
+dptf_helper.exe               5280 N/A                                         
+mbamtray.exe                  5256 N/A                                         
+SynTPEnh.exe                  8312 N/A                                         
+sihost.exe                    1360 N/A                                         
+svchost.exe                   1708 BluetoothUserService_1ac63e                 
+svchost.exe                   1780 CDPUserSvc_1ac63e                           
+PresentationFontCache.exe     1792 FontCache3.0.0.0                            
+svchost.exe                   7128 WpnUserService_1ac63e                       
+taskhostw.exe                10368 N/A                                         
+svchost.exe                  10520 Appinfo                                     
+svchost.exe                  10540 TokenBroker                                 
+igfxEM.exe                   10808 N/A                                         
+svchost.exe                  10848 CDPSvc                                      
+SynTPHelper.exe              10932 N/A                                         
+svchost.exe                  10948 PcaSvc                                      
+svchost.exe                   5812 cbdhsvc_1ac63e                              
+AWCCServiceController.exe    10324 N/A                                         
+RuntimeBroker.exe            11380 N/A                                         
+SearchIndexer.exe            11496 WSearch                                     
+RuntimeBroker.exe            11784 N/A                                         
+svchost.exe                  12052 LicenseManager                              
+YourPhone.exe                 8716 N/A                                         
+ctfmon.exe                     644 N/A                                         
+TabTip.exe                   11200 N/A                                         
+AlienFusionController.exe    13040 N/A                                         
+svchost.exe                  13180 OneSyncSvc_1ac63e,                          
+                                   PimIndexMaintenanceSvc_1ac63e,              
+                                   UnistoreSvc_1ac63e, UserDataSvc_1ac63e      
+SettingSyncHost.exe           8456 N/A                                         
+RuntimeBroker.exe            13384 N/A                                         
+AWCCApplicationWatcher32.    14000 N/A                                         
+conhost.exe                  14008 N/A                                         
+AWCCApplicationWatcher64.    14024 N/A                                         
+conhost.exe                  14056 N/A                                         
+RuntimeBroker.exe            14152 N/A                                         
+SecurityHealthSystray.exe    14304 N/A                                         
+SecurityHealthService.exe     3036 SecurityHealthService                       
+RtkNGUI64.exe                12176 N/A                                         
+dllhost.exe                  11260 N/A                                         
+RAVBg64.exe                  13904 N/A                                         
+LogiOptions.exe              12388 N/A                                         
+LogiOptionsMgr.exe           14212 N/A                                         
+LogiOverlay.exe               8612 N/A                                         
+AWSoundCenterUILauncher.e    14476 N/A                                         
+AWSoundCenterSvc32.exe       14504 N/A                                         
+AWSoundCenterSvc64.exe       14516 N/A                                         
+CCXProcess.exe               15192 N/A                                         
+node.exe                     15240 N/A                                         
+conhost.exe                  15320 N/A                                         
+svchost.exe                  14700 seclogon                                    
+AdobeIPCBroker.exe           16920 N/A                                         
+openvpn-gui.exe              16948 N/A                                         
+Cortana.exe                  17228 N/A                                         
+RuntimeBroker.exe            17404 N/A                                         
+Creative Cloud.exe           13948 N/A                                         
+svchost.exe                  16756 AarSvc_1ac63e                               
+SpeechRuntime.exe             3228 N/A                                         
+Adobe Desktop Service.exe    17644 N/A                                         
+Adobe CEF Helper.exe         17732 N/A                                         
+jusched.exe                  19272 N/A                                         
+CCLibrary.exe                15500 N/A                                         
+node.exe                     15536 N/A                                         
+conhost.exe                  15676 N/A                                         
+Adobe CEF Helper.exe         16376 N/A                                         
+CoreSync.exe                  3560 N/A                                         
+svchost.exe                  14720 SSDPSRV                                     
+IAStorIcon.exe               18888 N/A                                         
+AlienFusionService.exe         632 AlienFusionService                          
+svchost.exe                   2264 wscsvc                                      
+DDVRulesProcessor.exe         4696 DDVRulesProcessor                           
+ServiceShell.exe              1808 DellClientManagementService                 
+msdtc.exe                    16836 MSDTC                                       
+IAStorDataMgrSvc.exe         12044 IAStorDataMgrSvc                            
+jhi_service.exe               3824 jhi_service                                 
+LMS.exe                       9648 LMS                                         
+SgrmBroker.exe                1996 SgrmBroker                                  
+svchost.exe                   9308 UsoSvc                                      
+DDVDataCollector.exe         17652 DDVDataCollector                            
+DDVCollectorSvcApi.exe       18136 DDVCollectorSvcApi                          
+chrome.exe                   12748 N/A                                         
+chrome.exe                   14236 N/A                                         
+chrome.exe                    8876 N/A                                         
+chrome.exe                    8884 N/A                                         
+chrome.exe                   16708 N/A                                         
+chrome.exe                    1352 N/A                                         
+chrome.exe                    3032 N/A                                         
+svchost.exe                  14528 CertPropSvc                                 
+nvapiw.exe                    7980 N/A                                         
+ApplicationFrameHost.exe      8324 N/A                                         
+WinStore.App.exe             18760 N/A                                         
+RuntimeBroker.exe            20248 N/A                                         
+CompPkgSrv.exe               11984 N/A                                         
+svchost.exe                   4608 PrintWorkflowUserSvc_1ac63e                 
+svchost.exe                  20092 WebClient                                   
+HelpPane.exe                   300 N/A                                         
+svchost.exe                  21388 FDResPub                                    
+svchost.exe                  17376 DsSvc                                       
+svchost.exe                  23264 QWAVE                                       
+WmiPrvSE.exe                 22072 N/A                                         
+chrome.exe                    7148 N/A                                         
+vmconnect.exe                 2716 N/A                                         
+svchost.exe                   8764 wcncsvc                                     
+chrome.exe                   18500 N/A                                         
+chrome.exe                    1156 N/A                                         
+chrome.exe                    2632 N/A                                         
+chrome.exe                   15944 N/A                                         
+chrome.exe                   11928 N/A                                         
+svchost.exe                  20168 lfsvc                                       
+svchost.exe                  15284 AppMgmt                                     
+explorer.exe                  9808 N/A                                         
+TextInputHost.exe            13120 N/A                                         
+StartMenuExperienceHost.e    13640 N/A                                         
+SearchApp.exe                24980 N/A                                         
+ShellExperienceHost.exe      25184 N/A                                         
+RuntimeBroker.exe            12632 N/A                                         
+UserOOBEBroker.exe           21632 N/A                                         
+svchost.exe                   8628 DevicesFlowUserSvc_1ac63e                   
+WUDFHost.exe                 10456 N/A                                         
+vmwp.exe                     24796 N/A                                         
+SystemSettings.exe           15796 N/A                                         
+vmwp.exe                     16608 N/A                                         
+rundll32.exe                  4728 N/A                                         
+chrome.exe                   12592 N/A                                         
+Microsoft.Photos.exe          3668 N/A                                         
+RuntimeBroker.exe            21932 N/A                                         
+wlanext.exe                  19516 N/A                                         
+conhost.exe                  25152 N/A                                         
+OneDrive.exe                  7420 N/A                                         
+chrome.exe                    3808 N/A                                         
+GameBar.exe                  22920 N/A                                         
+GameBarFTServer.exe           6228 N/A                                         
+RuntimeBroker.exe            13164 N/A                                         
+svchost.exe                  19588 XblAuthManager                              
+chrome.exe                   25668 N/A                                         
+chrome.exe                    2404 N/A                                         
+FileCoAuth.exe                 988 N/A                                         
+svchost.exe                  23604 DoSvc                                       
+LockApp.exe                   9664 N/A                                         
+RuntimeBroker.exe            11528 N/A                                         
+Video.UI.exe                 10604 N/A                                         
+RuntimeBroker.exe            11824 N/A                                         
+svchost.exe                  14620 WaaSMedicSvc                                
+chrome.exe                   10280 N/A                                         
+dllhost.exe                  20708 N/A                                         
+Code.exe                     23200 N/A                                         
+Code.exe                      6624 N/A                                         
+Code.exe                     21200 N/A                                         
+Code.exe                     25484 N/A                                         
+Code.exe                     25044 N/A                                         
+Code.exe                      9500 N/A                                         
+CodeHelper.exe               21672 N/A                                         
+conhost.exe                  22252 N/A                                         
+Code.exe                      2136 N/A                                         
+conhost.exe                  22556 N/A                                         
+powershell.exe                2792 N/A                                         
+chrome.exe                    3048 N/A                                         
+chrome.exe                   17316 N/A                                         
+chrome.exe                   22228 N/A                                         
+svchost.exe                   3128 lmhosts                                     
+conhost.exe                  24064 N/A                                         
+powershell.exe               26004 N/A                                         
+svchost.exe                  17320 WdiSystemHost                               
+chrome.exe                    3836 N/A                                         
+chrome.exe                    1848 N/A                                         
+chrome.exe                    5736 N/A                                         
+chrome.exe                   13892 N/A                                         
+chrome.exe                   12284 N/A                                         
+chrome.exe                   21752 N/A                                         
+chrome.exe                    9800 N/A                                         
+conhost.exe                  17024 N/A                                         
+powershell.exe               12548 N/A                                         
+cmd.exe                      24788 N/A                                         
+chrome.exe                   24636 N/A                                         
+chrome.exe                   22760 N/A                                         
+chrome.exe                   20780 N/A                                         
+svchost.exe                   7000 AppXSvc                                     
+smartscreen.exe               7264 N/A                                         
+cmd.exe                      24184 N/A                                         
+conhost.exe                  12380 N/A                                         
+WmiPrvSE.exe                 15060 N/A                                         
+WmiPrvSE.exe                 25908 N/A                                         
+TrustedInstaller.exe         19444 TrustedInstaller                            
+TiWorker.exe                  9876 N/A                                         
+tasklist.exe                 12016 N/A                                         
+7. ========== Started Windows Services ====================== 
+These Windows services are started:
+
+   Adobe Acrobat Update Service
+   Adobe Genuine Monitor Service
+   Adobe Genuine Software Integrity Service
+   Agent Activation Runtime_1ac63e
+   AlienFusion Windows Service
+   Alienware Client Management Service
+   Application Information
+   Application Management
+   AppX Deployment Service (AppXSVC)
+   AVCTP service
+   Background Tasks Infrastructure Service
+   Base Filtering Engine
+   Bluetooth Audio Gateway Service
+   Bluetooth Support Service
+   Bluetooth User Support Service_1ac63e
+   Capability Access Manager Service
+   Certificate Propagation
+   Clipboard User Service_1ac63e
+   CNG Key Isolation
+   COM+ Event System
+   Connected Devices Platform Service
+   Connected Devices Platform User Service_1ac63e
+   Connected User Experiences and Telemetry
+   Contact Data_1ac63e
+   CoreMessaging
+   Credential Manager
+   Cryptographic Services
+   Data Sharing Service
+   Data Usage
+   DCOM Server Process Launcher
+   Delivery Optimization
+   Dell Data Vault Collector
+   Dell Data Vault Processor
+   Dell Data Vault Service API
+   Device Association Service
+   Device Install Service
+   DevicesFlow_1ac63e
+   DHCP Client
+   Diagnostic Policy Service
+   Diagnostic Service Host
+   Diagnostic System Host
+   Display Enhancement Service
+   Display Policy Service
+   Distributed Link Tracking Client
+   Distributed Transaction Coordinator
+   DNS Client
+   Function Discovery Resource Publication
+   Gaming Services
+   Gaming Services
+   Geolocation Service
+   Host Network Service
+   Human Interface Device Service
+   HV Host Service
+   Hyper-V Host Compute Service
+   Hyper-V Virtual Machine Management
+   Intel(R) Content Protection HDCP Service
+   Intel(R) Content Protection HECI Service
+   Intel(R) Dynamic Application Loader Host Interface Service
+   Intel(R) Dynamic Platform and Thermal Framework service
+   Intel(R) Graphics Command Center Service
+   Intel(R) HD Graphics Control Panel Service
+   Intel(R) Management and Security Application Local Management Service
+   Intel(R) Rapid Storage Technology
+   Internet Connection Sharing (ICS)
+   IP Helper
+   IPsec Policy Agent
+   Killer Network Service
+   Local Session Manager
+   Malwarebytes Service
+   Message Queuing
+   Microsoft Defender Antivirus Network Inspection Service
+   Microsoft Defender Antivirus Service
+   Microsoft Office Click-to-Run Service
+   Microsoft Store Install Service
+   Net.Tcp Port Sharing Service
+   Netlogon
+   Network Connection Broker
+   Network Connections
+   Network List Service
+   Network Location Awareness
+   Network Store Interface Service
+   Network Virtualization Service
+   NVIDIA Display Container LS
+   OpenVPN Interactive Service
+   Payments and NFC/SE Manager
+   Plug and Play
+   Power
+   Print Spooler
+   PrintWorkflow_1ac63e
+   Program Compatibility Assistant Service
+   Quality Windows Audio Video Experience
+   Radio Management Service
+   Realtek Audio Service
+   Remote Access Connection Manager
+   Remote Procedure Call (RPC)
+   RPC Endpoint Mapper
+   Secondary Logon
+   Secure Socket Tunneling Protocol Service
+   Security Accounts Manager
+   Security Center
+   Server
+   Shell Hardware Detection
+   SSDP Discovery
+   State Repository Service
+   Storage Service
+   Sync Host_1ac63e
+   SynTPEnh Caller Service
+   SysMain
+   System Event Notification Service
+   System Events Broker
+   System Guard Runtime Monitor Broker
+   Task Scheduler
+   TCP/IP NetBIOS Helper
+   TeamViewer 13
+   Telephony
+   Themes
+   Time Broker
+   Touch Keyboard and Handwriting Panel Service
+   Update Orchestrator Service
+   User Data Access_1ac63e
+   User Data Storage_1ac63e
+   User Manager
+   User Profile Service
+   VMware Authorization Service
+   VMware DHCP Service
+   VMware NAT Service
+   VMware USB Arbitration Service
+   Web Account Manager
+   WebClient
+   Windows Audio
+   Windows Audio Endpoint Builder
+   Windows Biometric Service
+   Windows Connect Now - Config Registrar
+   Windows Connection Manager
+   Windows Defender Firewall
+   Windows Event Log
+   Windows Font Cache Service
+   Windows License Manager Service
+   Windows Management Instrumentation
+   Windows Modules Installer
+   Windows Presentation Foundation Font Cache 3.0.0.0
+   Windows Push Notifications System Service
+   Windows Push Notifications User Service_1ac63e
+   Windows Search
+   Windows Security Service
+   Windows Time
+   Windows Update Medic Service
+   WinHTTP Web Proxy Auto-Discovery Service
+   WLAN AutoConfig
+   Workstation
+   Xbox Live Auth Manager
+   xTendUtilityService
+
+The command completed successfully.
+
+8. ========== Scheduled Jobs  ====================== 
+
+Folder: \
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+Adobe Acrobat Update Task                12/15/2020 3:00:00 PM  Ready          
+AdobeGCInvoker-1.0                       12/15/2020 8:05:00 PM  Ready          
+AWCC Orchestrator                        N/A                    Ready          
+AWSoundCentersvc32Run                    N/A                    Ready          
+AWSoundCentersvc64Run                    N/A                    Ready          
+AWSoundCenterUILauncherRun               N/A                    Ready          
+Dell SupportAssistAgent AutoUpdate       12/21/2020 1:45:31 PM  Ready          
+OneDrive Standalone Update Task-S-1-5-21 12/15/2020 3:12:55 PM  Ready          
+Shutdown                                 N/A                    Disabled       
+
+Folder: \Agent Activation Runtime
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+S-1-5-21-1139129701-2612344368-223122015 N/A                    Disabled       
+
+Folder: \Microsoft
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+INFO: There are no scheduled tasks presently available at your access level.
+
+Folder: \Microsoft\Office
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+Office Automatic Updates 2.0             12/15/2020 6:47:19 AM  Ready          
+Office ClickToRun Service Monitor        12/15/2020 9:06:37 AM  Ready          
+Office Feature Updates                   12/15/2020 1:02:09 AM  Ready          
+Office Feature Updates Logon             N/A                    Ready          
+Office Subscription Maintenance          12/15/2020 6:14:48 PM  Ready          
+
+Folder: \Microsoft\OneCore
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+INFO: There are no scheduled tasks presently available at your access level.
+
+Folder: \Microsoft\Windows
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+INFO: There are no scheduled tasks presently available at your access level.
+
+Folder: \Microsoft\Windows\.NET Framework
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+.NET Framework NGEN v4.0.30319           N/A                    Ready          
+.NET Framework NGEN v4.0.30319 64        N/A                    Ready          
+.NET Framework NGEN v4.0.30319 64 Critic N/A                    Disabled       
+.NET Framework NGEN v4.0.30319 Critical  N/A                    Disabled       
+
+Folder: \Microsoft\Windows\Active Directory Rights Management Services Client
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+AD RMS Rights Policy Template Management N/A                    Disabled       
+AD RMS Rights Policy Template Management N/A                    Ready          
+
+Folder: \Microsoft\Windows\AppID
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+PolicyConverter                          N/A                    Disabled       
+VerifiedPublisherCertStoreCheck          N/A                    Disabled       
+
+Folder: \Microsoft\Windows\Application Experience
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+Microsoft Compatibility Appraiser        12/15/2020 4:03:12 AM  Ready          
+PcaPatchDbTask                           12/15/2020 4:24:24 AM  Ready          
+ProgramDataUpdater                       N/A                    Ready          
+StartupAppTask                           N/A                    Ready          
+
+Folder: \Microsoft\Windows\ApplicationData
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+appuriverifierdaily                      N/A                    Ready          
+appuriverifierinstall                    N/A                    Ready          
+CleanupTemporaryState                    N/A                    Ready          
+DsSvcCleanup                             N/A                    Ready          
+
+Folder: \Microsoft\Windows\AppxDeploymentClient
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+Pre-staged app cleanup                   N/A                    Disabled       
+
+Folder: \Microsoft\Windows\Autochk
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+Proxy                                    N/A                    Ready          
+
+Folder: \Microsoft\Windows\BitLocker
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+BitLocker Encrypt All Drives             N/A                    Ready          
+BitLocker MDM policy Refresh             N/A                    Ready          
+
+Folder: \Microsoft\Windows\Bluetooth
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+UninstallDeviceTask                      N/A                    Ready          
+
+Folder: \Microsoft\Windows\BrokerInfrastructure
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+BgTaskRegistrationMaintenanceTask        N/A                    Ready          
+
+Folder: \Microsoft\Windows\CertificateServicesClient
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+UserTask                                 N/A                    Ready          
+UserTask-Roam                            N/A                    Ready          
+
+Folder: \Microsoft\Windows\Chkdsk
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+ProactiveScan                            N/A                    Ready          
+SyspartRepair                            N/A                    Ready          
+
+Folder: \Microsoft\Windows\CloudExperienceHost
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+CreateObjectTask                         N/A                    Ready          
+
+Folder: \Microsoft\Windows\Customer Experience Improvement Program
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+Consolidator                             12/15/2020 12:00:00 AM Ready          
+UsbCeip                                  N/A                    Ready          
+
+Folder: \Microsoft\Windows\Data Integrity Scan
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+Data Integrity Check And Scan            12/14/2020 11:08:58 PM Ready          
+Data Integrity Scan                      N/A                    Ready          
+Data Integrity Scan for Crash Recovery   N/A                    Ready          
+
+Folder: \Microsoft\Windows\Defrag
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+ScheduledDefrag                          N/A                    Ready          
+
+Folder: \Microsoft\Windows\Device Information
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+Device                                   12/15/2020 4:02:43 AM  Ready          
+Device User                              N/A                    Ready          
+
+Folder: \Microsoft\Windows\Diagnosis
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+RecommendedTroubleshootingScanner        N/A                    Ready          
+Scheduled                                N/A                    Ready          
+
+Folder: \Microsoft\Windows\DirectX
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+DirectXDatabaseUpdater                   N/A                    Ready          
+DXGIAdapterCache                         N/A                    Ready          
+
+Folder: \Microsoft\Windows\DiskCleanup
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+SilentCleanup                            N/A                    Ready          
+
+Folder: \Microsoft\Windows\DiskDiagnostic
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+Microsoft-Windows-DiskDiagnosticDataColl N/A                    Disabled       
+Microsoft-Windows-DiskDiagnosticResolver N/A                    Disabled       
+
+Folder: \Microsoft\Windows\DiskFootprint
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+Diagnostics                              N/A                    Ready          
+StorageSense                             N/A                    Ready          
+
+Folder: \Microsoft\Windows\DUSM
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+dusmtask                                 N/A                    Ready          
+
+Folder: \Microsoft\Windows\EDP
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+EDP App Launch Task                      N/A                    Ready          
+EDP Auth Task                            N/A                    Ready          
+EDP Inaccessible Credentials Task        N/A                    Ready          
+StorageCardEncryption Task               N/A                    Ready          
+
+Folder: \Microsoft\Windows\ExploitGuard
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+ExploitGuard MDM policy Refresh          N/A                    Ready          
+
+Folder: \Microsoft\Windows\Feedback
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+INFO: There are no scheduled tasks presently available at your access level.
+
+Folder: \Microsoft\Windows\Feedback\Siuf
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+DmClient                                 N/A                    Ready          
+DmClientOnScenarioDownload               N/A                    Ready          
+
+Folder: \Microsoft\Windows\File Classification Infrastructure
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+Property Definition Sync                 N/A                    Disabled       
+
+Folder: \Microsoft\Windows\FileHistory
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+File History (maintenance mode)          N/A                    Ready          
+
+Folder: \Microsoft\Windows\Flighting
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+INFO: There are no scheduled tasks presently available at your access level.
+
+Folder: \Microsoft\Windows\Flighting\FeatureConfig
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+ReconcileFeatures                        N/A                    Ready          
+UsageDataFlushing                        N/A                    Ready          
+UsageDataReporting                       N/A                    Ready          
+
+Folder: \Microsoft\Windows\Flighting\OneSettings
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+RefreshCache                             12/14/2020 10:37:39 PM Ready          
+
+Folder: \Microsoft\Windows\Input
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+LocalUserSyncDataAvailable               N/A                    Ready          
+MouseSyncDataAvailable                   N/A                    Ready          
+PenSyncDataAvailable                     N/A                    Ready          
+TouchpadSyncDataAvailable                N/A                    Ready          
+
+Folder: \Microsoft\Windows\InstallService
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+ScanForUpdates                           12/15/2020 7:25:10 PM  Ready          
+ScanForUpdatesAsUser                     N/A                    Ready          
+WakeUpAndContinueUpdates                 N/A                    Disabled       
+WakeUpAndScanForUpdates                  N/A                    Disabled       
+
+Folder: \Microsoft\Windows\International
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+Synchronize Language Settings            N/A                    Ready          
+
+Folder: \Microsoft\Windows\LanguageComponentsInstaller
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+Installation                             N/A                    Ready          
+ReconcileLanguageResources               N/A                    Ready          
+
+Folder: \Microsoft\Windows\Live
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+INFO: There are no scheduled tasks presently available at your access level.
+
+Folder: \Microsoft\Windows\Location
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+Notifications                            N/A                    Ready          
+WindowsActionDialog                      N/A                    Ready          
+
+Folder: \Microsoft\Windows\Maintenance
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+WinSAT                                   N/A                    Ready          
+
+Folder: \Microsoft\Windows\Management
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+INFO: There are no scheduled tasks presently available at your access level.
+
+Folder: \Microsoft\Windows\Management\Provisioning
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+Cellular                                 N/A                    Ready          
+Logon                                    N/A                    Ready          
+Retry                                    N/A                    Disabled       
+RunOnReboot                              N/A                    Disabled       
+
+Folder: \Microsoft\Windows\Maps
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+MapsToastTask                            N/A                    Ready          
+MapsUpdateTask                           N/A                    Disabled       
+
+Folder: \Microsoft\Windows\MemoryDiagnostic
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+ProcessMemoryDiagnosticEvents            N/A                    Ready          
+RunFullMemoryDiagnostic                  N/A                    Ready          
+
+Folder: \Microsoft\Windows\Mobile Broadband Accounts
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+MNO Metadata Parser                      N/A                    Ready          
+
+Folder: \Microsoft\Windows\MUI
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+LPRemove                                 N/A                    Ready          
+
+Folder: \Microsoft\Windows\Multimedia
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+SystemSoundsService                      N/A                    Running        
+
+Folder: \Microsoft\Windows\NetTrace
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+GatherNetworkInfo                        N/A                    Ready          
+
+Folder: \Microsoft\Windows\NlaSvc
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+WiFiTask                                 N/A                    Ready          
+
+Folder: \Microsoft\Windows\Offline Files
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+Background Synchronization               N/A                    Disabled       
+Logon Synchronization                    N/A                    Disabled       
+
+Folder: \Microsoft\Windows\PLA
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+INFO: There are no scheduled tasks presently available at your access level.
+
+Folder: \Microsoft\Windows\Plug and Play
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+Device Install Group Policy              N/A                    Ready          
+Device Install Reboot Required           N/A                    Ready          
+Sysprep Generalize Drivers               N/A                    Ready          
+
+Folder: \Microsoft\Windows\Power Efficiency Diagnostics
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+AnalyzeSystem                            N/A                    Ready          
+
+Folder: \Microsoft\Windows\Printing
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+EduPrintProv                             N/A                    Ready          
+
+Folder: \Microsoft\Windows\RecoveryEnvironment
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+VerifyWinRE                              N/A                    Disabled       
+
+Folder: \Microsoft\Windows\Registry
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+RegIdleBackup                            N/A                    Ready          
+
+Folder: \Microsoft\Windows\Servicing
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+StartComponentCleanup                    N/A                    Ready          
+
+Folder: \Microsoft\Windows\SettingSync
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+BackgroundUploadTask                     N/A                    Ready          
+NetworkStateChangeTask                   N/A                    Ready          
+
+Folder: \Microsoft\Windows\SharedPC
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+Account Cleanup                          N/A                    Disabled       
+
+Folder: \Microsoft\Windows\Shell
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+CreateObjectTask                         N/A                    Ready          
+FamilySafetyMonitor                      N/A                    Ready          
+FamilySafetyRefreshTask                  N/A                    Ready          
+IndexerAutomaticMaintenance              N/A                    Ready          
+
+Folder: \Microsoft\Windows\SoftwareProtectionPlatform
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+SvcRestartTaskLogon                      N/A                    Disabled       
+
+Folder: \Microsoft\Windows\SpacePort
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+SpaceAgentTask                           N/A                    Ready          
+SpaceManagerTask                         N/A                    Ready          
+
+Folder: \Microsoft\Windows\Speech
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+HeadsetButtonPress                       N/A                    Ready          
+
+Folder: \Microsoft\Windows\StateRepository
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+MaintenanceTasks                         N/A                    Ready          
+
+Folder: \Microsoft\Windows\Storage Tiers Management
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+Storage Tiers Management Initialization  N/A                    Ready          
+Storage Tiers Optimization               N/A                    Disabled       
+
+Folder: \Microsoft\Windows\Subscription
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+EnableLicenseAcquisition                 N/A                    Ready          
+LicenseAcquisition                       N/A                    Disabled       
+
+Folder: \Microsoft\Windows\Sysmain
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+HybridDriveCachePrepopulate              N/A                    Disabled       
+HybridDriveCacheRebalance                N/A                    Disabled       
+ResPriStaticDbSync                       N/A                    Ready          
+WsSwapAssessmentTask                     N/A                    Ready          
+
+Folder: \Microsoft\Windows\SystemRestore
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+SR                                       N/A                    Ready          
+
+Folder: \Microsoft\Windows\Task Manager
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+Interactive                              N/A                    Ready          
+
+Folder: \Microsoft\Windows\termsrv
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+INFO: There are no scheduled tasks presently available at your access level.
+
+Folder: \Microsoft\Windows\termsrv\RemoteFX
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+RemoteFXvGPUDisableTask                  N/A                    Ready          
+RemoteFXWarningTask                      12/25/2020 1:00:00 PM  Ready          
+
+Folder: \Microsoft\Windows\TextServicesFramework
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+MsCtfMonitor                             N/A                    Ready          
+
+Folder: \Microsoft\Windows\Time Synchronization
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+ForceSynchronizeTime                     N/A                    Ready          
+SynchronizeTime                          N/A                    Ready          
+
+Folder: \Microsoft\Windows\Time Zone
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+SynchronizeTimeZone                      N/A                    Ready          
+
+Folder: \Microsoft\Windows\UNP
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+RunUpdateNotificationMgr                 N/A                    Disabled       
+
+Folder: \Microsoft\Windows\UPnP
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+UPnPHostConfig                           N/A                    Ready          
+
+Folder: \Microsoft\Windows\USB
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+Usb-Notifications                        N/A                    Ready          
+
+Folder: \Microsoft\Windows\WCM
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+WiFiTask                                 N/A                    Ready          
+
+Folder: \Microsoft\Windows\WDI
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+ResolutionHost                           N/A                    Ready          
+
+Folder: \Microsoft\Windows\Windows Defender
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+Windows Defender Cache Maintenance       N/A                    Ready          
+Windows Defender Cleanup                 N/A                    Ready          
+Windows Defender Scheduled Scan          N/A                    Ready          
+Windows Defender Verification            N/A                    Ready          
+
+Folder: \Microsoft\Windows\Windows Error Reporting
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+QueueReporting                           12/15/2020 12:46:12 AM Ready          
+
+Folder: \Microsoft\Windows\Windows Filtering Platform
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+BfeOnServiceStartTypeChange              N/A                    Ready          
+
+Folder: \Microsoft\Windows\Windows Media Sharing
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+UpdateLibrary                            N/A                    Ready          
+
+Folder: \Microsoft\Windows\WindowsColorSystem
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+Calibration Loader                       N/A                    Ready          
+
+Folder: \Microsoft\Windows\WindowsUpdate
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+Scheduled Start                          12/15/2020 1:46:38 PM  Ready          
+
+Folder: \Microsoft\Windows\Wininet
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+CacheTask                                N/A                    Running        
+
+Folder: \Microsoft\Windows\WlanSvc
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+CDSSync                                  N/A                    Ready          
+
+Folder: \Microsoft\Windows\Work Folders
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+Work Folders Logon Synchronization       N/A                    Ready          
+Work Folders Maintenance Work            N/A                    Ready          
+
+Folder: \Microsoft\Windows\Workplace Join
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+Automatic-Device-Join                    N/A                    Ready          
+Device-Sync                              N/A                    Disabled       
+Recovery-Check                           N/A                    Disabled       
+
+Folder: \Microsoft\Windows\WwanSvc
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+NotificationTask                         N/A                    Ready          
+OobeDiscovery                            N/A                    Disabled       
+
+Folder: \Microsoft\XblGameSave
+TaskName                                 Next Run Time          Status         
+======================================== ====================== ===============
+XblGameSaveTask                          N/A                    Ready          
+9. ========== Windows Patches ====================== 
+C a p t i o n                                                                           D e s c r i p t i o n             H o t F i x I D       I n s t a l l e d O n      
+                                                                                         U p d a t e                       K B 2 6 9 3 6 4 3     6 / 1 5 / 2 0 2 0          
+ h t t p : / / s u p p o r t . m i c r o s o f t . c o m / ? k b i d = 4 5 7 8 9 6 8     U p d a t e                       K B 4 5 7 8 9 6 8     1 0 / 1 5 / 2 0 2 0        
+ h t t p : / / s u p p o r t . m i c r o s o f t . c o m / ? k b i d = 4 5 5 7 9 6 8     S e c u r i t y   U p d a t e     K B 4 5 5 7 9 6 8     6 / 3 / 2 0 2 0            
+ h t t p : / / s u p p o r t . m i c r o s o f t . c o m / ? k b i d = 4 5 6 0 3 6 6     S e c u r i t y   U p d a t e     K B 4 5 6 0 3 6 6     6 / 1 0 / 2 0 2 0          
+ h t t p : / / s u p p o r t . m i c r o s o f t . c o m / ? k b i d = 4 5 6 1 6 0 0     S e c u r i t y   U p d a t e     K B 4 5 6 1 6 0 0     6 / 1 0 / 2 0 2 0          
+ h t t p : / / s u p p o r t . m i c r o s o f t . c o m / ? k b i d = 4 5 6 2 8 3 0     U p d a t e                       K B 4 5 6 2 8 3 0     1 0 / 2 8 / 2 0 2 0        
+ h t t p : / / s u p p o r t . m i c r o s o f t . c o m / ? k b i d = 4 5 6 6 7 8 5     S e c u r i t y   U p d a t e     K B 4 5 6 6 7 8 5     7 / 1 5 / 2 0 2 0          
+ h t t p : / / s u p p o r t . m i c r o s o f t . c o m / ? k b i d = 4 5 7 0 3 3 4     S e c u r i t y   U p d a t e     K B 4 5 7 0 3 3 4     8 / 1 6 / 2 0 2 0          
+ h t t p s : / / s u p p o r t . m i c r o s o f t . c o m / h e l p / 4 5 7 7 2 6 6     S e c u r i t y   U p d a t e     K B 4 5 7 7 2 6 6     9 / 1 3 / 2 0 2 0          
+ h t t p s : / / s u p p o r t . m i c r o s o f t . c o m / h e l p / 4 5 8 0 3 2 5     S e c u r i t y   U p d a t e     K B 4 5 8 0 3 2 5     1 0 / 1 5 / 2 0 2 0        
+ h t t p s : / / s u p p o r t . m i c r o s o f t . c o m / h e l p / 4 5 8 6 8 6 4     S e c u r i t y   U p d a t e     K B 4 5 8 6 8 6 4     1 1 / 1 9 / 2 0 2 0        
+ h t t p s : / / s u p p o r t . m i c r o s o f t . c o m / h e l p / 4 5 8 6 7 8 1     S e c u r i t y   U p d a t e     K B 4 5 8 6 7 8 1     1 1 / 1 9 / 2 0 2 0        
+ 10. ========== Application Names ====================== 
+N a m e                                                                                                                              
+ P y t h o n   3 . 8 . 5   T e s t   S u i t e   ( 3 2 - b i t )                                                                      
+ P y t h o n   3 . 8 . 5   S t a n d a r d   L i b r a r y   ( 3 2 - b i t )                                                          
+ P y t h o n   3 . 8 . 5   E x e c u t a b l e s   ( 3 2 - b i t )                                                                    
+ P y t h o n   3 . 8 . 5   D e v e l o p m e n t   L i b r a r i e s   ( 3 2 - b i t )                                                
+ P y t h o n   3 . 8 . 5   T c l / T k   S u p p o r t   ( 3 2 - b i t )                                                              
+ P y t h o n   3 . 8 . 5   U t i l i t y   S c r i p t s   ( 3 2 - b i t )                                                            
+ P y t h o n   3 . 8 . 5   C o r e   I n t e r p r e t e r   ( 3 2 - b i t )                                                          
+ A D   R e p l i c a t i o n   S t a t u s   T o o l   1 . 0                                                                          
+ P y t h o n   3 . 8 . 5   D o c u m e n t a t i o n   ( 3 2 - b i t )                                                                
+ P y t h o n   3 . 8 . 5   p i p   B o o t s t r a p   ( 3 2 - b i t )                                                                
+ O f f i c e   1 6   C l i c k - t o - R u n   E x t e n s i b i l i t y   C o m p o n e n t                                          
+ O f f i c e   1 6   C l i c k - t o - R u n   L o c a l i z a t i o n   C o m p o n e n t                                            
+ O f f i c e   1 6   C l i c k - t o - R u n   L i c e n s i n g   C o m p o n e n t                                                  
+ M i V o i c e   O f f i c e   2 5 0   S y s t e m   A d m i n i s t r a t i o n   &   D i a g n o s t i c s                          
+ M i c r o s o f t   V i s u a l   C + +   2 0 1 3   x 8 6   M i n i m u m   R u n t i m e   -   1 2 . 0 . 4 0 6 6 0                  
+ M i c r o s o f t   V i s u a l   C + +   2 0 1 0     x 6 4   R e d i s t r i b u t a b l e   -   1 0 . 0 . 4 0 2 1 9                
+ M i c r o s o f t   V i s u a l   C + +   2 0 1 0     x 8 6   R e d i s t r i b u t a b l e   -   1 0 . 0 . 4 0 2 1 9                
+ P y t h o n   L a u n c h e r                                                                                                        
+ P y t h o n   2 . 7 . 8                                                                                                              
+ V i G E m   B u s   D r i v e r                                                                                                      
+ H P   U n i f i e d   I O                                                                                                            
+ 6 4   B i t   H P   C I O   C o m p o n e n t s   I n s t a l l e r                                                                  
+ U I I n s t a l l U p g r a d e                                                                                                      
+ S a g e   1 0 0   2 0 1 9   W o r k s t a t i o n                                                                                    
+ P r o d u c t D a e m o n S e t u p                                                                                                  
+ I n t e l ( R )   M a n a g e m e n t   E n g i n e   C o m p o n e n t s                                                            
+ S A P   C r y s t a l   R e p o r t s   r u n t i m e   e n g i n e   f o r   . N E T   F r a m e w o r k   4   ( 3 2 - b i t )      
+ M i c r o s o f t   V i s u a l   C + +   2 0 1 3   x 6 4   A d d i t i o n a l   R u n t i m e   -   1 2 . 0 . 4 0 6 6 0            
+ J a v a   8   U p d a t e   2 7 1                                                                                                    
+ M i c r o s o f t   V i s u a l   C + +   2 0 1 9   X 6 4   M i n i m u m   R u n t i m e   -   1 4 . 2 7 . 2 9 0 1 6                
+ I n t e l ( R )   T r u s t e d   C o n n e c t   S e r v i c e   C l i e n t   x 8 6                                                
+ I n t e l ( R )   T r u s t e d   C o n n e c t   S e r v i c e   C l i e n t   x 6 4                                                
+ M i c r o s o f t   V i s u a l   C + +   2 0 1 9   X 6 4   A d d i t i o n a l   R u n t i m e   -   1 4 . 2 7 . 2 9 0 1 6          
+ I n t e l ( R )   C h i p s e t   D e v i c e   S o f t w a r e                                                                      
+ S a g e   O D B C   6 4 - b i t   I n s t a l l e r                                                                                  
+ V M w a r e   P l a y e r                                                                                                            
+ A d o b e   R e a d e r   X   ( 1 0 . 1 . 4 )                                                                                        
+ M i c r o s o f t   V i s u a l   C + +   2 0 0 8   R e d i s t r i b u t a b l e   -   x 8 6   9 . 0 . 3 0 7 2 9 . 6 1 6 1          
+ P D F s a m   B a s i c                                                                                                              
+ M i c r o s o f t   V i s u a l   S t u d i o   2 0 1 0   T o o l s   f o r   O f f i c e   R u n t i m e   ( x 6 4 )                
+ M i c r o s o f t   V i s u a l   C + +   2 0 1 9   X 8 6   A d d i t i o n a l   R u n t i m e   -   1 4 . 2 4 . 2 8 1 2 7          
+ I n t e l ( R )   R a p i d   S t o r a g e   T e c h n o l o g y                                                                    
+ M i c r o s o f t   V i s u a l   C + +   2 0 1 2   x 6 4   A d d i t i o n a l   R u n t i m e   -   1 1 . 0 . 6 1 0 3 0            
+ M i c r o s o f t   V i s u a l   C + +   2 0 1 3   x 8 6   A d d i t i o n a l   R u n t i m e   -   1 2 . 0 . 4 0 6 6 0            
+ N a h i m i c 2 U I S e t u p                                                                                                        
+ D e l l   S u p p o r t A s s i s t                                                                                                  
+ N a h i m i c S e t t i n g s C o n f i g u r a t o r                                                                                
+ C h e c k D e v i c e s   I n s t a l l   C o n f i g u r a t o r                                                                    
+                                                                                                                                      
+ M i V o i c e   O f f i c e   2 5 0   D B   P r o g r a m m i n g   6 . 3 . 7 . 8 0                                                  
+ G o o g l e   U p d a t e   H e l p e r                                                                                              
+ M i c r o s o f t   A z u r e   C L I                                                                                                
+ A u d i o L a u n c h p a d   I n s t a l l   C o n f i g u r a t o r                                                                
+ M i c r o s o f t   V C + +   r e d i s t r i b u t a b l e s   r e p a c k e d .                                                    
+ L a u n c h e r S e t u p   I n s t a l l                                                                                            
+ A l i e n w a r e   C o m m a n d   C e n t e r                                                                                      
+ M i c r o s o f t   V i s u a l   C + +   2 0 1 2   x 8 6   A d d i t i o n a l   R u n t i m e   -   1 1 . 0 . 6 1 0 3 0            
+ M i c r o s o f t   V i s u a l   C + +   2 0 0 5   R e d i s t r i b u t a b l e                                                    
+ P u T T Y   r e l e a s e   0 . 7 3   ( 6 4 - b i t )                                                                                
+ M i c r o s o f t   V i s u a l   C + +   2 0 1 2   x 6 4   M i n i m u m   R u n t i m e   -   1 1 . 0 . 6 1 0 3 0                  
+ H P   P h o t o s m a r t   5 5 2 0   s e r i e s   B a s i c   D e v i c e   S o f t w a r e                                        
+ M i c r o s o f t   V i s u a l   C + +   2 0 1 3   x 6 4   M i n i m u m   R u n t i m e   -   1 2 . 0 . 4 0 6 6 0                  
+ H P   U n i f i e d   I O                                                                                                            
+ O r a c l e   V M   V i r t u a l B o x   6 . 1 . 1 6                                                                                
+ M i c r o s o f t   V C + +   r e d i s t r i b u t a b l e s   r e p a c k e d .                                                    
+ M i c r o s o f t   S Q L   S e r v e r   C o m p a c t   3 . 5   S P 2   E N U                                                      
+ c a l i b r e   6 4 b i t                                                                                                            
+ M i c r o s o f t   V i s u a l   C + +   2 0 1 2   x 8 6   M i n i m u m   R u n t i m e   -   1 1 . 0 . 6 1 0 3 0                  
+ I n t e l ( R )   M a n a g e m e n t   E n g i n e   D r i v e r                                                                    
+ S o n i c M a p p e r   I n s t a l l   C o n f i g u r a t o r                                                                      
+ V N C   V i e w e r   6 . 1 9 . 1 1 1 5                                                                                              
+ M i c r o s o f t   V i s u a l   C + +   2 0 1 9   X 8 6   M i n i m u m   R u n t i m e   -   1 4 . 2 4 . 2 8 1 2 7                
+ J a v a   A u t o   U p d a t e r                                                                                                    
+ F o x p r o   9   L i b r a r y   S P 2                                                                                              
+ I n t e l ( R )   M a n a g e m e n t   E n g i n e   C o m p o n e n t s                                                            
+ S A P   C r y s t a l   R e p o r t s   r u n t i m e   e n g i n e   f o r   . N E T   F r a m e w o r k   ( 6 4 - b i t )          
+ 11. ========== Connected Devices ====================== 
+C a p t i o n     D e s c r i p t i o n               P r o v i d e r N a m e      
+ C :               L o c a l   F i x e d   D i s k                                  
+ D :               L o c a l   F i x e d   D i s k                                  
+ 
