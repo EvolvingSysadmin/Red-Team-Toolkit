@@ -2,7 +2,7 @@
 
 ## Windows System Information
 
-A simple CMD script that pipes these commands to a txt file is here: [\tools\WinSysEnum.bat](https://github.com/EvolvingSysadmin/Penetration-Testing/blob/master/tools/WinSysEnum.bat)
+A simple batch script with these commands: [\tools\WinSysEnum.bat](https://github.com/EvolvingSysadmin/Penetration-Testing/blob/master/tools/WinSysEnum.bat)
 
 Display Full Local System Info
 ```CMD
@@ -76,6 +76,8 @@ Get-PSDrive | where {$_.Provider -like "Microsoft.PowerShell.Core\FileSystem"}| 
 ```
 
 ## Windows Network Information
+
+A simple batch script with these commands: [\tools\WinNetEnum.bat](https://github.com/EvolvingSysadmin/Penetration-Testing/blob/master/tools/WinNetEnum.bat)
 
 Display IP and Interfaces/Copy to Clipboard
 ```CMD
