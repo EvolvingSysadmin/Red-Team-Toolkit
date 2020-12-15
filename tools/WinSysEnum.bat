@@ -121,7 +121,8 @@ if "%var%"=="0" goto close
     goto:start
 
 :op12
-    echo 1. ========== Display Full Local System Info  ========== > "WinSysEnum.txt"
+    echo Windows System Enumeration - %COMPUTERNAME% ^| %DATE% - %TIME% > "WinUserEnum.txt"
+    echo 1. ========== Display Full Local System Info  ========== >> "WinSysEnum.txt"
     systeminfo >> "WinSysEnum.txt"
     echo 2. ========== OS Name and Version ====================== >> "WinSysEnum.txt"
     systeminfo | findstr /B /C:"OS Name" /C:"OS Version" >> "WinSysEnum.txt"

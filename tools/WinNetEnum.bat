@@ -76,7 +76,8 @@ if "%var%"=="0" goto close
     goto:start
 
 :op7
-    echo 1. ========== List all Interfaces  ========== > "WinNetEnum.txt"
+    echo Windows Network Enumeration - %COMPUTERNAME% ^| %DATE% - %TIME% > "WinUserEnum.txt"
+    echo 1. ========== List all Interfaces  ========== >> "WinNetEnum.txt"
     ipconfig /all >> "WinNetEnum.txt"
     echo 2. ========== Routing Table  ========== >> "WinNetEnum.txt"
     route print >> "WinNetEnum.txt"    
