@@ -2,6 +2,8 @@
 
 ## Windows System Information
 
+A simple CMD script that pipes these commands to a txt file is here: [\tools\WinSysEnum.cmd](https://github.com/EvolvingSysadmin/Penetration-Testing/blob/master/tools/WinSysEnum.cmd)
+
 Display Full Local System Info
 ```CMD
 systeminfo
@@ -14,7 +16,7 @@ systeminfo | findstr /B /C:"OS Name" /C:"OS Version
 
 Display System Drives
 ```CMD
-fsutil fsinfo drives
+wmic logicaldisk where drivetype=3 get name, freespace, systemname, filesystem, size, volumeserialnumber
 ```
 
 Display System Environment Table
