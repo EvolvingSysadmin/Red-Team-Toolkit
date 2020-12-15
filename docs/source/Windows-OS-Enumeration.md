@@ -2,7 +2,7 @@
 
 ## Windows System Information
 
-A simple batch script with these commands: [\tools\WinSysEnum.bat](https://github.com/EvolvingSysadmin/Penetration-Testing/blob/master/tools/WinSysEnum.bat)
+* A simple batch script with these commands: [\tools\WinSysEnum.bat](https://github.com/EvolvingSysadmin/Penetration-Testing/blob/master/tools/WinSysEnum.bat)
 
 Display Full Local System Info
 ```CMD
@@ -77,7 +77,7 @@ Get-PSDrive | where {$_.Provider -like "Microsoft.PowerShell.Core\FileSystem"}| 
 
 ## Windows Network Information
 
-A simple batch script with these commands: [\tools\WinNetEnum.bat](https://github.com/EvolvingSysadmin/Penetration-Testing/blob/master/tools/WinNetEnum.bat)
+* A simple batch script with these commands: [\tools\WinNetEnum.bat](https://github.com/EvolvingSysadmin/Penetration-Testing/blob/master/tools/WinNetEnum.bat)
 
 Display IP and Interfaces/Copy to Clipboard
 ```CMD
@@ -107,7 +107,7 @@ netstat -naob 1 | find "<IPADDR or PORT>"
 
 ## Windows User Information
 
-A simple CMD script that outputs these commands to txt is here: [\tools\UserInfo.cmd](https://github.com/EvolvingSysadmin/Penetration-Testing/blob/master/tools/UserInfo.cmd)
+A simple CMD script that outputs these commands to txt is here: [\tools\WindowsUserEnum.bat](https://github.com/EvolvingSysadmin/Penetration-Testing/blob/master/tools/WindowsUserEnum.bat)
 
 Display Username Associated with Current User ID
 ```CMD
