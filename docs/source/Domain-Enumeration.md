@@ -2,6 +2,8 @@
 
 ## Command Tools (cmd.exe)
 
+A simple CMD script that pipes these commands to a txt file is here: [\tools\WinDomainEnum.cmd](https://github.com/EvolvingSysadmin/Penetration-Testing/blob/master/tools/WinDomainEnum.cmd)
+
 Display Networking Info
 ```CMD
 ipconfig /all
