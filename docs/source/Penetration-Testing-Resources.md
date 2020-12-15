@@ -16,10 +16,22 @@ https://github.com/dloss/python-pentest-tools
 - [Mimikatz](https://github.com/gentilkiwi/mimikatz)
 - [Rubeus](https://github.com/GhostPack/Rubeus) -> [Compiled Version](https://github.com/r3motecontrol/Ghostpack-CompiledBinaries)
 - [BloodHound](https://github.com/BloodHoundAD/BloodHound)
+https://github.com/BloodHoundAD/SharpHound3
 - [AD Module](https://github.com/samratashok/ADModule)
 - [ASREPRoast](https://github.com/HarmJ0y/ASREPRoast)
+- https://github.com/dirkjanm/ldapdomaindump 
+
+### Local Windows Privilege Escalation
+
+https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/ 
 
 ### Ubiquitous Tools
+- [Kali]
+- [Sysinternals]
+- [MetaSploit]
+- [Nmap] (https://nmap.org/book/man.html)
+
+
 
 ## Guides
 
@@ -45,7 +57,11 @@ https://github.com/fireeye/red_team_tool_countermeasures
 
 https://github.com/absolomb/Pentesting/tree/master/guides
 
+https://github.com/OWASP/DevGuide/wiki 
+
 ## Cheat Sheets
+
+https://highon.coffee/blog/cheat-sheet/
 
 ## Other Resources
 
