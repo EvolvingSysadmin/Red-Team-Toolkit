@@ -1,5 +1,14 @@
 # DNS Discovery
 
+* [Nslookup](#nslookup)
+* [DNS IP Lookup](#dns-ip-lookup)
+* [Reverse DNS lookup](#reverse-dns-lookup)
+* [MX (Mail Exchange) lookup](#mx--mail-exchange--lookup)
+* [NS (Nameserver) lookup](#ns--nameserver--lookup)
+* [Zone Transfers](#zone-transfers)
+* [Kali DNS Bruteforce](#kali-dns-bruteforce)
+* [DNS Online Tools](#dns-online-tools)
+
 ## Nslookup
 
 Resolve a given hostname to the corresponding IP
