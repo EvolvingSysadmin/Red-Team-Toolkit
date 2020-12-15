@@ -2,7 +2,13 @@
 
 ## Tools
 
-### Windows Domain Enumeration
+### Windows Enumeration
+
+#### Toolkit Scripts
+
+https://github.com/dloss/python-pentest-tools 
+
+#### Software
 - [Powersploit](https://github.com/PowerShellMafia/PowerSploit/tree/dev)
 - [PowerUpSQL](https://github.com/NetSPI/PowerUpSQL)
 - [Powermad](https://github.com/Kevin-Robertson/Powermad)
@@ -13,7 +19,9 @@
 - [AD Module](https://github.com/samratashok/ADModule)
 - [ASREPRoast](https://github.com/HarmJ0y/ASREPRoast)
 
+### Ubiquitous Tools
 
+## Guides
 
 nbtscan Cheat Sheet: https://highon.coffee/blog/nbtscan-cheat-sheet/
 
@@ -36,4 +44,27 @@ https://github.com/fireeye/commando-vm
 https://github.com/fireeye/red_team_tool_countermeasures
 
 https://github.com/absolomb/Pentesting/tree/master/guides
+
+## Cheat Sheets
+
+## Other Resources
+
+https://github.com/Arr0way/SecLists
+
+https://github.com/Arr0way/pwnwiki.github.io
+
+https://github.com/Arr0way/ptf
+
+https://github.com/Arr0way/os-scripts
+
+https://github.com/jotaah123/-Pentesting-w-CMD-
+
+https://github.com/tom0682/Pentesting-Cmds 
+
+https://github.com/Xyntax/CDK/wiki 
+
+
+
+
+https://ecotrust-canada.github.io/markdown-toc/
 
