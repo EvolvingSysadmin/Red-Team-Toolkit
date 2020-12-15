@@ -2,7 +2,7 @@
 
 ## Command Tools (cmd.exe)
 
-A simple CMD script that pipes these commands to a txt file is here: [\tools\WinDomainEnum.cmd](https://github.com/EvolvingSysadmin/Penetration-Testing/blob/master/tools/WinDomainEnum.cmd)
+A simple batch script with these commands is here: [\tools\WinDomainEnum.bat](https://github.com/EvolvingSysadmin/Penetration-Testing/blob/master/tools/WinDomainEnum.bat)
 
 Display Networking Info
 ```CMD
