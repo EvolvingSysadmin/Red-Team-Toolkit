@@ -11,7 +11,7 @@ Display Domain
 echo %USERDOMAIN%
     net config workstation/server
 ```
-Display Domain Controller
+Display Domain Logon Server
 ```CMD
 echo %logonserver%
 ```
