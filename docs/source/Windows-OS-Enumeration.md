@@ -2,7 +2,7 @@
 
 ## Windows System Information
 
-A simple CMD script that pipes these commands to a txt file is here: [\tools\WinSysEnum.cmd](https://github.com/EvolvingSysadmin/Penetration-Testing/blob/master/tools/WinSysEnum.cmd)
+A simple CMD script that pipes these commands to a txt file is here: [\tools\WinSysEnum.bat](https://github.com/EvolvingSysadmin/Penetration-Testing/blob/master/tools/WinSysEnum.bat)
 
 Display Full Local System Info
 ```CMD
