@@ -1,5 +1,5 @@
 @echo off
-S
+
 :: WinSysEnum.bat: Simple script provides available windows systems information.
 :: https://github.com/EvolvingSysadmin/Penetration-Testing 
 :: https://ryanheavican.com/
