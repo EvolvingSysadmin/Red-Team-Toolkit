@@ -151,7 +151,9 @@ Find Machines Where Domain Admin or Specified User Has Session
 Invoke-UserHunter
  Invoke-UserHunter -GroupName <GroupName>
  Invoke-UserHunter -CheckAccess
+  Invoke-UserHunter -Stealth
 ```
 ## PowerView Resources
 * https://powersploit.readthedocs.io/en/latest/Recon/
 * https://github.com/PowerShellMafia/PowerSploit/tree/master/Recon
+* https://gist.github.com/HarmJ0y/184f9822b195c52dd50c379ed3117993

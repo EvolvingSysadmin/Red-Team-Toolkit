@@ -1,4 +1,4 @@
-# Penetration Testing Toolkit
+# Pentesting Toolkit
 
 Practical tools and techniques for penetration testing. Also available at [Read the Docs](https://penetration-testing.readthedocs.io/).
 
