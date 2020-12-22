@@ -89,3 +89,5 @@ https://github.com/fireeye/red_team_tool_countermeasures/blob/master/CVEs_red_te
 
 https://github.com/projectdiscovery/nuclei
 
+https://github.com/blaCCkHatHacEEkr/PENTESTING-BIBLE
+
