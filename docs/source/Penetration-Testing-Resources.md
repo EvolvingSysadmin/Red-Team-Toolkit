@@ -87,3 +87,5 @@ https://ecotrust-canada.github.io/markdown-toc/
 
 https://github.com/fireeye/red_team_tool_countermeasures/blob/master/CVEs_red_team_tools.md
 
+https://github.com/projectdiscovery/nuclei
+
