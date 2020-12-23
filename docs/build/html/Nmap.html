@@ -86,6 +86,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="DNS-Discovery.html">DNS Discovery</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Nmap</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#nmap-verbose-scans">Nmap Verbose Scans</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#nmap-target-selection">Nmap Target Selection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#nmap-port-scan-types">Nmap Port Scan types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#nmap-service-and-os-detection">Nmap Service and OS Detection</a></li>
@@ -99,12 +100,12 @@
 <li class="toctree-l1"><a class="reference internal" href="PowerView.html">PowerView</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Windows-OS-Enumeration.html">Windows OS Enumration Using CMD.exe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Shodan.html">Shodan</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Shodan.html#list-of-shodan-filters">List of Shodan Filters</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Windows Exploits</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Windows-Exploits.html">Windows Exploits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Windows-Exploit-Suggester.html">Windows Exploit Suggester</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Local-Windows-Privilege-Escalation.html">Local Windows Privilege Escalation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Windows-System-Exploits.html">Windows System Exploits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Domain-Privilege-Escalation.html">Domain Privilege Escalation</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Linux Exploits</span></p>
@@ -185,6 +186,26 @@
             
   <div class="section" id="nmap">
 <h1>Nmap<a class="headerlink" href="#nmap" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="nmap-verbose-scans">
+<h2>Nmap Verbose Scans<a class="headerlink" href="#nmap-verbose-scans" title="Permalink to this headline">¶</a></h2>
+<p>Nmap verbose scan, runs syn stealth, T4 timing (should be ok on LAN), OS and service version info, traceroute and scripts against services</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nmap -v -sS -A -T4 target
+</pre></div>
+</div>
+<p>As above but scans all TCP ports (takes a lot longer)</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nmap -v -sS -p--A -T4 target
+</pre></div>
+</div>
+<p>As above but scans all TCP ports and UDP scan (takes even longer)</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nmap -v -sU -sS -p- -A -T4 target
+</pre></div>
+</div>
+<p>Nmap script to scan for vulnerable SMB servers - WARNING: unsafe=1 may cause knockover</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nmap -v -p <span class="m">445</span> --script<span class="o">=</span>smb-check-vulns 
+--script-args<span class="o">=</span><span class="nv">unsafe</span><span class="o">=</span><span class="m">1</span> <span class="m">192</span>.168.1.X
+</pre></div>
+</div>
+</div>
 <div class="section" id="nmap-target-selection">
 <h2>Nmap Target Selection<a class="headerlink" href="#nmap-target-selection" title="Permalink to this headline">¶</a></h2>
 <p>Scan a single IP</p>

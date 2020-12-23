@@ -89,12 +89,12 @@
 <li class="toctree-l1"><a class="reference internal" href="PowerView.html">PowerView</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Windows-OS-Enumeration.html">Windows OS Enumration Using CMD.exe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Shodan.html">Shodan</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Shodan.html#list-of-shodan-filters">List of Shodan Filters</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Windows Exploits</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Windows-Exploits.html">Windows Exploits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Windows-Exploit-Suggester.html">Windows Exploit Suggester</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Local-Windows-Privilege-Escalation.html">Local Windows Privilege Escalation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Windows-System-Exploits.html">Windows System Exploits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Domain-Privilege-Escalation.html">Domain Privilege Escalation</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Linux Exploits</span></p>
@@ -109,9 +109,17 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Penetration Testing Resources</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#tools">Tools</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#windows-domain-enumeration">Windows Domain Enumeration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ubiquitous-tools">Ubiquitous Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enumeration">Enumeration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#social-engineering-tools">Social Engineering Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#windows-exploit-tools">Windows Exploit Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linux-tools">Linux Tools</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#lists-of-tools">Lists of Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cheat-sheets">Cheat Sheets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#other-resources">Other Resources</a></li>
 </ul>
 </li>
 </ul>
@@ -183,8 +191,17 @@
 <h1>Penetration Testing Resources<a class="headerlink" href="#penetration-testing-resources" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="tools">
 <h2>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="windows-domain-enumeration">
-<h3>Windows Domain Enumeration<a class="headerlink" href="#windows-domain-enumeration" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="ubiquitous-tools">
+<h3>Ubiquitous Tools<a class="headerlink" href="#ubiquitous-tools" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.kali.org/downloads/">Kali</a></p></li>
+<li><p><a class="reference external" href="https://www.kali.org/downloads/">Sysinternals</a></p></li>
+<li><p><a class="reference external" href="https://github.com/rapid7/metasploit-framework">MetaSploit</a></p></li>
+<li><p><a class="reference external" href="https://nmap.org/book/man.html">Nmap</a></p></li>
+</ul>
+</div>
+<div class="section" id="enumeration">
+<h3>Enumeration<a class="headerlink" href="#enumeration" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/PowerShellMafia/PowerSploit/tree/dev">Powersploit</a></p></li>
 <li><p><a class="reference external" href="https://github.com/NetSPI/PowerUpSQL">PowerUpSQL</a></p></li>
@@ -192,11 +209,68 @@
 <li><p><a class="reference external" href="https://github.com/SecureAuthCorp/impacket">Impacket</a></p></li>
 <li><p><a class="reference external" href="https://github.com/gentilkiwi/mimikatz">Mimikatz</a></p></li>
 <li><p><a class="reference external" href="https://github.com/GhostPack/Rubeus">Rubeus</a> -&gt; <a class="reference external" href="https://github.com/r3motecontrol/Ghostpack-CompiledBinaries">Compiled Version</a></p></li>
-<li><p><a class="reference external" href="https://github.com/BloodHoundAD/BloodHound">BloodHound</a></p></li>
+<li><p><a class="reference external" href="https://github.com/BloodHoundAD/BloodHound">BloodHound</a>
+https://github.com/BloodHoundAD/SharpHound3</p></li>
 <li><p><a class="reference external" href="https://github.com/samratashok/ADModule">AD Module</a></p></li>
 <li><p><a class="reference external" href="https://github.com/HarmJ0y/ASREPRoast">ASREPRoast</a></p></li>
+<li><p>https://github.com/dirkjanm/ldapdomaindump</p></li>
 </ul>
 </div>
+<div class="section" id="social-engineering-tools">
+<h3>Social Engineering Tools<a class="headerlink" href="#social-engineering-tools" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/rsmusllp/king-phisher">King Phisher</a></p></li>
+</ul>
+</div>
+<div class="section" id="windows-exploit-tools">
+<h3>Windows Exploit Tools<a class="headerlink" href="#windows-exploit-tools" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.cobaltstrike.com/">CobaltStrike</a></p></li>
+<li><p><a class="reference external" href="https://github.com/projectdiscovery/nuclei">CVE Scanner</a></p></li>
+<li><p><a class="reference external" href="https://github.com/fireeye/red_team_tool_countermeasures/blob/master/CVEs_red_team_tools">FireEye CVE Tools</a></p></li>
+<li><p><a class="reference external" href="https://github.com/OWASP/DevGuide/wiki">Security Testing Lists</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Arr0way/ptf">PenTester Testers Framework</a></p></li>
+<li><p><a class="reference external" href="https://github.com/jotaah123/-Pentesting-w-CMD-">PenTesting with CMD</a></p></li>
+</ul>
+</div>
+<div class="section" id="linux-tools">
+<h3>Linux Tools<a class="headerlink" href="#linux-tools" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/Arr0way/os-scripts">Kali Scripts</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="lists-of-tools">
+<h2>Lists of Tools<a class="headerlink" href="#lists-of-tools" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/dloss/python-pentest-tools">Python Tools for Penetration Testers</a></p></li>
+</ul>
+</div>
+<div class="section" id="guides">
+<h2>Guides<a class="headerlink" href="#guides" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/">Windows Privilege Escalation Guide</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Arr0way/pwnwiki.github.io">PwnWiki</a></p></li>
+<li><p><a class="reference external" href="https://github.com/absolomb/Pentesting/tree/master/guides">PenTesting Guide</a></p></li>
+</ul>
+</div>
+<div class="section" id="cheat-sheets">
+<h2>Cheat Sheets<a class="headerlink" href="#cheat-sheets" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/blaCCkHatHacEEkr/PENTESTING-BIBLE">Resources for Learning PenTesting</a></p></li>
+<li><p><a class="reference external" href="https://highon.coffee/blog/cheat-sheet/">Pentesting Cheat Sheet Collection</a></p></li>
+<li><p><a class="reference external" href="https://highon.coffee/blog/nbtscan-cheat-sheet/">nbtscan Cheat Sheet</a></p></li>
+<li><p><a class="reference external" href="https://highon.coffee/blog/linux-commands-cheat-sheet/">Linux Commands Cheat Sheet</a></p></li>
+<li><p><a class="reference external" href="https://imgur.com/gallery/U5jqgik">Cheat Sheet Collection</a></p></li>
+</ul>
+</div>
+<div class="section" id="other-resources">
+<h2>Other Resources<a class="headerlink" href="#other-resources" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/OWASP/DevGuide/wiki">OWASP Dev Guide</a></p></li>
+<li><p><a class="reference external" href="https://github.com/fireeye/red_team_tool_countermeasures">FireEye Countermeasures</a></p></li>
+<li><p><a class="reference external" href="https://github.com/fireeye/commando-vm">FireEye Commando VM</a></p></li>
+</ul>
 </div>
 </div>
 
