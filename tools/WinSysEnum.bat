@@ -19,7 +19,7 @@ echo  6    Services Running Inside Each Process
 echo  7    Started Windows Services
 echo  8    Scheduled Jobs 
 echo  9    Windows Patches
-echo  10   Application Names
+echo  10   Application Names (slow)
 echo  11   Connected Devices
 echo  12   Print all to WinSysEnum.txt (opens when done)
 echo  0    Close
@@ -108,7 +108,7 @@ if "%var%"=="0" goto close
 
 :op10
     echo.
-    wmic product get name
+    wmic product get name | SORT
     echo.
     pause
     goto:start
@@ -141,7 +141,7 @@ if "%var%"=="0" goto close
     echo 9. ========== Windows Patches ====================== >> "WinSysEnum.txt"
     wmic qfe get Caption,Description,HotFixID,InstalledOn >> "WinSysEnum.txt"
     echo 10. ========== Application Names ====================== >> "WinSysEnum.txt"
-    wmic product get name >> "WinSysEnum.txt"
+    wmic product get name | ECHO >> "WinSysEnum.txt"
     echo 11. ========== Connected Devices ====================== >> "WinSysEnum.txt"
     wmic logicaldisk get caption,description,providername >> "WinSysEnum.txt"
     

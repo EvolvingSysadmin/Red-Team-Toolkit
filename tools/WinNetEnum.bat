@@ -14,8 +14,8 @@ echo  1    List all Interfaces
 echo  2    Display Routing Tables
 echo  3    ARP Table
 echo  4    Active Connections
-echo  5    Just Listening Connections
-echo  6    Processes Associated with Active Port Connections
+echo  5    Listening Connections
+echo  6    Processes Associated with Active Port Connections (requires admin)
 echo  7    Print all to WinNetEnum.txt (opens when done)
 echo  0    Close
 echo ------------------------------------------------------------------------------
