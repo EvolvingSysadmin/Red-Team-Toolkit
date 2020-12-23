@@ -17,7 +17,9 @@ Practical tools and techniques for penetration testing. Also available at [Read 
   * [Local Windows Privilege Escalation](/docs/source/Local-Windows-Privilege-Escalation.md)
   * [Domain Windows Privilege Escalation](/docs/source/Domain-Privilege-Escalation.md)
 * __Linux Exploits__
+  * [Linux Enumeration](/docs/source/Linux-Enumeration.md)
   * [Linux Exploits](/docs/source/Linux-Exploits.md)
 * __Web App Exploits__
+  * [Web App Exploits]((/docs/source/Linux-Exploits.md))
 * __Penetration Testing Resources__
   * [Penetration Testing Resources](/docs/source/Penetration-Testing-Resources.md)

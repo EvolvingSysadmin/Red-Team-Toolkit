@@ -16,7 +16,7 @@ echo  3    Users with RDP Privileges
 echo  4    Local Groups
 echo  5    Local Administrators Group
 echo  6    Domain Groups (must be run on DC)
-echo  7    Domain Password Policy
+echo  7    Domain Password Policy (must be run on DC)
 echo  8    Get Full User Info for Selected User
 echo  9    Print all to .txt (opens when done)
 echo  0    Close
