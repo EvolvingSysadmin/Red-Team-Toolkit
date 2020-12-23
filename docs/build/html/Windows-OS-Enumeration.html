@@ -96,12 +96,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Shodan.html">Shodan</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Shodan.html#list-of-shodan-filters">List of Shodan Filters</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Windows Exploits</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Windows-Exploits.html">Windows Exploits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Windows-Exploit-Suggester.html">Windows Exploit Suggester</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Local-Windows-Privilege-Escalation.html">Local Windows Privilege Escalation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Windows-System-Exploits.html">Windows System Exploits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Domain-Privilege-Escalation.html">Domain Privilege Escalation</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Linux Exploits</span></p>
@@ -184,6 +184,9 @@
 <h1>Windows OS Enumration Using CMD.exe<a class="headerlink" href="#windows-os-enumration-using-cmd-exe" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="windows-system-information">
 <h2>Windows System Information<a class="headerlink" href="#windows-system-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>A simple batch script with these commands: <a class="reference external" href="https://github.com/EvolvingSysadmin/Penetration-Testing/blob/master/tools/WinSysEnum.bat">\tools\WinSysEnum.bat</a></p></li>
+</ul>
 <p>Display Full Local System Info</p>
 <div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>systeminfo
 </pre></div>
@@ -193,11 +196,27 @@
 </pre></div>
 </div>
 <p>Display System Drives</p>
-<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>fsutil fsinfo drives
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>wmic logicaldisk where drivetype=3 get name, freespace, systemname, filesystem, size, volumeserialnumber
+</pre></div>
+</div>
+<p>Display System Environment Table</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>set
+</pre></div>
+</div>
+<p>Display SET using PowerShell</p>
+<div class="highlight-PowerShell notranslate"><div class="highlight"><pre><span></span>Get-ChildItem Env: | ft Key,Value
 </pre></div>
 </div>
 <p>Display Running System Processes</p>
 <div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>tasklist /v
+</pre></div>
+</div>
+<p>Services Running Inside Each Process</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span> tasklist /svc
+</pre></div>
+</div>
+<p>Attributes of All Running Processes</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>wmic process list full
 </pre></div>
 </div>
 <p>Display Started Windows Services</p>
@@ -212,11 +231,28 @@
 <div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>wmic qfe get Caption,Description,HotFixID,InstalledOn
 </pre></div>
 </div>
+<p>Display All Installed Application Names</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>wmic product get name
+</pre></div>
+</div>
+<p>Display Connected Devices</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>net use
+ wmic logicaldisk get caption,description,providername
+</pre></div>
+</div>
+<p>Display Connected Devices in PowerShell</p>
+<div class="highlight-PowerShell notranslate"><div class="highlight"><pre><span></span><span class="nb">Get-PSDrive</span> <span class="p">|</span> <span class="nb">where </span><span class="p">{</span><span class="nv">$_</span><span class="p">.</span><span class="n">Provider</span> <span class="o">-like</span> <span class="s2">&quot;Microsoft.PowerShell.Core\FileSystem&quot;</span><span class="p">}|</span> <span class="nb">ft </span><span class="n">Name</span><span class="p">,</span><span class="n">Root</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="windows-network-information">
 <h2>Windows Network Information<a class="headerlink" href="#windows-network-information" title="Permalink to this headline">¶</a></h2>
-<p>Display IP and Interfaces</p>
+<ul class="simple">
+<li><p>A simple batch script with these commands: <a class="reference external" href="https://github.com/EvolvingSysadmin/Penetration-Testing/blob/master/tools/WinNetEnum.bat">\tools\WinNetEnum.bat</a></p></li>
+</ul>
+<p>Display IP and Interfaces/Copy to Clipboard</p>
 <div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>ipconfig /all
+ ipconfig | clip
 </pre></div>
 </div>
 <p>Display Routing Table</p>
@@ -231,11 +267,17 @@
 <div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>netstat -an
 </pre></div>
 </div>
+<p>List of TCP and UDP activity every 1 second</p>
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>netstat -naob 1 | find &quot;&lt;IPADDR or PORT&gt;&quot;
+</pre></div>
+</div>
 </div>
 <div class="section" id="windows-user-information">
 <h2>Windows User Information<a class="headerlink" href="#windows-user-information" title="Permalink to this headline">¶</a></h2>
+<p>A simple CMD script that outputs these commands to txt is here: <a class="reference external" href="https://github.com/EvolvingSysadmin/Penetration-Testing/blob/master/tools/WinUserEnum.bat">\tools\WinUserEnum.bat</a></p>
 <p>Display Username Associated with Current User ID</p>
 <div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>whoami
+ echo %USERNAME%
 </pre></div>
 </div>
 <p>Display All whoami Access Token Info</p>
@@ -259,7 +301,7 @@
 </pre></div>
 </div>
 <p>Display Local Administrators</p>
-<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>net localgroup &quot;administrators&quot;
+<div class="highlight-CMD notranslate"><div class="highlight"><pre><span></span>net localgroup administrators
 </pre></div>
 </div>
 <p>Display Domain Group (must be run on DC)</p>

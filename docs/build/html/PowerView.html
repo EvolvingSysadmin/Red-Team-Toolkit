@@ -100,12 +100,12 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Windows-OS-Enumeration.html">Windows OS Enumration Using CMD.exe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Shodan.html">Shodan</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Shodan.html#list-of-shodan-filters">List of Shodan Filters</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Windows Exploits</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Windows-Exploits.html">Windows Exploits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Windows-Exploit-Suggester.html">Windows Exploit Suggester</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Local-Windows-Privilege-Escalation.html">Local Windows Privilege Escalation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Windows-System-Exploits.html">Windows System Exploits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Domain-Privilege-Escalation.html">Domain Privilege Escalation</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Linux Exploits</span></p>
@@ -281,7 +281,7 @@
 <div class="section" id="computer-info">
 <h2>Computer Info<a class="headerlink" href="#computer-info" title="Permalink to this headline">¶</a></h2>
 <p>Display Domain Computers</p>
-<div class="highlight-PowerShell notranslate"><div class="highlight"><pre><span></span><span class="nb">Get-ADComputer</span> <span class="n">-Filter</span> <span class="p">*</span>
+<div class="highlight-PowerShell notranslate"><div class="highlight"><pre><span></span><span class="nb">Get-ADComputer</span> <span class="n">-Filter</span> <span class="p">*</span> <span class="n">-Properties</span> <span class="p">*</span>
 </pre></div>
 </div>
 <p>More Detailed All Computer Info</p>
@@ -309,6 +309,10 @@
 <div class="highlight-PowerShell notranslate"><div class="highlight"><pre><span></span><span class="nb">Find-DomainUserLocation</span>
 </pre></div>
 </div>
+<p>Get Detailed User Info</p>
+<div class="highlight-PowerShell notranslate"><div class="highlight"><pre><span></span><span class="nb">Get-ADUser</span> <span class="n">-Properties</span> <span class="p">*</span> <span class="n">-Filter</span> <span class="p">*</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="group-info">
 <h2>Group Info<a class="headerlink" href="#group-info" title="Permalink to this headline">¶</a></h2>
@@ -318,6 +322,10 @@
 </div>
 <p>Display All Groups</p>
 <div class="highlight-PowerShell notranslate"><div class="highlight"><pre><span></span><span class="nb">Get-NetGroup</span>
+</pre></div>
+</div>
+<p>Display Detailed Info on All Groups</p>
+<div class="highlight-PowerShell notranslate"><div class="highlight"><pre><span></span><span class="nb">Get-ADGroup</span> <span class="n">-Properties</span> <span class="p">*</span> <span class="n">-Filter</span> <span class="p">*</span>
 </pre></div>
 </div>
 </div>
@@ -335,6 +343,7 @@
 <div class="highlight-PowerShell notranslate"><div class="highlight"><pre><span></span><span class="nb">Invoke-UserHunter</span>
  <span class="nb">Invoke-UserHunter</span> <span class="n">-GroupName</span> <span class="p">&lt;</span><span class="n">GroupName</span><span class="p">&gt;</span>
  <span class="nb">Invoke-UserHunter</span> <span class="n">-CheckAccess</span>
+  <span class="nb">Invoke-UserHunter</span> <span class="n">-Stealth</span>
 </pre></div>
 </div>
 </div>
@@ -343,6 +352,7 @@
 <ul class="simple">
 <li><p>https://powersploit.readthedocs.io/en/latest/Recon/</p></li>
 <li><p>https://github.com/PowerShellMafia/PowerSploit/tree/master/Recon</p></li>
+<li><p>https://gist.github.com/HarmJ0y/184f9822b195c52dd50c379ed3117993</p></li>
 </ul>
 </div>
 </div>

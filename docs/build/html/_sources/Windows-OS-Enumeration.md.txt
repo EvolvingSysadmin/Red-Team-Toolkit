@@ -2,6 +2,8 @@
 
 ## Windows System Information
 
+* A simple batch script with these commands: [\tools\WinSysEnum.bat](https://github.com/EvolvingSysadmin/Penetration-Testing/blob/master/tools/WinSysEnum.bat)
+
 Display Full Local System Info
 ```CMD
 systeminfo
@@ -14,12 +16,32 @@ systeminfo | findstr /B /C:"OS Name" /C:"OS Version
 
 Display System Drives
 ```CMD
-fsutil fsinfo drives
+wmic logicaldisk where drivetype=3 get name, freespace, systemname, filesystem, size, volumeserialnumber
+```
+
+Display System Environment Table
+```CMD
+set
+```
+
+Display SET using PowerShell
+```PowerShell
+Get-ChildItem Env: | ft Key,Value
 ```
 
 Display Running System Processes
 ```CMD
 tasklist /v
+```
+
+Services Running Inside Each Process
+```CMD
+ tasklist /svc
+```
+
+Attributes of All Running Processes
+```CMD
+wmic process list full
 ```
 
 Display Started Windows Services
@@ -37,11 +59,30 @@ Display Windows Patches
 wmic qfe get Caption,Description,HotFixID,InstalledOn
 ```
 
+Display All Installed Application Names
+```CMD
+wmic product get name
+```
+
+Display Connected Devices
+```CMD
+net use
+ wmic logicaldisk get caption,description,providername
+```
+
+Display Connected Devices in PowerShell
+```PowerShell
+Get-PSDrive | where {$_.Provider -like "Microsoft.PowerShell.Core\FileSystem"}| ft Name,Root
+```
+
 ## Windows Network Information
 
-Display IP and Interfaces
+* A simple batch script with these commands: [\tools\WinNetEnum.bat](https://github.com/EvolvingSysadmin/Penetration-Testing/blob/master/tools/WinNetEnum.bat)
+
+Display IP and Interfaces/Copy to Clipboard
 ```CMD
 ipconfig /all
+ ipconfig | clip
 ```
 
 Display Routing Table
@@ -59,11 +100,19 @@ Display Active TCP Connections
 netstat -an
 ```
 
+List of TCP and UDP activity every 1 second
+```CMD
+netstat -naob 1 | find "<IPADDR or PORT>"
+```
+
 ## Windows User Information
+
+A simple CMD script that outputs these commands to txt is here: [\tools\WinUserEnum.bat](https://github.com/EvolvingSysadmin/Penetration-Testing/blob/master/tools/WinUserEnum.bat)
 
 Display Username Associated with Current User ID
 ```CMD
 whoami
+ echo %USERNAME%
 ```
 
 Display All whoami Access Token Info
@@ -93,7 +142,7 @@ net localgroup
 
 Display Local Administrators
 ```CMD
-net localgroup "administrators"
+net localgroup administrators
 ```
 
 Display Domain Group (must be run on DC)

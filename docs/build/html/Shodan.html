@@ -36,7 +36,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Windows Exploits" href="Windows-Exploits.html" />
+    <link rel="next" title="Windows Exploit Suggester" href="Windows-Exploit-Suggester.html" />
     <link rel="prev" title="Windows OS Enumration Using CMD.exe" href="Windows-OS-Enumeration.html" /> 
 </head>
 
@@ -89,20 +89,23 @@
 <li class="toctree-l1"><a class="reference internal" href="Domain-Enumeration.html">Domain Enumeration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="PowerView.html">PowerView</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Windows-OS-Enumeration.html">Windows OS Enumration Using CMD.exe</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Shodan</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#list-of-shodan-filters">List of Shodan Filters</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#general-filters">General Filters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#http-filters">HTTP Filters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ntp-filters">NTP Filters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ssl-filters">SSL Filters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#telnet-filters">Telnet Filters</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Shodan</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#list-of-shodan-filters">List of Shodan Filters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#general-filters">General Filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#http-filters">HTTP Filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ntp-filters">NTP Filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ssl-filters">SSL Filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#telnet-filters">Telnet Filters</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 <p class="caption"><span class="caption-text">Windows Exploits</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Windows-Exploits.html">Windows Exploits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Windows-Exploit-Suggester.html">Windows Exploit Suggester</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Local-Windows-Privilege-Escalation.html">Local Windows Privilege Escalation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Windows-System-Exploits.html">Windows System Exploits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Domain-Privilege-Escalation.html">Domain Privilege Escalation</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Linux Exploits</span></p>
@@ -187,12 +190,12 @@
 <li><p><a class="reference external" href="https://www.shodan.io/">https://www.shodan.io/</a></p></li>
 <li><p><a class="reference external" href="https://github.com/JavierOlmedo/shodan-filters">https://github.com/JavierOlmedo/shodan-filters</a></p></li>
 <li><p><a class="reference external" href="https://beta.shodan.io/search/filters">https://beta.shodan.io/search/filters</a></p></li>
+<li><p><a class="reference external" href="https://ahrefs.com/blog/google-advanced-search-operators/">https://ahrefs.com/blog/google-advanced-search-operators/</a></p></li>
 </ul>
-</div>
 <div class="section" id="list-of-shodan-filters">
-<h1>List of Shodan Filters<a class="headerlink" href="#list-of-shodan-filters" title="Permalink to this headline">¶</a></h1>
+<h2>List of Shodan Filters<a class="headerlink" href="#list-of-shodan-filters" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="general-filters">
-<h2>General Filters<a class="headerlink" href="#general-filters" title="Permalink to this headline">¶</a></h2>
+<h3>General Filters<a class="headerlink" href="#general-filters" title="Permalink to this headline">¶</a></h3>
 <p>| <strong>Name</strong>           | <strong>Description</strong>                                                                                                                                                                                                            | <strong>Type</strong> |
 | —————— | ————————————————————————————————————————————————————————————————————————– | ——– |
 | <strong>after</strong>          | Only show results after the given date (dd/mm/yyyy) string                                                                                                                                                                 | string   |
@@ -220,7 +223,7 @@
 | <strong>vuln</strong>           | CVE ID for a vulnerability string                                                                                                                                                                                          | string   |</p>
 </div>
 <div class="section" id="http-filters">
-<h2>HTTP Filters<a class="headerlink" href="#http-filters" title="Permalink to this headline">¶</a></h2>
+<h3>HTTP Filters<a class="headerlink" href="#http-filters" title="Permalink to this headline">¶</a></h3>
 <p>| <strong>Name</strong>                    | <strong>Description</strong>                                  | <strong>Type</strong> |
 | ————————— | ———————————————— | ——– |
 | <strong>http.component</strong>          | Name of web technology used on the website       | string   |
@@ -231,7 +234,7 @@
 | <strong>http.title</strong>              | Title for the web banners website                | string   |</p>
 </div>
 <div class="section" id="ntp-filters">
-<h2>NTP Filters<a class="headerlink" href="#ntp-filters" title="Permalink to this headline">¶</a></h2>
+<h3>NTP Filters<a class="headerlink" href="#ntp-filters" title="Permalink to this headline">¶</a></h3>
 <p>| <strong>Name</strong>         | <strong>Description</strong>                                                              | <strong>Type</strong> |
 | —————- | —————————————————————————- | ——– |
 | <strong>ntp.ip</strong>       | IP addresses returned by monlist                                             | string   |
@@ -240,7 +243,7 @@
 | <strong>ntp.port</strong>     | Port used by IP addresses in monlist                                         | integer  |</p>
 </div>
 <div class="section" id="ssl-filters">
-<h2>SSL Filters<a class="headerlink" href="#ssl-filters" title="Permalink to this headline">¶</a></h2>
+<h3>SSL Filters<a class="headerlink" href="#ssl-filters" title="Permalink to this headline">¶</a></h3>
 <p>| <strong>Name</strong>                 | <strong>Description</strong>                                       | <strong>Type</strong>         |
 | ———————— | —————————————————– | —————- |
 | <strong>has_ssl</strong>              | True / False                                          | boolean          |
@@ -259,7 +262,7 @@
 | <strong>ssl.cipher.name</strong>      | Name of the preferred cipher                          | string           |</p>
 </div>
 <div class="section" id="telnet-filters">
-<h2>Telnet Filters<a class="headerlink" href="#telnet-filters" title="Permalink to this headline">¶</a></h2>
+<h3>Telnet Filters<a class="headerlink" href="#telnet-filters" title="Permalink to this headline">¶</a></h3>
 <p>| <strong>Name</strong>          | <strong>Description</strong>                                             | <strong>Type</strong> |
 | —————– | ———————————————————– | ——– |
 | <strong>telnet.option</strong> | Search all the options                                      | string   |
@@ -267,6 +270,7 @@
 | <strong>telnet.dont</strong>   | The server requests the client to not support these options | string   |
 | <strong>telnet.will</strong>   | The server supports these options                           | string   |
 | <strong>telnet.wont</strong>   | The server doesnt support these options                     | string   |</p>
+</div>
 </div>
 </div>
 
@@ -278,7 +282,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Windows-Exploits.html" class="btn btn-neutral float-right" title="Windows Exploits" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Windows-Exploit-Suggester.html" class="btn btn-neutral float-right" title="Windows Exploit Suggester" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="Windows-OS-Enumeration.html" class="btn btn-neutral float-left" title="Windows OS Enumration Using CMD.exe" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

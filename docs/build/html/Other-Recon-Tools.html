@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; Penetration Testing 1.0 documentation</title>
+  <title>Other Recon Tools &mdash; Penetration Testing 1.0 documentation</title>
   
 
   
@@ -34,7 +34,7 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-    <link rel="index" title="Index" href="#" />
+    <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
 
@@ -153,12 +153,14 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Index</li>
+      <li>Other Recon Tools</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/Other-Recon-Tools.md.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -170,11 +172,60 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
+  <div class="section" id="other-recon-tools">
+<h1>Other Recon Tools<a class="headerlink" href="#other-recon-tools" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="simplyemail">
+<h2>SimplyEmail<a class="headerlink" href="#simplyemail" title="Permalink to this headline">¶</a></h2>
+<p>Use SimplyEmail to enumerate all the online places (github target site etc), it works better if you use proxies or set long throttle times so google doesn’t think you’re a robot and make you fill out a Captcha. Simply Email can verify the discovered email addresss after gathering.</p>
+<p><a class="reference external" href="https://github.com/SimplySecurity/SimplyEmail">https://github.com/SimplySecurity/SimplyEmail</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/killswitch-GUI/SimplyEmail.git
+./SimplyEmail.py -all -e TARGET-DOMAIN
+</pre></div>
+</div>
+</div>
+<div class="section" id="gitleaks">
+<h2>Gitleaks<a class="headerlink" href="#gitleaks" title="Permalink to this headline">¶</a></h2>
+<p>Gitleaks is a SAST tool for detecting hardcoded secrets like passwords, api keys, and tokens in git repos. Gitleaks aims to be the easy-to-use, all-in-one solution for finding secrets, past or present, in your code.</p>
+<p><a class="reference external" href="https://github.com/zricethezav/gitleaks">https://github.com/zricethezav/gitleaks</a></p>
+</div>
+<div class="section" id="banner-grabbing">
+<h2>Banner Grabbing<a class="headerlink" href="#banner-grabbing" title="Permalink to this headline">¶</a></h2>
+<p>Basic versioning / finger printing via displayed banner</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc -v <span class="m">192</span>.168.1.1 <span class="m">25</span>
+ telnet <span class="m">192</span>.168.1.1 <span class="m">25</span>
+</pre></div>
+</div>
+<p>Banner grabbing with NC</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc TARGET-IP <span class="m">80</span>
+GET / HTTP/1.1
+Host: TARGET-IP
+User-Agent: Mozilla/5.0
+Referrer: meh-domain
+&lt;enter&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="udp-protocol-scanner">
+<h2>UDP Protocol Scanner<a class="headerlink" href="#udp-protocol-scanner" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/portcullislabs/udp-proto-scanner.git
+</pre></div>
+</div>
+<p>Scan a file of IP addresses for all services</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./udp-protocol-scanner.pl -f ip.txt 
+</pre></div>
+</div>
+<p>Scan for a specific UDP service</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>udp-proto-scanner.pl -p ntp -f ips.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="netdiscover">
+<h2>Netdiscover<a class="headerlink" href="#netdiscover" title="Permalink to this headline">¶</a></h2>
+<p>Discovers IP, MAC Address and MAC vendor on the subnet from ARP, helpful for confirming you’re on the right VLAN at $client site</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>netdiscover -r <span class="m">192</span>.168.1.0/24
+</pre></div>
+</div>
+</div>
 </div>
 
 
