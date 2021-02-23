@@ -65,3 +65,5 @@ https://github.com/BloodHoundAD/SharpHound3
 * [FireEye Commando VM](https://github.com/fireeye/commando-vm)
 * [Hash My Files](https://www.nirsoft.net/utils/hash_my_files.html)
 
+https://github.com/enaqx/awesome-pentest
+https://github.com/mgeeky/Penetration-Testing-Tools
