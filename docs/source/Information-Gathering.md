@@ -1,5 +1,13 @@
 # Social Recon
 
+## Google
+
+[Google Hacking for Penetration Testers](/docs/source/Resources/)
+
+Whois lookup google hack:
+   "physical address search string" site:www.findip-address.com
+   "physical address search string" site:domaintools.com
+
 ## theHarvester
 
 theHarvester is a very simple to use, yet powerful and effective tool designed to be used in the early stages of a
@@ -13,6 +21,16 @@ Usage in Kali:
 ```bash
 theharvester -h
 ```
+
+## recon-ng
+
+Recon-ng is a full-featured reconnaissance framework designed with the goal of providing a powerful environment to conduct open source web-based reconnaissance quickly and thoroughly.
+
+[https://github.com/lanmaster53/recon-ng](https://github.com/lanmaster53/recon-ng)
+
+Installation:
+
+[https://github.com/lanmaster53/recon-ng/wiki/Getting-Started](https://github.com/lanmaster53/recon-ng/wiki/Getting-Started)
 
 ## SimplyEmail
 
@@ -30,3 +48,12 @@ git clone https://github.com/killswitch-GUI/SimplyEmail.git
 Gitleaks is a SAST tool for detecting hardcoded secrets like passwords, api keys, and tokens in git repos. Gitleaks aims to be the easy-to-use, all-in-one solution for finding secrets, past or present, in your code.
 
 [https://github.com/zricethezav/gitleaks](https://github.com/zricethezav/gitleaks)
+
+## MetaData Analysis
+
+Use these tools to analyze publicly available documents for useful metadata
+
+[Metagoofil](https://github.com/laramies/metagoofil)
+[FOCA](https://github.com/ElevenPaths/FOCA)
+
+

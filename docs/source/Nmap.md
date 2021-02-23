@@ -1,5 +1,7 @@
 # Nmap
 
+Useful Nmap port scans for pentesting
+
 ## Nmap Verbose Scans
 
 Nmap verbose scan, runs syn stealth, T4 timing (should be ok on LAN), OS and service version info, traceroute and scripts against services
@@ -134,7 +136,6 @@ https://github.com/hackertarget/nmap-csv-xlsx
 ```shell
 sudo nmap -F -sV -oX nmapresults 192.168.1.0/24
 python3 nmap-xml-to-csv.py nmapresults.xml
-
 ```
 
 ## Nmap HTTP Service Information
@@ -186,4 +187,7 @@ nmap -p80 --script http-google-malware infectedsite.com
 * https://hackertarget.com/nmap-cheatsheet-a-quick-reference-guide/
 * https://securitytrails.com/blog/top-15-nmap-commands-to-scan-remote-hosts
 * https://github.com/hackertarget/nmap-csv-xlsx 
-* https://github.com/EvolvingSysadmin/Penetration-Testing/blob/master/Resources/Nmap%206%20Network%20Exploration%20and%20Security%20Auditing%20Cookbook.pdf
+* https://github.com/EvolvingSysadmin/Penetration-Testing/blob/master/Resources
+* Nmap%206%20Network%20Exploration%20and%20Security%20Auditing%20Cookbook.pdf
+* [For Scanning Large IP Ranges](https://zmap.io/)
+* [Internet scale IP Scanning](https://github.com/robertdavidgraham/masscan)

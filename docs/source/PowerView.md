@@ -153,7 +153,26 @@ Invoke-UserHunter
  Invoke-UserHunter -CheckAccess
   Invoke-UserHunter -Stealth
 ```
+
+## Loot Hunting
+
+Use Domain Account to download list of all filenames in the network
+```PowerShell
+   Invoke-ShareFinderThreaded -ExcludedShares IPC$,PRINT$,ADMIN$ |
+   select-string '^(.*) \t-' | %{dir -recurse $_.Matches[0].Groups[1] |
+   select fullname | out-file -append files.txt}
+```
+
 ## PowerView Resources
 * https://powersploit.readthedocs.io/en/latest/Recon/
 * https://github.com/PowerShellMafia/PowerSploit/tree/master/Recon
 * https://gist.github.com/HarmJ0y/184f9822b195c52dd50c379ed3117993
+* https://github.com/PowerShellEmpire/PowerTools/tree/master/PowerView
+* http://www.harmj0y.net/blog/tag/powerview/
+* http://www.harmj0y.net/blog/powershell/veil-powerview-a-usage-guide/
+* http://www.harmj0y.net/blog/redteaming/powerview-2-0/
+* http://www.harmj0y.net/blog/penetesting/i-hunt-sysadmins/
+* http://www.slideshare.net/harmj0y/i-have-the-powerview
+* https://adsecurity.org/?p=2535
+* https://www.youtube.com/watch?v=rpwrKhgMd7E
+* Powerview like program for systems without powershell https://github.com/mubix/netview
