@@ -25,6 +25,22 @@ Display DC Address, Domain Name, Roles
 ```CMD
 wmic ntdomain
 ```
+Dsquery User List
+```CMD
+dsquery user domainroot
+``` 
+User Logon Name from Email
+```CMD
+dsquery * domainroot -filter "(&(objectCategory=Person)(objectClass=User)(mail=e-mailaddress))" -attr name
+```
+Display Trusted Domain
+```CMD
+dsquery * -filter "(objectclass=TrustedDomain)" -attr trustpartner,flatname,trustdirection
+```
+Domain Admins of from Remote Trused Domain
+```CMD
+dsquery * -filter "(cn=Domain Admins)" -attr member -d trustedDomain
+```
 Display All Domain Users
 ```CMD
 wmic /NAMESPACE:\\root\directory\ldap PATH ds_user GET ds_samaccountname
@@ -87,6 +103,10 @@ Test Egress Filtering
 Display Domain Admins
 ```PowerShell
 ([adsisearcher]"(&(objectClass=User)(admincount=1))").FindAll().Properties.samaccountname
+```
+Display Accounts that Don't Lock Out
+```PowerShell
+dsquery * -filter "(&(objectCategory=person)(objectClass=user)(userAccountControl:1.2.840.113556.1.4.803:=65536))"
 ```
 Web Client to Download Files (eg NetCat)
 ```PowerShell

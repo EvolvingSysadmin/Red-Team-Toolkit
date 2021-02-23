@@ -35,6 +35,15 @@ https://github.com/BloodHoundAD/SharpHound3
 ### Linux Tools
 * [Kali Scripts](https://github.com/Arr0way/os-scripts)
 
+## Persistence Tools
+
+* https://www.metasploit.com/download 
+* http://blog.cobaltstrike.com/2014/05/14/meterpreter-kiwi-extension-golden-ticket-howto/ 
+  * Utilize golden ticket: krbtgt password has to be changed to invalidate
+* http://www.harmj0y.net/blog/empire/nothing-lasts-forever-persistence-with-empire/ 
+* http://www.hexacorn.com/blog/category/autostart-persistence/ 
+* https://blog.netspi.com/tag/persistence/
+
 ## Lists of Tools
 * [Python Tools for Penetration Testers](https://github.com/dloss/python-pentest-tools )
 
@@ -54,23 +63,5 @@ https://github.com/BloodHoundAD/SharpHound3
 * [OWASP Dev Guide](https://github.com/OWASP/DevGuide/wiki)
 * [FireEye Countermeasures](https://github.com/fireeye/red_team_tool_countermeasures)
 * [FireEye Commando VM](https://github.com/fireeye/commando-vm)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+* [Hash My Files](https://www.nirsoft.net/utils/hash_my_files.html)
 

@@ -5,6 +5,7 @@ Practical tools and techniques for penetration testing. Also available at [Read 
  **_Please Note:_** This toolkit is in very beta form and will update constantly until at least the early part of 2021.
 
 * __Recon__
+  * [Information Gathering](/docs/source/Information-Gathering.md)
   * [DNS Discovery](/docs/source/DNS-Discovery.md)
   * [Nmap](/docs/source/Nmap.md)
   * [Domain Enumeration](/docs/source/Domain-Enumeration.md)
@@ -13,6 +14,9 @@ Practical tools and techniques for penetration testing. Also available at [Read 
   * [Shodan](/docs/source/Shodan.md)
   * [Social Recon](docs/source/Social-Recon.md)
   * [Other Recon Tools](/docs/source/Other-Recon-Tools.md)
+* __Movement__
+  * [Remote Movement]()
+  * [In Place Movement]()
 * __Windows Exploits__
   * [Windows Exploit Suggester](/docs/source/Windows-Exploit-Suggester.md)
   * [Local Windows Privilege Escalation](/docs/source/Local-Windows-Privilege-Escalation.md)
@@ -24,3 +28,4 @@ Practical tools and techniques for penetration testing. Also available at [Read 
   * [Web App Exploits]((/docs/source/Linux-Exploits.md))
 * __Penetration Testing Resources__
   * [Penetration Testing Resources](/docs/source/Penetration-Testing-Resources.md)
+  * [Traffic Anonymization](/docs/source/Traffic-Anonymization.md)
