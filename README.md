@@ -1,31 +1,7 @@
-# Pentesting Toolkit
+# 👊 Welcome!
 
-Practical tools and techniques for penetration testing. Also available at [Read the Docs](https://penetration-testing.readthedocs.io/).
+The Red Team Toolkit provides tools and techniques for penetration testing. The Red Team Toolkit was made by [@EvolvingSysadmin](https://github.com/evolvingsysadmin). The information is gathered primarily from courses such as those from [TryHackMe](https://tryhackme.com/). ChatGPT was also used to create and edit content where possible.
 
- **_Please Note:_** This toolkit is in very beta form and will update constantly until at least the early part of 2021.
+In addition to [GitHub](https://github.com/EvolvingSysadmin/Red-Team-Toolkit), the Blue Team Toolkit can be viewed as a GitBook at <https://redteam.ryanheavican.com> or downloaded as a [markdown file](assets/README.md).
 
-* __Recon__
-  * [Information Gathering](/docs/source/Information-Gathering.md)
-  * [DNS Discovery](/docs/source/DNS-Discovery.md)
-  * [Nmap](/docs/source/Nmap.md)
-  * [Domain Enumeration](/docs/source/Domain-Enumeration.md)
-  * [PowerView](/docs/source/PowerView.md)
-  * [Windows OS Enumeration](/docs/source/Windows-OS-Enumeration.md)
-  * [Shodan](/docs/source/Shodan.md)
-  * [Social Recon](docs/source/Social-Recon.md)
-  * [Other Recon Tools](/docs/source/Other-Recon-Tools.md)
-* __Movement__
-  * [Remote Movement]()
-  * [In Place Movement]()
-* __Windows Exploits__
-  * [Windows Exploit Suggester](/docs/source/Windows-Exploit-Suggester.md)
-  * [Local Windows Privilege Escalation](/docs/source/Local-Windows-Privilege-Escalation.md)
-  * [Domain Windows Privilege Escalation](/docs/source/Domain-Privilege-Escalation.md)
-* __Linux Exploits__
-  * [Linux Enumeration](/docs/source/Linux-Enumeration.md)
-  * [Linux Exploits](/docs/source/Linux-Exploits.md)
-* __Web App Exploits__
-  * [Web App Exploits]((/docs/source/Linux-Exploits.md))
-* __Penetration Testing Resources__
-  * [Penetration Testing Resources](/docs/source/Penetration-Testing-Resources.md)
-  * [Traffic Anonymization](/docs/source/Traffic-Anonymization.md)
+![Happy Hacking!](assets/logo.svg)
