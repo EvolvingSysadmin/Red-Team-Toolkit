@@ -1,0 +1,9 @@
+Email address enumeration
+
+site:organisation.com intext:@organisation.com
+
+https://github.com/sherlock-project/sherlock
+
+https://haveibeenpwned.com/
+
+
