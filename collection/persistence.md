@@ -36,3 +36,4 @@ Powershell Add Firewall Rule
 
 New-NetFirewallRule -Action Allow -DisplayName Pentester-C2 -RemoteAddress <IPADDR>
 
+For persistence section: https://ss64.com/nt/net-config.html

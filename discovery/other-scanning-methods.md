@@ -48,3 +48,6 @@ netdiscover -r 192.168.1.0/24
 
 https://github.com/absolomb/WindowsEnum 
 
+https://www.sans.org/blog/pen-test-poster-white-board-powershell-built-in-port-scanner/ 
+
+https://github.com/fortra/impacket#getting-impacket
