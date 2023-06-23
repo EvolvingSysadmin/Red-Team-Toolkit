@@ -3,8 +3,8 @@
 * [👊 Welcome!](README.md)
 * [Methodology](methodology/readme.md)
   * [MITRE](methodology/mitre.md)
-  * [NIST](methodology/nist.md)*
-  * [OWASP](methodology/OWASP.md)
+  * [NIST](methodology/nist.md)
+  * [OWASP](methodology/owasp.md)
   * [PTES](methodology/ptes.md)
   * [SANS](methodology/sans.md)
 * [Reconnaissance](reconnaissance/readme.md)

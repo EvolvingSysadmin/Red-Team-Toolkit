@@ -2,11 +2,11 @@
 
 There are several methodology frameworks for penetration testing that are widely used by security professionals. Here are some of the best:
 
-* [MITRE ATT\&CK](mitre.md)
-* [NIST SP 800-115](nist.md)
-* [OWASP Testing Guide](owasp.md)
-* [Penetration Testing Execution Standard (PTES)](ptes.md)
-* [SANS Penetration Testing Framework](sans.md)
+* [MITRE ATT\&CK](/methodology/mitre.md)
+* [NIST SP 800-115](/methodology/nist.md)
+* [OWASP Testing Guide](/methodology/owasp.md)
+* [Penetration Testing Execution Standard (PTES)](/methodology/ptes.md)
+* [SANS Penetration Testing Framework](/methodology/sans.md)
 
 It is important to use a methodology framework for penetration testing for several reasons:
 
