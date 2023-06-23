@@ -14,9 +14,9 @@ NIST's Computer Security Resource Center (CSRC) distributes NIST Special Publica
 
 * Review Techniques: passively examine systems, applications, networks, policies, and procedures to discover security vulnerabilities using techniques such as documentation, log, ruleset, and system configuration review; network sniffing; and file integrity checking.
 
-* Target Identification and Analysis: focuses on identifying active devices and their associated ports and services, and analyzing them for potential vulnerabilities. The identification and analysis techniques used include network discovery, network port and service identification, vulnerability scanning, and wireless scanning.
+* Target Identification and Analysis Techniques: focuses on identifying active devices and their associated ports and services, and analyzing them for potential vulnerabilities. The identification and analysis techniques used include network discovery, network port and service identification, vulnerability scanning, and wireless scanning.
 
-* Target Vulnerability Validation: uses information produced from target identification and analysis to further explore the existence of potential vulnerabilities using techniques such as password cracking, penetration testing, and social engineering.
+* Target Vulnerability Validation Techniques: uses information produced from target identification and analysis to further explore the existence of potential vulnerabilities using techniques such as password cracking, penetration testing, and social engineering.
 
 * Security Assessment Planning: provides guidance on creating an assessment policy, prioritizing and scheduling assessments, selecting the appropriate assessment approach, and addressing logistical considerations.
 
