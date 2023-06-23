@@ -39,11 +39,11 @@
   * [Local Windows Privilege Escalation](privilege-escalation/local-windows-privilege-escalation.md)
   * [Linux Privilege Escalation](privilege-escalation/linux-privilege-escalation.md)
   * [Mimikatz](privilege-escalation/mimikatz.md)
-* [Movement]
+* [Movement](/movement/readme.md)
   * [Movement](movement/movement.md)
   * [Evasion](movement/evasion.md)
 * [Collection](collection/README.md)
-  * [Persistence]
+  * [Persistence](collection/persistence.md)
   * [Exfiltration](collection/exfiltration.md)
 * [Other](other/readme.mdreadme.md)
   * [Bookmarks](other/bookmarks.md)
