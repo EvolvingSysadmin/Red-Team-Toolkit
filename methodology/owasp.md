@@ -1,6 +1,10 @@
 # OWASP
 
-OWASP is an organization with resources that can help with web application testing
+The [Open Web Application Security Project (OWASP)](https://owasp.org/) provides resources, tools, and guidelines to help build and test secure applications.
+
+* [Background](#background)
+* [OWASP Top 10](#owasp-top-10)
+* [Resources](#resources)
 
 ## Background
 
