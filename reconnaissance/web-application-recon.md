@@ -15,6 +15,7 @@ This document contains information about techniques and tools for web applicatio
   * [Header Analysis](#header-analysis)
     * [Header Analysis Tools](#header-analysis-tools)
     * [Header Analysis Techniques](#header-analysis-techniques)
+    * [Shodan](#shodan)
   * [Resources](#resources)
 
 ## Background
@@ -134,10 +135,21 @@ Use the following tools for header analysis:
 * Wireshark
 * curl
 
-Here is an example of getting an HTTP header response using curl
+An example of getting an HTTP header response using curl on Windows:
+
+```powershell
+curl https://victim.com -v
+```
+
+An example of getting a header response using netcat on Linux:
 
 ```bash
-curl https://victim.com -v
+nc TARGET-IP 80
+GET / HTTP/1.1
+Host: TARGET-IP
+User-Agent: Mozilla/5.0
+Referrer: meh-domain
+<enter>
 ```
 
 #### Header Analysis Techniques
@@ -147,6 +159,10 @@ curl https://victim.com -v
 * Look for cookie attributes, such as secure, HTTPOnly, and SameSite, to understand the application's security posture.
 * Analyze the headers for additional functionality, such as redirects, caching, and compression.
 * Investigate the header values for inconsistencies or deviations from standard values, which may indicate misconfigurations or vulnerabilities.
+
+#### Shodan
+
+[Shodan](https://www.shodan.io/) is a search engine for banners grabbed from port scanning the Internet to discover insecure web applications or misconfigured services.
 
 ## Resources
 
@@ -166,3 +182,4 @@ curl https://victim.com -v
 * [WhatWeb](https://www.whatweb.net/): A tool that performs a fingerprint on a target website and provides information about its technologies, plugins, and other components.
 * [Netcraft](https://sitereport.netcraft.com/): A tool that provides information about a website's hosting environment, including information about its server type, operating system, and IP address.
 * [Subdomain Enumeration Techniques](https://blog.appsecco.com/a-penetration-testers-guide-to-sub-domain-enumeration-7d842d5570f6)
+* [Shodan](https://www.shodan.io/)
