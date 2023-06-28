@@ -1,6 +1,6 @@
 # Open Source Intelligence
 
-This document contains information about techniques and tools for Open Source Intelligence.
+Open Source tools and techniques for information gathering
 
 * [Background](#background)
 * [Techniques](#techniques)

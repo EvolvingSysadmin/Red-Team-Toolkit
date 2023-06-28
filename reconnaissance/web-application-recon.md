@@ -1,6 +1,6 @@
 # Web Application Recon
 
-This document contains information about techniques and tools for web application reconnaissance.
+Tools and techniques for web application recon
 
 * [Background](#background)
 * [Techniques](#techniques)
@@ -13,7 +13,7 @@ This document contains information about techniques and tools for web applicatio
   * [Automated Content Discovery](#automated-content-discovery)
   * [Parameter Analysis](#paramter-analysis)
   * [Header Analysis](#header-analysis)
-    * [Header Analysis Tools](#header-analysis-tools)
+    * [Header Grabbing and Analysis Tools](#header-grabbing-and-analysis-tools)
     * [Header Analysis Techniques](#header-analysis-techniques)
     * [Shodan](#shodan)
   * [Resources](#resources)
@@ -123,9 +123,9 @@ Analyzing and manipulating parameters in URLs and form submissions that are pass
 
 Header analysis is used to inspect the headers of HTTP responses to gather information about the web server, technology stack, and potential vulnerabilities.
 
-#### Header Analysis Tools
+#### Header Grabbing and Analysis Tools
 
-Use the following tools for header analysis:
+Use the following tools for header grabbing and analysis:
 
 * Burp Suite
 * OWASP ZAP
@@ -134,6 +134,9 @@ Use the following tools for header analysis:
 * Charles Web Debugging Proxy
 * Wireshark
 * curl
+* Telnet
+* Nmap
+* Netcat
 
 An example of getting an HTTP header response using curl on Windows:
 
