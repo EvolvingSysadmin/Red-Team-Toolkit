@@ -10,6 +10,7 @@ Open Source tools and techniques for information gathering
   * [Forums](#forums)
   * [Document Sharing Websites](#document-sharing-websites)
   * [Darkweb](#darkweb)
+  * [Email Address Enumeartion](#email-address-enumeration)
 * [Tools](#tools)
   * [Google Dorks](#google-dorks)
   * [Maltego](#maltego)
@@ -64,6 +65,14 @@ There are many techniques for gathering OSINT that include utilizing search engi
 ### Darkweb
 
 * The dark web, also known as the deep web, is a portion of the internet that is not indexed by search engines and can only be accessed using special software such as Tor. While it is often associated with illegal activities, the dark web can also be a valuable source of information for OSINT.
+
+### Email Address Enumeration
+
+site:organisation.com intext:@organisation.com
+
+https://github.com/sherlock-project/sherlock
+
+https://haveibeenpwned.com/
 
 ## Tools
 
