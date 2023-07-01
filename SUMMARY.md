@@ -27,7 +27,7 @@
   * [Wordlists](initial-access/wordlists.md)
   * [OWASP ZAP](initial-access/owasp-zap.md)
 * [Discovery](discovery/README.md)
-  * [NMAP](discover/nmap.md)
+  * [NMAP](discovery/nmap.md)
   * [PowerView](discovery/powerview.md)  
   * [Active Directory Enumeration](discovery/active-directory-enumeration.md)
   * [Windows Post Exploitation Discovery](discovery/windows-post-exploitation-discovery.md)
