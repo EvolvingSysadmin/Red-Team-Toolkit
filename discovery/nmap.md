@@ -5,6 +5,7 @@ Nmap is a Security Scanner, Port Scanner, & Network Exploration Tool
 * [Background](#background)
 * [Installation](#installation)
 * [Usage](#usage)
+  * [Practical Usage](#practical-usage)
   * [Basic Usage](#basic-usage)
   * [Scan Types](#scan-types)
   * [Targeting](#targeting)
@@ -34,6 +35,12 @@ Nmap is a popular security tool that can be used as a network exploration and po
     ```
 
 ## Usage
+
+### Practical Usage
+
+| Description                                                                           | Example                                    |
+|---------------------------------------------------------------------------------------|--------------------------------------------|
+| Version Enumeration, Common Scripts, generate all versions of output to scans/initial | `nmap -sV -sC -oA scans/initial 192.168.1.1` |
 
 ### Basic Usage
 

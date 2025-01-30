@@ -186,3 +186,7 @@ Referrer: meh-domain
 * [Netcraft](https://sitereport.netcraft.com/): A tool that provides information about a website's hosting environment, including information about its server type, operating system, and IP address.
 * [Subdomain Enumeration Techniques](https://blog.appsecco.com/a-penetration-testers-guide-to-sub-domain-enumeration-7d842d5570f6)
 * [Shodan](https://www.shodan.io/)
+
+https://www.sslshopper.com/ssl-checker.html
+https://mxtoolbox.com/SuperTool.aspx
+https://wpscan.com/

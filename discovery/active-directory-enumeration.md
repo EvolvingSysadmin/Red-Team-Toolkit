@@ -427,3 +427,8 @@ A simple batch script with these commands is here: [\tools\WinDomainEnum.bat](ht
 "C:\Code\Penetration-Testing - Working\tools\WindowsEnum.ps1"
 
 "C:\Code\Penetration-Testing - Working\tools\WinUserEnum.bat"
+
+Get-ADUser -Filter * | Format-Table SamAccountName -A | Out-File .\users.txt
+Get-ADComputer -Filter * | Format-Table SamAccountName -A
+
+SANS BloodHound
