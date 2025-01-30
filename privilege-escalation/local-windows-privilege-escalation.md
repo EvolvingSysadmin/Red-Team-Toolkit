@@ -22,6 +22,7 @@ wmic logicaldisk get caption,description,providername
 ```PowerShell
 Get-PSDrive | where {$_.Provider -like "Microsoft.PowerShell.Core\FileSystem"}| ft Name,Root
 ```
+
 ## Users
 
 Any interesting user privileges? Note: The State column does not mean that the user does or does not have access to this privilege. If the privilege is listed, then that user has it.

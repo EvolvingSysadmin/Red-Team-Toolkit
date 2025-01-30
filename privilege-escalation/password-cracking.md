@@ -24,3 +24,12 @@ Metasploit RID Cycling
 ```bash
 use auxiliary/scanner/smb/smb_lookupsid
 ```
+
+https://medium.com/secstudent/using-john-the-ripper-with-lm-hashes-f757bd4fb094
+
+https://www.md5online.org/md5-decrypt.html 
+https://md5decrypt.net/en/
+
+https://crackstation.net/
+
+https://www.srihash.org
