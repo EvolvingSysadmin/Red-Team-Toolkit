@@ -1,0 +1,11 @@
+$schema: https://api.gitbook.com/gitbook-docs.yaml
+site:
+  title: Red Team Toolkit
+  structure:
+    - type: space
+      key: space-1
+      title: Red Team Toolkit
+      path: red-team-toolkit
+      default: true
+      content:
+        directory: ./red-team-toolkit
