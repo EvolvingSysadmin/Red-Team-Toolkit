@@ -1,180 +1,71 @@
 # PowerView
 
+PowerShell tool (part of PowerSploit) for enumerating users, groups, computers, shares, ACLs, and trust relationships in Active Directory.
+
+## When I Use It
+
+* Enumerating a domain from a compromised host without dropping obvious tooling
+* Finding attack paths: where users are logged in, who has local admin, and which ACLs are abusable
+* Quick domain reconnaissance when a full BloodHound collection is not warranted
+
+!!! warning "Detection and policy"
+    PowerView is widely flagged by AV and EDR, and setting an unrestricted execution policy is itself noisy. Expect detection on a monitored network and prefer it where that is acceptable in scope.
+
 ## Setup
 
-* Download PowerSploit and/or Recon folder/module here:
-  * https://github.com/PowerShellMafia/PowerSploit/tree/dev
-  * Copy to Folder Path: C:\Windows\System32\WindowsPowerShell\v1.0\Modules
-* Add folders as exculsions or disable windows defender
-* Set unrestricted PowerShell execution policy:
-    ``` PowerShell 
-    Set-ExecutionPolicy -ExecutionPolicy Unrestricted
-    ```
-* Import PowerSploit and/or Recon module:
-    ``` PowerShell 
-    Import-Module Recon
-    ```
+* Obtain the Recon module from [PowerSploit](https://github.com/PowerShellMafia/PowerSploit)
+* Import it: `Import-Module .\PowerView.ps1` (or `Import-Module Recon`)
 
-## Domain Info
+## Common Tasks
 
-Display Current Domain
-```PowerShell
-Get-NetDomain
- Get-NetDomain -Domain <DomainName>
-```
-Display Verbose Domain Info
-```PowerShell
-Get-ADDomain
- Get-ADDomain -Domain <DomainName>
-```
-Get Domain SID
-```PowerShell
-Get-DomainSID
-```
-Get Domain Controllers
-```PowerShell
-Get-ADDomainController
-Get-NetDomainController
- Get-NetDomainController -Identity <DomainName>
-```
+### Domain Info
 
-## Detailed Domain Info
+| Task | Cmdlet |
+| :--- | :--- |
+| Current domain | `Get-NetDomain` |
+| Domain SID | `Get-DomainSID` |
+| Domain controllers | `Get-NetDomainController` |
+| Domain shares | `Find-DomainShare` |
+| GPOs / OUs | `Get-NetGPO` / `Get-NetOU` |
+| Forest domains | `Get-NetForestDomain` |
 
-Get Domain Policy (might be deprecated)
-```PowerShell
-Get-DomainPolicy
-```
-Get Domain Shares
-```PowerShell
-Find-DomainShare
- Find-DomainShare -CheckShareAccess
-```
-Get GPOs
-```PowerShell
-Get-NetGPO
- Get-NetGPO -ComputerName <Name of the PC>
- Get-NetGPO -GPOname <GUID of GPO>
-```
-Display OUs
-```PowerShell
-Get-NetOU
-```
-Display ACLs
-```PowerShell
-Get-ObjectAcl -SamAccountName <Account Name> -ResolveGUIDs
-```
-Find Interesting Access Control Entries
-```PowerShell
-Invoke-ACLScanner -ResolveGUIDs
-```
-Display ACL of Specified Path
-```PowerShell
-Get-PathAcl -Path "\\Path\Of\A\Share"
-```
-Display Domains of Forest
-```PowerShell
-Get-NetForestDomain
-```
-Display Domain Trust (may be deprecated)
-```PowerShell
-Get-ADTrust -Filter *
- Get-ADTrust -Identity <DomainName>
-```
-Display Local AppLocker Effective Policy
-```PowerShell
-Get-AppLockerPolicy -Effective
-```
+### Users, Groups, Computers
 
-## Computer Info
+| Task | Cmdlet |
+| :--- | :--- |
+| Domain users | `Get-NetUser` |
+| Domain groups | `Get-NetGroup` |
+| Members of a group | `Get-DomainGroup -Identity <group> \| Select -Expand Member` |
+| Domain computers | `Get-NetComputer` |
 
-Display Domain Computers
-```PowerShell
-Get-ADComputer -Filter * -Properties *
-```
-More Detailed All Computer Info
-```PowerShell
-Get-NetComputer
-```
+### ACLs and Trusts
 
-## User Info
+| Task | Cmdlet |
+| :--- | :--- |
+| ACLs for an object | `Get-ObjectAcl -SamAccountName <acct> -ResolveGUIDs` |
+| Interesting ACEs | `Invoke-ACLScanner -ResolveGUIDs` |
+| ACL of a share path | `Get-PathAcl -Path "\host\share"` |
 
-Get User Info
-```PowerShell
-Get-NetUser
-  Get-NetUser -SamAccountName <user> 
-  Get-NetUser | select cn
-```
-Get Logged on User Info
-```PowerShell
-Get-NetLoggedon -ComputerName <ComputerName>
-```
-Get Session Info for Machine
-```PowerShell
-Get-NetSession -ComputerName <ComputerName>
-```
-Get Machines Where Current User is Logged In
-```PowerShell
-Find-DomainUserLocation
-```
-Get Detailed User Info
-```PowerShell
-Get-ADUser -Properties * -Filter *
-```
+### User Hunting
 
-## Group Info
+| Task | Cmdlet |
+| :--- | :--- |
+| Machines where you are local admin | `Find-LocalAdminAccess` |
+| Local admins on machines | `Invoke-EnumerateLocalAdmin` |
+| Where a target user has a session | `Invoke-UserHunter` |
 
-Get Members of a Specified Group
-```PowerShell
-Get-DomainGroup -Identity <GroupName> | Select-Object -ExpandProperty Member
-```
-Display All Groups
-```PowerShell
-Get-NetGroup
-```
-Display Detailed Info on All Groups
-```PowerShell
-Get-ADGroup -Properties * -Filter *
-```
+## Reading the Output
 
-## User Hunting
+* `Find-LocalAdminAccess` and `Invoke-UserHunter` are the fastest way to find a path to privileged access
+* ACL results from `Invoke-ACLScanner` reveal delegation and abusable rights that are not obvious from group membership
+* For large domains, [BloodHound](active-directory-enumeration.md) visualizes these same relationships more clearly
 
-Find all Machines Where Current User is Local Admin
-```PowerShell
-Find-LocalAdminAccess -Verbose
-```
-Find Local Admins on Machines
-```PowerShell
-Invoke-EnumerateLocalAdmin -Verbose
-```
-Find Machines Where Domain Admin or Specified User Has Session
-```PowerShell
-Invoke-UserHunter
- Invoke-UserHunter -GroupName <GroupName>
- Invoke-UserHunter -CheckAccess
-  Invoke-UserHunter -Stealth
-```
+## Related
 
-## Loot Hunting
+* [Active Directory Enumeration](active-directory-enumeration.md)
+* [AD Privilege Escalation](../privilege-escalation/ad-privilege-escalation.md)
 
-Use Domain Account to download list of all filenames in the network
-```PowerShell
-   Invoke-ShareFinderThreaded -ExcludedShares IPC$,PRINT$,ADMIN$ |
-   select-string '^(.*) \t-' | %{dir -recurse $_.Matches[0].Groups[1] |
-   select fullname | out-file -append files.txt}
-```
+## Resources
 
-## PowerView Resources
-* https://powersploit.readthedocs.io/en/latest/Recon/
-* https://github.com/PowerShellMafia/PowerSploit/tree/master/Recon
-* https://gist.github.com/HarmJ0y/184f9822b195c52dd50c379ed3117993
-* https://github.com/PowerShellEmpire/PowerTools/tree/master/PowerView
-* http://www.harmj0y.net/blog/tag/powerview/
-* http://www.harmj0y.net/blog/powershell/veil-powerview-a-usage-guide/
-* http://www.harmj0y.net/blog/redteaming/powerview-2-0/
-* http://www.harmj0y.net/blog/penetesting/i-hunt-sysadmins/
-* http://www.slideshare.net/harmj0y/i-have-the-powerview
-* https://adsecurity.org/?p=2535
-* https://www.youtube.com/watch?v=rpwrKhgMd7E
-* Powerview like program for systems without powershell https://github.com/mubix/netview
-https://www.hackingarticles.in/active-directory-enumeration-powerview/
-* [PowerShell Port Scanner](https://www.sans.org/blog/pen-test-poster-white-board-powershell-built-in-port-scanner/)
+* [PowerSploit / PowerView](https://github.com/PowerShellMafia/PowerSploit)
+* [HackTricks: PowerView](https://book.hacktricks.xyz/)

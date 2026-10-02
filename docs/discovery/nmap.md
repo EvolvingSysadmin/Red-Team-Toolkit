@@ -1,27 +1,16 @@
-# NMAP
+# Nmap
 
-Nmap is a Security Scanner, Port Scanner, & Network Exploration Tool
+Network scanner for host discovery, port scanning, and service and OS detection: the core tool for mapping what is reachable.
 
-* [Background](nmap.md#background)
-* [Installation](nmap.md#installation)
-* [Usage](nmap.md#usage)
-  * [Basic Usage](nmap.md#basic-usage)
-  * [Scan Types](nmap.md#scan-types)
-  * [Targeting](nmap.md#targeting)
-  * [Host Discovery](nmap.md#host-discovery)
-  * [Port Discovery](nmap.md#port-discovery)
-  * [OS Discovery](nmap.md#os-discovery)
-  * [Service Discovery](nmap.md#service-discovery)
-  * [Evasion](nmap.md#evasion)
-  * [Output](nmap.md#output)
-  * [Scripting](nmap.md#scripting)
-  * [Timing Templates](nmap.md#timing-templates)
-  * [Timing and Performance](nmap.md#timing-and-performance)
-* [Resources](nmap.md#resources)
+## When I Use It
 
-## Background
+* Discovering live hosts and open services across a network in scope
+* Fingerprinting service versions and operating systems to find known vulnerabilities
+* Running NSE scripts for focused checks (enumeration, specific vulnerabilities)
+* Confirming what a firewall exposes, and what changes to it actually did
 
-Nmap is a popular security tool that can be used as a network exploration and port scanner. It can help you identify hosts and services on a network, as well as other valuable information like operating system details, open ports, services running on those ports, and potential vulnerabilities.
+!!! warning "Scope and noise"
+    Scan only what you are authorized to scan, and let the network team know. Aggressive timing and vuln scripts are loud and can disrupt fragile devices; start conservative.
 
 ## Installation
 
@@ -74,7 +63,7 @@ Nmap is a popular security tool that can be used as a network exploration and po
 | Scan using CIDR notation |            | `nmap 192.168.1.0/24`          |
 | Scan targets from a file | `-iL`      | `nmap -iL targets.txt`         |
 | Scan 100 random hosts    | `-iR`      | `nmap -iR 100`                 |
-| Exclude listed hosts     | `–exclude` | `nmap –exclude 192.168.1.1`    |
+| Exclude listed hosts     | `--exclude` | `nmap --exclude 192.168.1.1`    |
 
 ### Host Discovery
 
@@ -88,7 +77,7 @@ Nmap is a popular security tool that can be used as a network exploration and po
 | UDP discovery on port x (port 40125 default)    | `-PU`          | `nmap 192.168.1.1-5 -PU53`                  |
 | ARP discovery on local network                  | `-PR`          | `nmap 192.168.1.1-1/24 -PR`                 |
 | Don't do DNS resolution                         | `-n`           | `nmap 192.168.1.1 -n`                       |
-| Specify DNS server. Example 192.168.1.2         | `–dns-servers` | `nmap 192.168.1.1 –dns-servers 192.168.1.2` |
+| Specify DNS server. Example 192.168.1.2         | `--dns-servers` | `nmap 192.168.1.1 --dns-servers 192.168.1.2` |
 | Perform DNS resolution, even for offline hosts. | `-R`           | `nmap 192.168.1.1 -R`                       |
 | ICMP timestamp request                          | `-PP`          | `nmap 192.168.1.1 -PP`                      |
 | ICMP address mask                               | `-PM`          | `nmap 192.168.1.1 -PM`                      |
@@ -104,7 +93,7 @@ Nmap is a popular security tool that can be used as a network exploration and po
 | Port scan all ports                           | `-p`         | `nmap 192.168.1.1 -p-`                |
 | Port scan from service name                   | `-p`         | `nmap 192.168.1.1 -p http,https`      |
 | Fast port scan (100 ports)                    | `-F`         | `nmap 192.168.1.1 -F`                 |
-| Port scan the top x ports                     | `–top-ports` | `nmap 192.168.1.1 –top-ports 2000`    |
+| Port scan the top x ports                     | `--top-ports` | `nmap 192.168.1.1 --top-ports 2000`    |
 | Omitting beginning range starts scan at 1     | `-p-65535`   | `nmap 192.168.1.1 -p-65535`           |
 | Omitting ending range runs scan through 65535 | `-p-`        | `nmap 192.168.1.1 -p0-`               |
 
@@ -113,20 +102,20 @@ Nmap is a popular security tool that can be used as a network exploration and po
 | Description                                                  | Switch             | Example                               |
 | ------------------------------------------------------------ | ------------------ | ------------------------------------- |
 | Remote OS detection using TCP/IP fingerprinting              | `-O`               | `nmap 192.168.1.1 -O`                 |
-| OS host detection if open and closed ports >=1               | `-O –osscan-limit` | `nmap 192.168.1.1 -O –osscan-limit`   |
-| Makes Nmap guess more aggressively                           | `-O –osscan-guess` | `nmap 192.168.1.1 -O –osscan-guess`   |
-| Maximum OS detection tries against a target                  | `-O –max-os-tries` | `nmap 192.168.1.1 -O –max-os-tries 1` |
+| OS host detection if open and closed ports >=1               | `-O --osscan-limit` | `nmap 192.168.1.1 -O --osscan-limit`   |
+| Makes Nmap guess more aggressively                           | `-O --osscan-guess` | `nmap 192.168.1.1 -O --osscan-guess`   |
+| Maximum OS detection tries against a target                  | `-O --max-os-tries` | `nmap 192.168.1.1 -O --max-os-tries 1` |
 | OS detection, version detection, script scanning, traceroute | `-A`               | `nmap 192.168.1.1 -A`                 |
-| Run traceroute                                               | `–traceroute`      | `nmap traceroute 192.168.1.1`         |
+| Run traceroute                                               | `--traceroute`      | `nmap traceroute 192.168.1.1`         |
 
 ### Service Discovery
 
 | Description                                                  | Switch                   | Example                                     |
 | ------------------------------------------------------------ | ------------------------ | ------------------------------------------- |
 | Attempts to determine version of service running on port     | `-sV`                    | `nmap 192.168.1.1 -sV`                      |
-| Intensity level 0 to 9. Higher increases correctness         | `-sV –version-intensity` | `nmap 192.168.1.1 -sV –version-intensity 8` |
-| Light mode. Lower possibility of correctness. Faster         | `-sV –version-light`     | `nmap 192.168.1.1 -sV –version-light`       |
-| Intensity level 9. Higher possibility of correctness. Slower | `-sV –version-all`       | `nmap 192.168.1.1 -sV –version-all`         |
+| Intensity level 0 to 9. Higher increases correctness         | `-sV --version-intensity` | `nmap 192.168.1.1 -sV --version-intensity 8` |
+| Light mode. Lower possibility of correctness. Faster         | `-sV --version-light`     | `nmap 192.168.1.1 -sV --version-light`       |
+| Intensity level 9. Higher possibility of correctness. Slower | `-sV --version-all`       | `nmap 192.168.1.1 -sV --version-all`         |
 | OS detection, version detection, script scanning, traceroute | `-A`                     | `nmap 192.168.1.1 -A`                       |
 
 ### Evasion
@@ -134,14 +123,14 @@ Nmap is a popular security tool that can be used as a network exploration and po
 | Description                                                               | Switch         | Example                                                                      |
 | ------------------------------------------------------------------------- | -------------- | ---------------------------------------------------------------------------- |
 | Use fragmented IP packets (-ff increases fragmentation)                   | `-f`           | `nmap 192.168.1.1 -f`                                                        |
-| Set your own offset size                                                  | `–mtu`         | `nmap 192.168.1.1 –mtu 32`                                                   |
+| Set your own offset size                                                  | `--mtu`         | `nmap 192.168.1.1 --mtu 32`                                                   |
 | Send scans from spoofed/decoy IPs                                         | `-D`           | `nmap -D 192.168.1.101,192.168.1.102,192.168.1.103,192.168.1.23 192.168.1.1` |
 | Above example explained                                                   | `-D`           | `nmap -D decoy-ip1,decoy-ip2,your-own-ip,decoy-ip3,decoy-ip4 remote-host-ip` |
 | Spoofed scan of Facebook from Microsoft (-e eth0 -Pn may be required)     | `-S`           | `nmap -S www.microsoft.com www.facebook.com`                                 |
 | Use given source port number                                              | `-g`           | `nmap -g 53 192.168.1.1`                                                     |
-| Relay connections through HTTP/SOCKS4 proxies                             | `–proxies`     | `nmap –proxies http://192.168.1.1:8080, http://192.168.1.2:8080 192.168.1.1` |
-| Appends random data to sent packets                                       | `–data-length` | `nmap –data-length 200 192.168.1.1`                                          |
-| Spoof MAC address                                                         | `–spoof-mac`   | `nmap –spoof-mac 00000ABB28FC`                                               |
+| Relay connections through HTTP/SOCKS4 proxies                             | `--proxies`     | `nmap --proxies http://192.168.1.1:8080, http://192.168.1.2:8080 192.168.1.1` |
+| Appends random data to sent packets                                       | `--data-length` | `nmap --data-length 200 192.168.1.1`                                          |
+| Spoof MAC address                                                         | `--spoof-mac`   | `nmap --spoof-mac 00000ABB28FC`                                               |
 | Idle/zombie scan. Example using 192.168.1.2 as zombie to scan 192.168.1.1 | `-sI`          | `nmap -sI 192.168.1.2 192.168.1.1`                                           |
 | Custom scan flags. Example with SYN and FIN flags set                     | `--scanflags`  | `nmap --scanflags SYNFIN 192.168.1.1`                                        |
 
@@ -153,15 +142,15 @@ Nmap is a popular security tool that can be used as a network exploration and po
 | XML output to the file xml.file                               | `-oX`            | `nmap 192.168.1.1 -oX xml.file`                 |
 | Grepable output to the file grep.file                         | `-oG`            | `nmap 192.168.1.1 -oG grep.file`                |
 | Output in the three major formats at once                     | `-oA`            | `nmap 192.168.1.1 -oA results`                  |
-| Grepable output to screen. -oN -, -oX – also usable           | `-oG –`          | `nmap 192.168.1.1 -oG –`                        |
-| Append a scan to a previous scan file                         | `–append-output` | `nmap 192.168.1.1 -oN file.file –append-output` |
+| Grepable output to screen. -oN -, -oX -- also usable           | `-oG --`          | `nmap 192.168.1.1 -oG --`                        |
+| Append a scan to a previous scan file                         | `--append-output` | `nmap 192.168.1.1 -oN file.file --append-output` |
 | Increase the verbosity level (-vv or more for greater effect) | `-v`             | `nmap 192.168.1.1 -v`                           |
 | Increase debugging level (-dd or more for greater effect)     | `-d`             | `nmap 192.168.1.1 -d`                           |
-| Display the reason a port is in a state, same output as -vv   | `–reason`        | `nmap 192.168.1.1 –reason`                      |
-| Only show open (or possibly open) ports                       | `–open`          | `nmap 192.168.1.1 –open`                        |
-| Show all packets sent and received                            | `–packet-trace`  | `nmap 192.168.1.1 -T4 –packet-trace`            |
-| Shows the host interfaces and routes                          | `–iflist`        | `nmap –iflist`                                  |
-| Resume a scan                                                 | `–resume`        | `nmap –resume results.file`                     |
+| Display the reason a port is in a state, same output as -vv   | `--reason`        | `nmap 192.168.1.1 --reason`                      |
+| Only show open (or possibly open) ports                       | `--open`          | `nmap 192.168.1.1 --open`                        |
+| Show all packets sent and received                            | `--packet-trace`  | `nmap 192.168.1.1 -T4 --packet-trace`            |
+| Shows the host interfaces and routes                          | `--iflist`        | `nmap --iflist`                                  |
+| Resume a scan                                                 | `--resume`        | `nmap --resume results.file`                     |
 
 ### Scripting
 
@@ -170,14 +159,14 @@ Nmap is a popular security tool that can be used as a network exploration and po
 | View all local scripts                            | `ls`              | `ls /urs/share/nmap/scripts`                                              |
 | Search local scripts with wildcards. Example http | `ls -l`           | `ls -l /usr/share/nmap/scripts/*http*`                                    |
 | Default NSE scripts. Useful/safe for discovery    | `-sC`             | `nmap 192.168.1.1 -sC`                                                    |
-| Default NSE scripts. Useful/safe for discovery    | `–script default` | `nmap 192.168.1.1 –script default`                                        |
-| Use Single script. Example banner                 | `–script`         | `nmap 192.168.1.1 –script=banner`                                         |
-| Use wildcard. Example http                        | `–script`         | `nmap 192.168.1.1 –script=http*`                                          |
-| Use two scripts. Example http and banner          | `–script`         | `nmap 192.168.1.1 –script=http,banner`                                    |
-| Use a category. Example auth                      | `–script`         | `nmap 192.168.1.1 –script=auth`                                           |
-| Default with intrusive scripts removed            | `–script`         | `nmap 192.168.1.1 –script not intrusive`                                  |
-| NSE script with arguments                         | `–script-args`    | `nmap –script snmp-sysdescr –script-args snmpcommunity=admin 192.168.1.1` |
-| Display help for script. Example banner           | `–script-help`    | `nmap –script-help banner`                                                |
+| Default NSE scripts. Useful/safe for discovery    | `--script default` | `nmap 192.168.1.1 --script default`                                        |
+| Use Single script. Example banner                 | `--script`         | `nmap 192.168.1.1 --script=banner`                                         |
+| Use wildcard. Example http                        | `--script`         | `nmap 192.168.1.1 --script=http*`                                          |
+| Use two scripts. Example http and banner          | `--script`         | `nmap 192.168.1.1 --script=http,banner`                                    |
+| Use a category. Example auth                      | `--script`         | `nmap 192.168.1.1 --script=auth`                                           |
+| Default with intrusive scripts removed            | `--script`         | `nmap 192.168.1.1 --script not intrusive`                                  |
+| NSE script with arguments                         | `--script-args`    | `nmap --script snmp-sysdescr --script-args snmpcommunity=admin 192.168.1.1` |
+| Display help for script. Example banner           | `--script-help`    | `nmap --script-help banner`                                                |
 | Get page titles from HTTP services                | `-script`         | `nmap 192.168.1.0/24 -script=http-title`                                  |
 | Get HTTP headers of web services                  | `-script`         | `nmap 192.168.1.0/24 -script=http-headers`                                |
 | Find apps from known paths                        | `-script`         | `nmap 192.168.1.0/24 -script=http-enum`                                   |
@@ -203,13 +192,30 @@ Nmap is a popular security tool that can be used as a network exploration and po
 
 | Description                                       | Switch                                                        | Example    |
 | ------------------------------------------------- | ------------------------------------------------------------- | ---------- |
-| Give up on target after this long                 | `–host-timeout <time>`                                        | 1s; 4m; 2h |
-| Specifies probe round trip time                   | `–min-rtt-timeout/max-rtt-timeout/initial-rtt-timeout <time>` | 1s; 4m; 2h |
-| Parallel host scan group sizes                    | `–min-hostgroup/max-hostgroup <size<size>`                    | 50; 1024   |
-| Probe parallelization                             | `–min-parallelism/max-parallelism <numprobes>`                | 10; 1      |
-| Maximum number of port scan probe retransmissions | `–max-retries <tries>`                                        | 3          |
-| Send packets no slower than `<number>` per second | `–min-rate <number>`                                          | 100        |
-| Send packets no faster than `<number>` per second | `–max-rate <number>`                                          | 100        |
+| Give up on target after this long                 | `--host-timeout <time>`                                        | 1s; 4m; 2h |
+| Specifies probe round trip time                   | `--min-rtt-timeout/max-rtt-timeout/initial-rtt-timeout <time>` | 1s; 4m; 2h |
+| Parallel host scan group sizes                    | `--min-hostgroup/max-hostgroup <size<size>`                    | 50; 1024   |
+| Probe parallelization                             | `--min-parallelism/max-parallelism <numprobes>`                | 10; 1      |
+| Maximum number of port scan probe retransmissions | `--max-retries <tries>`                                        | 3          |
+| Send packets no slower than `<number>` per second | `--min-rate <number>`                                          | 100        |
+| Send packets no faster than `<number>` per second | `--max-rate <number>`                                          | 100        |
+
+## Reading the Output
+
+| State | Meaning |
+| :--- | :--- |
+| open | A service is accepting connections |
+| closed | The host responded, but nothing is listening on that port |
+| filtered | No response or an ICMP error; a firewall is likely dropping the probe |
+| unfiltered | Reachable, but Nmap cannot tell open from closed (ACK scans) |
+
+* `-sV` output gives the exact service version, which is what maps to a CVE
+* `--reason` explains why Nmap put a port in a given state, useful when results look odd
+* Save every scan with `-oA` so results can be diffed and referenced in the report
+
+## How I Use It
+
+I start with host discovery, then a fast top-ports scan to get a picture quickly, then a full `-p-` scan with `-sV` on the hosts that matter. OS detection and NSE scripts come last and only where they add value, since they are the loudest part. Output always goes to `-oA` so I have normal, XML, and grepable copies for tooling and the report.
 
 ## Resources
 

@@ -1,85 +1,62 @@
 # Other Scanning Methods
 
-## Banner Grabbing
+Scanning and enumeration techniques beyond Nmap: banner grabbing, UDP, and local network discovery.
 
-Basic versioning / finger printing via displayed banner
+## When I Use It
+
+* Confirming a service version by reading its banner directly
+* Scanning UDP services that a default TCP scan misses
+* Discovering live hosts on the local subnet, including confirming I am on the right VLAN on site
+
+## Common Tasks
+
+### Banner Grabbing
+
+Connect to a service and read the banner it returns for version and fingerprint information.
 
 ```bash
-nc -v 192.168.1.1 25
- telnet 192.168.1.1 25
+nc -v TARGET-IP 25
+telnet TARGET-IP 25
 ```
 
-Banner grabbing with NC
+For HTTP, send a minimal request after connecting:
 
 ```bash
 nc TARGET-IP 80
 GET / HTTP/1.1
 Host: TARGET-IP
-User-Agent: Mozilla/5.0
-Referrer: meh-domain
-<enter>
+
 ```
 
-## UDP Protocol Scanner
+### UDP Scanning
+
+UDP services are easy to miss. [udp-proto-scanner](https://github.com/portcullislabs/udp-proto-scanner) probes known UDP protocols.
 
 ```bash
-git clone https://github.com/portcullislabs/udp-proto-scanner.git
+./udp-proto-scanner.pl -f ips.txt        # all probes against a list of IPs
+udp-proto-scanner.pl -p ntp -f ips.txt   # a specific service
 ```
 
-Scan a file of IP addresses for all services
+### Local Network Discovery
 
-```bash
-./udp-protocol-scanner.pl -f ip.txt 
-```
-
-Scan for a specific UDP service
-
-```bash
-udp-proto-scanner.pl -p ntp -f ips.txt
-```
-
-## Netdiscover
-
-Discovers IP, MAC Address and MAC vendor on the subnet from ARP, helpful for confirming you're on the right VLAN at $client site
+[netdiscover](https://github.com/alexxy/netdiscover) finds hosts, MAC addresses, and vendors from ARP, which is handy for confirming you are on the expected VLAN on site.
 
 ```bash
 netdiscover -r 192.168.1.0/24
 ```
 
-https://github.com/absolomb/WindowsEnum 
+## Reading the Output
 
-https://www.sans.org/blog/pen-test-poster-white-board-powershell-built-in-port-scanner/ 
+* A banner gives the service and often the exact version, which maps to known vulnerabilities
+* UDP results are less reliable than TCP; corroborate anything interesting
+* netdiscover's vendor column helps tell infrastructure (switches, printers) from endpoints
 
-https://github.com/fortra/impacket#getting-impacket
+## Related
 
+* [Nmap](nmap.md)
+* [Network Services Attacks](../initial-access/network-services-attacks.md)
 
+## Resources
 
-
-Netcat to discover open telnet
-
-```bash
-nc -v 192.168.1.1 25
- telnet 192.168.1.1 25
-```
-
-
-## UDP Protocol Scanner
-
-```bash
-git clone https://github.com/portcullislabs/udp-proto-scanner.git
-```
-Scan a file of IP addresses for all services
-```bash
-./udp-protocol-scanner.pl -f ip.txt 
-```
-Scan for a specific UDP service
-```bash
-udp-proto-scanner.pl -p ntp -f ips.txt
-```
-
-## Netdiscover
-
-Discovers IP, MAC Address and MAC vendor on the subnet from ARP, helpful for confirming you're on the right VLAN at $client site
-```bash
-netdiscover -r 192.168.1.0/24
-```
+* [SANS PowerShell Built-in Port Scanner](https://www.sans.org/blog/pen-test-poster-white-board-powershell-built-in-port-scanner/)
+* [Impacket](https://github.com/fortra/impacket)
