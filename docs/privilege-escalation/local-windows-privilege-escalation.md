@@ -297,7 +297,7 @@ Are there sysprep or unattend files available that weren’t cleaned up?
 dir /s *sysprep.inf *sysprep.xml *unattended.xml *unattend.xml *unattend.txt 2>nul
 ```
 ```PowerShell
-Get-Childitem –Path C:\ -Include *unattend*,*sysprep* -File -Recurse -ErrorAction SilentlyContinue | where {($_.Name -like "*.xml" -or $_.Name -like "*.txt" -or $_.Name -like "*.ini")}
+Get-Childitem -Path C:\ -Include *unattend*,*sysprep* -File -Recurse -ErrorAction SilentlyContinue | where {($_.Name -like "*.xml" -or $_.Name -like "*.txt" -or $_.Name -like "*.ini")}
 ```
 
 If the server is an IIS webserver, what’s in inetpub? Any hidden directories? web.config files?
@@ -307,7 +307,7 @@ dir /s web.config
 C:\Windows\System32\inetsrv\config\applicationHost.config
 ```
 ```PowerShell
-Get-Childitem –Path C:\inetpub\ -Include web.config -File -Recurse -ErrorAction SilentlyContinue
+Get-Childitem -Path C:\inetpub\ -Include web.config -File -Recurse -ErrorAction SilentlyContinue
 ```
 
 What’s in the IIS Logs?
@@ -323,7 +323,7 @@ Is XAMPP, Apache, or PHP installed? Any there any XAMPP, Apache, or PHP configur
 dir /s php.ini httpd.conf httpd-xampp.conf my.ini my.cnf
 ```
 ```PowerShell
-Get-Childitem –Path C:\ -Include php.ini,httpd.conf,httpd-xampp.conf,my.ini,my.cnf -File -Recurse -ErrorAction SilentlyContinue
+Get-Childitem -Path C:\ -Include php.ini,httpd.conf,httpd-xampp.conf,my.ini,my.cnf -File -Recurse -ErrorAction SilentlyContinue
 ```
 
 Any Apache web logs?
@@ -331,7 +331,7 @@ Any Apache web logs?
 dir /s access.log error.log
 ```
 ```PowerShell
-Get-Childitem –Path C:\ -Include access.log,error.log -File -Recurse -ErrorAction SilentlyContinue
+Get-Childitem -Path C:\ -Include access.log,error.log -File -Recurse -ErrorAction SilentlyContinue
 ```
 
 Any interesting files to look at? Possibly inside User directories (Desktop, Documents, etc)?
@@ -339,7 +339,7 @@ Any interesting files to look at? Possibly inside User directories (Desktop, Doc
 dir /s *pass* == *vnc* == *.config* 2>nul
 ```
 ```PowerShell
-Get-Childitem –Path C:\Users\ -Include *password*,*vnc*,*.config -File -Recurse -ErrorAction SilentlyContinue
+Get-Childitem -Path C:\Users\ -Include *password*,*vnc*,*.config -File -Recurse -ErrorAction SilentlyContinue
 ```
 
 Files containing password inside them?

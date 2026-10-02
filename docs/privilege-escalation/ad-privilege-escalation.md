@@ -297,7 +297,7 @@ Rubeus.exe tgtdeleg /nowrap
 
 
 Detailed Article:
- [Rubeus – Now With More Kekeo](https://www.harmj0y.net/blog/redteaming/rubeus-now-with-more-kekeo/)
+ [Rubeus: Now With More Kekeo](https://www.harmj0y.net/blog/redteaming/rubeus-now-with-more-kekeo/)
  
 ### DNSAdmins Abuse
 
