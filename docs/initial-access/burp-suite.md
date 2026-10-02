@@ -1,43 +1,47 @@
 # Burp Suite
 
-This document contains
+Web application testing platform built around an intercepting proxy, written in Java.
 
-Burp Suite is web application penetration testing framework written in Java
+## When I Use It
 
-## Background
-
-Burp Suite is a comprehensive platform for web application security testing. It provides a range of features, including a web proxy, web spider, vulnerability scanner, and manual testing tools, to help security professionals and ethical hackers test the security of web applications.
+* Any web application assessment: intercepting, reading, and modifying requests
+* Replaying and tampering with a single request (Repeater) or fuzzing one (Intruder)
+* Encoding and decoding payloads, and testing session token randomness
 
 ## Installation
 
-* Burp Suite installers: [https://portswigger.net/](https://portswigger.net/)
-* FoxyProxy used to send requests to burp suite proxy: [https://getfoxyproxy.org/](https://getfoxyproxy.org/)
-* Installing certificates: [http://burp/cert](http://burp/cert)
+* Download from [PortSwigger](https://portswigger.net/burp/releases); the Community edition is free
+* Point the browser at the proxy (`127.0.0.1:8080`), using [FoxyProxy](https://getfoxyproxy.org/) to switch quickly, or use Burp's built-in browser
+* For HTTPS, install Burp's CA certificate from `http://burp/cert` into the browser
 
-## Usage
+## Common Tasks
 
-* Burp Suite Features
-  * Proxy: intercept requests
-  * Repeater: modify requests
-  * Intruder: bruteforce/spray endpoints
-  * Decoder: decode/encorde payloads
-  * Comparer: compare data
-  * Sequencer: test for randomness
-  * Extender: use other modules written for Burp Suite
-* [Burp Suite Installers](https://portswigger.net/burp/releases)
-* Burp Proxy
-  * Burp Proxy intercepts website requests so they can be utilized in Burp Suite
-  * Use [FoxyProxy](https://getfoxyproxy.org/) to send browser requests to Burp Suite using the following settings (Use Proxy IP: `127.0.0.1` & Port: `8080` in FoxyProxy to send request to Burp Suite)
-  * For SSL use `http://burp/cert`, download `cacert.der`, add this certificate to `about:preferences` in FireFox or Chrome
-  * Use the Burp Browser by first going to `Project options -> Misc -> Embedded Browser` and checking the option `Allow the embedded browser to run without a sandbox`
-  * Right Click and select `Add to Scope` while in the `Target` Tab and add an Add rule in `Proxy Options` to ensure that URLs are in the target scope to help filter captured traffic
-* Jython Interpreter in Burp extender
+| Tool | Use |
+| :--- | :--- |
+| Proxy | Intercept and inspect requests and responses |
+| Repeater | Modify and resend a single request |
+| Intruder | Automate payloads against a request (fuzzing, spraying) |
+| Decoder | Encode and decode payloads |
+| Comparer | Diff two responses |
+| Sequencer | Test session token randomness |
+| Extender | Load extensions from the BApp store |
+
+Set the engagement scope under **Target -> Scope** and filter the proxy history to it, so captured traffic stays relevant.
+
+## Reading the Output
+
+* The Target site map builds up a picture of the application as you browse it
+* Repeater is where most manual testing happens: change one thing, resend, compare the response
+* The Community edition throttles Intruder; for heavy automated fuzzing, [ffuf](https://github.com/ffuf/ffuf) is faster
+
+## Related
+
+* [Web Application Recon](../reconnaissance/web-application-recon.md)
+* [Web Authentication Bypass](web-authentication-bypass.md)
+* [SQL Injection](sql-injection.md), [XSS](xss.md)
+* [OWASP ZAP](owasp-zap.md), the open-source alternative
 
 ## Resources
 
 * [Burp Suite Documentation](https://portswigger.net/burp/documentation)
-* [Burp Suite Documentation](https://portswigger.net/burp/documentation)
-* [Burp Suite for Pentesters](https://github.com/Ignitetechnologies/BurpSuite-For-Pentester)
-* [https://github.com/xl7dev/BurpSuite/blob/master/CheatSheet.md](https://github.com/xl7dev/BurpSuite/blob/master/CheatSheet.md)
-
-The official Burp Suite documentation: https://portswigger.net/burp/documentation PortSwigger's blog: https://portswigger.net/blog/ The Burp Suite community: https://portswigger.net/community/ The Burp Suite support center: https://portswigger.net/support The Burp Suite YouTube channel: https://www.youtube.com/channel/UCxlIPvCvSo2QZmI1cgL9d9g The Burp Suite User Group on LinkedIn: https://www.linkedin.com/groups/4503164/ OWASP's Burp Suite page: https://owasp.org/www-project-web-security-testing-guide/v2/5-Web\_Application\_Penetration\_Testing/02-Application\_Discovery/01-Reconnaissance/03-Proxies Online courses and tutorials: Udemy, Pluralsight, and Coursera offer courses on Burp Suite and web application security.
+* [Web Security Academy](https://portswigger.net/web-security) (free labs from PortSwigger)

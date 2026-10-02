@@ -1,38 +1,38 @@
 # Phishing
 
-## Description
+Social engineering by email to obtain credentials or code execution, used in authorized engagements and awareness testing.
 
-Tools for testing email security
+## Why It Matters
 
-## Tools
+Phishing is the most common real-world initial access vector, so testing it measures a control that attackers actually use. In an engagement it is run with explicit authorization and scope, to assess both the technical controls and the human response.
 
-### GoPhish
+## Reference
 
-* [GoPhish](https://getgophish.com/) is an open-source phishing framework that allows security teams to simulate phishing attacks and measure the effectiveness of their phishing awareness training programs.
+### Frameworks
 
-### PhishingFrenzy
+| Tool | Use |
+| :--- | :--- |
+| [GoPhish](https://getgophish.com/) | Open-source framework for running and measuring phishing campaigns |
+| [Social-Engineer Toolkit (SET)](https://github.com/trustedsec/social-engineer-toolkit) | Broad social engineering toolkit, including phishing and cloned sites |
+| [King Phisher](https://github.com/rsmusllp/king-phisher) | Campaign framework with detailed tracking |
+| [MailSniper](https://github.com/dafthack/MailSniper) | Search and extract mail from exposed mailboxes |
 
-* [PhishingFrenzy](https://github.com/pentestgeek/phishing-frenzy) is a free and open-source phishing framework that provides a simple and user-friendly interface for creating and launching phishing campaigns.
+### Engagement Steps
 
-### THOR
+1. Define scope, targets, and rules of engagement in writing
+2. Build a pretext and infrastructure (domain, sending profile, landing page)
+3. Launch the campaign and track opens, clicks, and submissions
+4. Report results: technical gaps (filtering, authentication) and the human response, without singling out individuals
 
-* [The Honeypot for Open Research](https://www.honeynet.org/) is an open-source framework for phishing simulation and analysis.
+!!! warning "Authorization and handling"
+    Only run campaigns that are explicitly authorized and scoped. Captured credentials are sensitive evidence and must be stored and handled accordingly, then reset as part of remediation.
 
-### Social-Engineer Toolkit (SET)
+## How I Use It
 
-* [Social-Engineer Toolkit](https://github.com/trustedsec/social-engineer-toolkit) is a popular open-source tool for simulating various types of phishing attacks, including email-based phishing, web-based phishing, and social engineering attacks.
+I build the pretext from OSINT (the email format, the technology staff use, current events at the organization) and keep infrastructure separate from any other work. Reporting focuses on the controls and the aggregate response, framed to improve training rather than to blame people.
 
-### PhishX
+## Related
 
-[PhishX](https://github.com/Userphish/PhishX) is a free and open-source phishing simulation tool that enables organizations to launch phishing campaigns and assess the effectiveness of their security awareness training programs.
-
-### MailSniper
-
-[MailSniper](https://github.com/dafthack/MailSniper) is an open-source tool for searching and extracting email addresses from different sources, including publicly available data, for use in phishing simulations.
-
-## Resources
-
-* Add the following to the phishing page:
-  * https://github.com/EvolvingSysadmin/Phishing-Frameworks
-  * https://github.com/EvolvingSysadmin/Gophish-Phishing-Framework
-  * https://tryhackme.com/room/phishingyl
+* [OSINT](../reconnaissance/osint.md)
+* [Gophish Phishing Framework](https://github.com/EvolvingSysadmin/Gophish-Phishing-Framework)
+* [TryHackMe: Phishing](https://tryhackme.com/room/phishingyl)
