@@ -1,168 +1,54 @@
 # Breaching Active Directory
 
-Techniques for acquiring Active Directory credentials and enumerating Active Directory
+Getting the first valid set of Active Directory credentials, the usual prerequisite for everything else in an AD engagement.
 
-## Techniques
+## Why It Matters
 
-* Techniques for breaching AD
-  * NTLM Authenticated Services
-  * LDAP Bind Credentials
-  * Authentication Relays
-  * Microsoft Deployment Toolkit
-  * Configuration Files
-  * Phishing
-* OSINT services for finding AD credentials
-  * [https://stackoverflow.com/](https://stackoverflow.com/)
-  * [https://github.com/](https://github.com/)
-  * Past breach credentials:
-    * [https://haveibeenpwned.com/](https://haveibeenpwned.com/)
-    * [https://www.dehashed.com/](https://www.dehashed.com/)
+Most AD attacks assume you already have a foothold: one valid domain account. Breaching AD is about getting that first credential, whether from an exposed service, a misconfiguration, intercepted authentication, or OSINT. Once inside, the work moves to [Discovery](../discovery/index.md) and [Privilege Escalation](../privilege-escalation/index.md).
 
-### NTLM and NetNTLM
+## Reference
 
-New Technology LAN Manager (NTLM) is the suite of security protocols used to authenticate users' identities in AD
+### Where Credentials Come From
 
-* HetHTLM services exposed to internet:
-  * On-premises Exchange/Outlook OWA
-  * RDP
-  * AD integrated VPN endpoints
-  * Internet facing web apps
+| Source | Notes |
+| :--- | :--- |
+| OSINT and breach data | [Have I Been Pwned](https://haveibeenpwned.com/), DeHashed, GitHub leaks, documents |
+| NTLM-authenticated services | OWA/Exchange, RDP, AD-integrated VPNs, internet-facing apps that accept domain creds |
+| LDAP bind credentials | Services (GitLab, Jenkins, printers, VPNs, custom apps) that store a domain bind account |
+| Authentication relays | Intercepting and relaying NetNTLM authentication on the internal network |
+| Deployment systems | MDT/SCCM and PXE boot images that contain credentials |
+| Configuration files | Web app configs, service configs, registry keys, deployed application files |
 
-### NTLM Brute Forcing
+### Password Spraying
 
-* Password spray script example:
+Trying one common password across many usernames stays under per-account lockout thresholds. Build the username list from OSINT and the organization's email format, pick passwords that fit the season or policy, and keep the attempt rate low. Tools: [kerbrute](https://github.com/ropnop/kerbrute), [NetExec](https://github.com/Pennyw0rth/NetExec).
 
-```python
-def password_spray(self, password, url):
-    print ("[*] Starting passwords spray attack using the following password: " + password)
-    #Reset valid credential counter
-    count = 0
-    #Iterate through all of the possible usernames
-    for user in self.users:
-        #Make a request to the website and attempt Windows Authentication
-        response = requests.get(url, auth=HttpNtlmAuth(self.fqdn + "\\" + user, password))
-        #Read status code of response to determine if authentication was successful
-        if (response.status_code == self.HTTP_AUTH_SUCCEED_CODE):
-            print ("[+] Valid credential pair found! Username: " + user + " Password: " + password)
-            count += 1
-            continue
-        if (self.verbose):
-            if (response.status_code == self.HTTP_AUTH_FAILED_CODE):
-                print ("[-] Failed login with Username: " + user)
-    print ("[*] Password spray attack completed, " + str(count) + " valid credential pairs found")
-```
+!!! warning "Lockouts"
+    Spraying can still lock accounts if the password count per account exceeds the policy. Know the lockout threshold and observation window before starting, and stay well under them.
 
-* ntlm\_passwordspray.py Usage: `python ntlm_passwordspray.py -u <userfile> -f <fqdn> -p <password> -a <attackurl>`
-  * `<userfile>` - Textfile containing our usernames - "usernames.txt"
-  * `<fqdn>` - Fully qualified domain name associated with the organisation that we are attacking - "targetme.com"
-  * `<password>` - The password we want to use for our spraying attack - "Changeme123"
-  * `<attackurl>` - The URL of the application that supports Windows Authentication - "http://ntlmauth.targetme.com"
+### LDAP Pass-back
 
-### LDAP
+If you control a device's LDAP configuration (for example a printer's admin panel), redirecting its LDAP server to a host you control can capture the bind credentials. A rogue LDAP server configured to accept cleartext mechanisms, with `tcpdump` capturing port 389, recovers the credential when the device tests its connection.
 
-Lightweight Directory Access Protocol (LDAP) authentication is similar to NTLM authentication, but directly verifies credentials via a pair of AD credentials
+### NetNTLM Interception and Relay
 
-* Attempt to recover the AD credentials used by the service to gain authenticated access to AD
-* Common LDAP services:
-  * Gitlab
-  * Jenkins
-  * Custom-developed web applications
-  * Printers
-  * VPNs
+SMB and other services use NetNTLM authentication, which can be captured and abused:
 
-### LDAP Pass-back Attacks
+* [Responder](https://github.com/lgandx/Responder) answers LLMNR, NBT-NS, and WPAD requests to coerce and capture authentication: `sudo responder -I <interface>`
+* Captured NetNTLM hashes can be cracked offline (slower than raw NTLM) or relayed to another host to gain an authenticated session
 
-* Redirecting the LDAP server request in order to intercept the LDAP credentials
-* Use netcat listener while sending LDAP request: `nc -lvp 389`
-* Hosting a Rogue LDAP Server
-  * Install OpenLDAP: `sudo apt-get update && sudo apt-get -y install slapd ldap-utils && sudo systemctl enable slapd`
-  * Configure server: `sudo dpkg-reconfigure -p low slapd`
-  * Create olcSaslSecProps.ldif file with:
+## How I Use It
 
-```bash
-    #olcSaslSecProps.ldif
-    dn: cn=config
-    replace: olcSaslSecProps
-    olcSaslSecProps: noanonymous,minssf=0,passcred
-```
+I start with the quietest sources: OSINT, breach data, and any exposed service that accepts domain credentials for a careful spray. On an internal network, Responder plus relaying is often the fastest path to a first credential. One valid account is the goal; from there the engagement moves into enumeration with [BloodHound](../discovery/active-directory-enumeration.md) and [PowerView](../discovery/powerview.md).
 
-* Patch LDAP server: `sudo ldapmodify -Y EXTERNAL -H ldapi:// -f ./olcSaslSecProps.ldif && sudo service slapd restart`
-* Test if configuration has been applied: `ldapsearch -H ldap:// -x -LLL -s base -b "" supportedSASLMechanisms`
-* Run tcpdump to grab credentials: `sudo tcpdump -SX -i breachad tcp port 389`
-* Run the test LDAP credentials in the GUI
+## Related
 
-### NetNTLM authentication used by SMB
-
-The Server Message Block (SMB) protocol allows clients (like workstations) to communicate with a server (like a file share). In networks that use Microsoft AD, SMB governs everything from inter-network file-sharing to remote administration. Older versions of SMB have vulnerabilities.
-
-Exploits for NetNTLM authentication with SMB:
-
-* Intercept NTLM challenges and crack offline, though this is much slower than cracking NTLM hashes directly
-* Man in the middle attack to intercept and relay the aythentication to gain an authenticated session and access to target
-* Responder to attempt to intercept the NetNTLM
-* LLMNR, NBT-NS, and WPAD
-* Resonder listens to these requests and starts host servers like SMB, HTTP, SQL to capture and force authentication
-
-To start responder: `sudo responder -I tun0`
-
-systemd-resolve --interface breachad --set-dns 10.200.20.101 --set-domain za.tryhackme.com
-
-### Microsoft Deployment Toolkit
-
-MDT and SCCM
-
-Usually, MDT is integrated with Microsoft's System Center Configuration Manager (SCCM), which manages all updates for all Microsoft applications, services, and operating systems
-
-Large organisations use PXE boot to allow new devices that are connected to the network to load and install the OS directly over a network connection. MDT can be used to create, manage, and host PXE boot images.
-
-[https://www.riskinsight-wavestone.com/en/2020/01/taking-over-windows-workstations-pxe-laps/](https://www.riskinsight-wavestone.com/en/2020/01/taking-over-windows-workstations-pxe-laps/)
-
-### Configuration Files
-
-Web application config files Service configuration files Registry keys Centrally deployed applications
-
-There are several open source resources available for learning how to breach Active Directory. Some of the most popular resources include:
-
-ADLab: ADLab is an open source Active Directory testing lab that provides a safe and isolated environment for testing and learning about Active Directory security.
-
-Active Directory Attack Toolkit (ADAT): ADAT is an open source toolkit for penetration testing Active Directory environments.
-
-BloodHound: BloodHound is an open source tool for visualizing the relationships and permissions within an Active Directory environment.
-
-Mimikatz: Mimikatz is an open source tool for dumping and analyzing Windows credentials, including those stored in Active Directory.
-
-Rubeus: Rubeus is an open source tool for performing various Active Directory-related attacks, including Kerberos abuse.
+* [Active Directory Enumeration](../discovery/active-directory-enumeration.md)
+* [AD Privilege Escalation](../privilege-escalation/ad-privilege-escalation.md)
+* [Mimikatz](../privilege-escalation/mimikatz.md)
 
 ## Resources
 
 * [Active Directory Exploitation Cheat Sheet](https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet)
-* [Windows & Active Directory Exploitation Cheat Sheet and Command Reference :: Cas van Cooten](https://casvancooten.com/posts/2020/11/windows-active-directory-exploitation-cheat-sheet-and-command-reference/)
-*
-
-https://infosecwriteups.com/active-directory-penetration-testing-cheatsheet-5f45aa5b44ff
-
-https://book.hacktricks.xyz/generic-methodologies-and-resources/pentesting-methodology
-
-https://cheatsheet.haax.fr/open-source-intelligence-osint/tools-and-methodology/methodology/
-
-https://wadcoms.github.io/
-
-## Credential Injection
-
-* Credential Injection Using runas.exe:
-
-```cmd
-runas.exe /netonly /user:<domain>\<username> cmd.exe
-```
-
-* runas.exe usage:
-  * `/netonly` = do not authenticate against domain controller
-  * `/usaer` = domain credentials using FQDN
-  * `cmd.exe` = program to execute once credentials are injected
-* `dir \\za.tryhackme.com\SYSVOL` v `dir \\<DC IP>\SYSVOL`
-  * `dir \\za.tryhackme.com\SYSVOL` attempts Kerberos authentication
-  * `dir \\<DC IP>\SYSVOL` attempts NTLM authentication
-    * Forcing NTLM helps avoid detection
-* Resources: using NTLM authentication to authenticate to web applications: https://labs.f-secure.com/blog/pth-attacks-against-ntlm-authenticated-web-applications/
-
-https://www.hackingarticles.in/impacket-guide-smb-msrpc/ https://github.com/fortra/impacket
+* [TryHackMe: Breaching Active Directory](https://tryhackme.com/room/breachingad)
+* [The Hacker Recipes: AD](https://www.thehacker.recipes/)

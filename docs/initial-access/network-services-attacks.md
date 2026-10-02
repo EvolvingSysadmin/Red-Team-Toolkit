@@ -1,75 +1,46 @@
 # Network Services Attacks
 
-## Description
+Enumerating and attacking common network services to find a foothold.
 
-Techniques for exploiting common network services
+## Why It Matters
 
-## Techniques
+Exposed network services are a frequent entry point. Many are misconfigured (anonymous access, default credentials, readable shares) or run outdated versions with known vulnerabilities. Thorough enumeration of each service is usually what reveals the way in.
 
-* [Service Enumeration](network-services-attacks.md#service-enumeration)
-* [SMB](network-services-attacks.md#smb)
-* [Telnet](network-services-attacks.md#telnet)
-* [FTP](network-services-attacks.md#ftp)
-* [NFS](network-services-attacks.md#nfs)
-* [SMTP](network-services-attacks.md#smtp)
-* [MySQL](network-services-attacks.md#mysql)
+## Reference
 
-## Service Enumeration
+### Enumeration
 
-* Use NMAP, Enum4linux
+Identify services and versions with [Nmap](../discovery/nmap.md) `-sV` and its NSE scripts, and `enum4linux` for Windows and Samba hosts. The exact version is what maps to a known vulnerability on [Exploit-DB](https://www.exploit-db.com/) or in CVE databases.
 
-## SMB
+### Services
 
-Installation of smbclient: `smbclient //[IP]/[SHARE]` with the tags `-U [name] : to specify the user -p [port] : to specify the port`
+| Service | Port | Enumeration and Notes |
+| :--- | :--- | :--- |
+| SMB | 445 | `smbclient -L //IP -U user`; list and access shares, check for anonymous access and readable shares |
+| Telnet | 23 | `telnet IP port`; cleartext, often legacy; check for exposed banners and credentials |
+| FTP | 21 | `ftp IP`; check for anonymous login and writable directories; cleartext credentials |
+| NFS | 2049 | `showmount -e IP` to list exports; mount with `sudo mount -t nfs IP:share /mnt -o nolock`; check for `no_root_squash` |
+| SMTP | 25 | Enumerate users with `VRFY` and `EXPN`; Metasploit `auxiliary/scanner/smtp/smtp_version` |
+| MySQL | 3306 | `mysql -h IP -u user -p`; Metasploit `mysql_version`, `mysql_schemadump`, `mysql_hashdump` |
 
-## Telnet
+### Common Issues to Check
 
-`telnet [IP] [port]`
+* Anonymous or guest access (FTP, SMB, NFS)
+* Default or weak credentials (test with [Hydra](hydra.md))
+* Readable or writable shares and exports
+* Outdated versions with public exploits
+* `no_root_squash` on NFS exports, which allows writing files as root
 
-[https://www.cvedetails.com/](https://www.cvedetails.com/) [https://cve.mitre.org/](https://cve.mitre.org/)
+## How I Use It
 
-## FTP
+I enumerate every open service fully before trying anything, because the foothold is usually a misconfiguration (an anonymous share, a writable export) rather than an exploit. Version numbers go straight to `searchsploit`. Anything requiring credentials gets a targeted, in-scope brute force only after the easy wins are exhausted.
 
-ftp \[ip]
+## Related
 
-ftp arp poisoning: [https://www.jscape.com/blog/bid/91906/Countering-Packet-Sniffers-Using-Encrypted-FTP](https://www.jscape.com/blog/bid/91906/Countering-Packet-Sniffers-Using-Encrypted-FTP)
-
-## NFS
-
-/usr/sbin/showmount -e \[ip]
-
-NFS-Common
-
-[https://tryhackme.com/room/networkservices2](https://tryhackme.com/room/networkservices2)
-
-Mounting NFS shares
-
-sudo mount -t nfs IP:share /tmp/mount/ -nolock
-
-Tag Function sudo Run as root mount Execute the mount command -t nfs Type of device to mount, then specifying that it's NFS IP:share The IP Address of the NFS server, and the name of the share we wish to mount -nolock Specifies not to use NLM locking
-
-root\_squash
-
-## SMTP
-
-[https://www.afternerd.com/blog/smtp/](https://www.afternerd.com/blog/smtp/)
-
-"smtp\_version" module in MetaSploit
-
-Enumerate users using SMTP: RFY (confirming the names of valid users) and EXPN (which reveals the actual address of user’s aliases and lists of e-mail (mailing lists)
-
-Version scanner: auxiliary/scanner/smtp/smtp\_version
-
-## MySQL
-
-[https://dev.mysql.com/doc/dev/mysql-server/latest/PAGE\_SQL\_EXECUTION.html](https://dev.mysql.com/doc/dev/mysql-server/latest/PAGE_SQL_EXECUTION.html)
-
-[https://www.w3schools.com/php/php\_mysql\_intro.asp](https://www.w3schools.com/php/php_mysql_intro.asp)
-
-To install client: `sudo apt install default-mysql-client` nmap's mysql-enum script: [https://nmap.org/nsedoc/scripts/mysql-enum.html](https://nmap.org/nsedoc/scripts/mysql-enum.html) or [https://www.exploit-db.com/exploits/23081](https://www.exploit-db.com/exploits/23081)
-
-Connect to mysql database: `mysql -h [IP] -u [username] -p`
-
-mysql schema dump: auxiliary/scanner/mysql/mysql\_schemadump hash dump: auxiliary/scanner/mysql/mysql\_hashdump
+* [Nmap](../discovery/nmap.md), [Other Scanning Methods](../discovery/other-scanning-methods.md)
+* [Hydra](hydra.md), [Metasploit](metasploit.md)
 
 ## Resources
+
+* [HackTricks: Pentesting services by port](https://book.hacktricks.xyz/)
+* [TryHackMe: Network Services](https://tryhackme.com/room/networkservices)

