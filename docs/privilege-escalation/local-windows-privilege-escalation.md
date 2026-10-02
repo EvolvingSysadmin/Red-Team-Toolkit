@@ -1,5 +1,27 @@
 # Local Windows Privilege Escalation
 
+Going from a limited account to local administrator or SYSTEM on a Windows host by finding and abusing misconfigurations.
+
+## Why It Matters
+
+A foothold is usually a low-privilege user. Local escalation turns it into full control of the host, which unlocks credential access and lateral movement. The weaknesses that allow it (weak service permissions, unquoted service paths, stored credentials, writable startup locations) are concrete findings a defender can remediate.
+
+## Key Escalation Vectors
+
+| Vector | What to Look For |
+| :--- | :--- |
+| Service misconfigurations | Weak permissions, unquoted service paths, writable service binaries |
+| Registry / installer | `AlwaysInstallElevated`, autologon credentials |
+| Stored credentials | Credential Manager, SAM/SYSTEM copies, config files |
+| Startup and scheduled tasks | Writable autoruns, custom scheduled tasks |
+| Token / privilege abuse | Interesting privileges in `whoami /priv` |
+| Missing patches | Kernel or component vulnerabilities (last resort) |
+
+!!! tip "Automate the enumeration"
+    The checklist below is thorough; [WinPEAS](https://github.com/carlospolop/PEASS-ng) and [PowerUp](https://github.com/PowerShellMafia/PowerSploit) cover most of it automatically. Use them for breadth, then verify by hand.
+
+## Enumeration Checklist
+
 ## OS
 
 Get architecture & patches
@@ -419,7 +441,18 @@ ssh -l root -pw password -R 445:127.0.0.1:445 YOURIPADDRESS
 
 
 
+## How I Use It
+
+I run WinPEAS or PowerUp first for breadth, then work the checklist by priority: service misconfigurations and unquoted paths tend to pay off, and stored credentials in Credential Manager or config files are quick wins. Missing-patch (kernel) exploits are the last resort because they are the most likely to crash the host. Each escalation path goes in the report with the specific misconfiguration to fix.
+
+## Related
+
+* [Windows Post-Exploitation Discovery](../discovery/windows-post-exploitation-discovery.md)
+* [Windows Exploits](../initial-access/windows-exploits.md)
+* [Mimikatz](mimikatz.md), [Password Cracking](password-cracking.md)
+
 ## Resources
-* https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/
-* https://live.sysinternals.com/
-* https://github.com/absolomb/WindowsEnum
+* [Absolomb Windows Privilege Escalation Guide](https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/)
+* [HackTricks: Windows Local Privilege Escalation](https://book.hacktricks.xyz/windows-hardening/windows-local-privilege-escalation)
+* [PEASS-ng (WinPEAS)](https://github.com/carlospolop/PEASS-ng)
+* [Sysinternals (AccessChk)](https://learn.microsoft.com/en-us/sysinternals/)

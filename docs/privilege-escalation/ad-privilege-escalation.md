@@ -1,7 +1,28 @@
 # Active Directory Privilege Escalation
 
+Escalating from a standard domain account to high-privilege or domain-dominance positions by abusing AD features and misconfigurations.
+
+## Why It Matters
+
+Active Directory is built on delegation, trust, and service accounts, and each of those can be abused. The techniques here take a normal domain user toward Domain Admin by targeting weak service-account passwords, delegation misconfigurations, dangerous group memberships, and unpatched domain controllers. Every one maps to a concrete hardening recommendation.
+
+## Techniques at a Glance
+
+| Category | Techniques |
+| :--- | :--- |
+| Credential roasting | Kerberoast, ASREPRoast, password spray, force-set SPN |
+| Delegation abuse | Unconstrained, constrained, resource-based constrained delegation |
+| Group abuse | DNSAdmins, Backup Operators, Exchange, ACL abuse |
+| Credential theft | Stored credentials via Mimikatz, shadow copies |
+| Known exploits | Zerologon, PrintNightmare/printer bug, mitm6, SID history |
+
+!!! warning "High impact and often detected"
+    Many of these lead to domain compromise and are monitored by modern defenses. Confirm scope, prefer OPSEC-safe variants where tools offer them, and record each step for the report.
+
+## Techniques
+
 ### Kerberoast
-*WUT IS DIS?:* \
+**What it is:** \
  All standard domain users can request a copy of all service accounts along with their correlating password hashes, so we can ask a TGS for any SPN that is bound to a "user"    
  account, extract the encrypted blob that was encrypted using the user's password and bruteforce it offline.
 
@@ -46,7 +67,7 @@
   Rubeus.exe kerberoast /outfile:<fileName> /domain:<DomainName> /creduser:<username> /credpassword:<password>
   ```
 ### ASREPRoast
- *WUT IS DIS?:* \
+ **What it is:** \
   If a domain user account do not require kerberos preauthentication, we can request a valid TGT for this account without even having domain credentials, extract the encrypted  
   blob and bruteforce it offline. 
  
@@ -404,3 +425,20 @@ Detailed Articles:
 - [SharpZeroLogon](https://github.com/nccgroup/nccfsas/tree/main/Tools/SharpZeroLogon): C# implementation of the Zerologon exploit.
 - [Invoke-ZeroLogon](https://github.com/BC-SECURITY/Invoke-ZeroLogon): Powershell implementation of the Zerologon exploit.
 - [Zer0Dump](https://github.com/bb00/zer0dump): Python implementation of the Zerologon exploit using the impacket library.
+
+
+## How I Use It
+
+I run BloodHound first so the graph tells me which of these techniques actually has a path to Domain Admin in this environment, rather than trying them blindly. Kerberoasting and ASREPRoasting are low-risk early wins; delegation and group-based abuses depend on what enumeration turns up; known exploits like Zerologon are used only when patching gaps and scope allow. Each finding is paired in the report with its fix (managed service accounts, AES-only Kerberos, removing delegation, patching).
+
+## Related
+
+* [Active Directory Enumeration](../discovery/active-directory-enumeration.md), [PowerView](../discovery/powerview.md)
+* [Breaching Active Directory](../initial-access/breaching-active-directory.md)
+* [Mimikatz](mimikatz.md), [Password Cracking](password-cracking.md)
+
+## Resources
+
+* [The Hacker Recipes: Active Directory](https://www.thehacker.recipes/)
+* [adsecurity.org](https://adsecurity.org/)
+* [Active Directory Exploitation Cheat Sheet](https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet)
