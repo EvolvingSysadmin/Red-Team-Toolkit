@@ -16,7 +16,7 @@ For any web application work, the OWASP Web Security Testing Guide is the refere
 | [Web Security Testing Guide (WSTG)](https://owasp.org/www-project-web-security-testing-guide/) | The step-by-step methodology for testing a web app |
 | [Cheat Sheet Series](https://cheatsheetseries.owasp.org/) | Focused guidance per topic |
 | [Juice Shop](https://owasp.org/www-project-juice-shop/) | Deliberately vulnerable app for practice |
-| [ZAP](owasp-zap.md) | OWASP's web app scanner and proxy |
+| [ZAP](../initial-access/owasp-zap.md) | OWASP's web app scanner and proxy |
 
 ## How I Use It
 
