@@ -1,17 +1,21 @@
 # Methodology
 
-There are several methodology frameworks for penetration testing that are widely used by security professionals. Here are some of the best:
+Frameworks that give an engagement structure, so testing is repeatable, defensible, and mapped to recognized standards.
 
-* [MITRE ATT\&CK](mitre.md)
-* [NIST SP 800-115](nist.md)
-* [OWASP Testing Guide](owasp.md)
-* [Penetration Testing Execution Standard (PTES)](ptes.md)
-* [SANS Penetration Testing Framework](sans.md)
+## Why It Matters
 
-It is important to use a methodology framework for penetration testing for several reasons:
+A methodology keeps an engagement consistent from tester to tester, makes sure phases are not skipped under time pressure, and gives findings a shared vocabulary that clients and blue teams already understand. Many compliance requirements also expect testing to follow a recognized framework.
 
-* Structured approach: helps ensure necessary steps are taken to identify and exploit vulnerabilities
-* Consistency: helps ensure consistency across different tests and testers
-* Best practices: helps reduce risk of unintended consequences
-* Communication: structured communication helps set expectations to ensure all are on the same page
-* Compliance: many standards require penetration tests be conducted via methodology framework
+## Frameworks
+
+| Framework | Use |
+| :--- | :--- |
+| [MITRE ATT&CK](mitre.md) | Catalog of adversary tactics and techniques, used to plan coverage and map findings to real behavior |
+| [PTES](ptes.md) | Penetration Testing Execution Standard: an end-to-end engagement model from pre-engagement to reporting |
+| [OWASP Testing Guide](owasp.md) | Standard methodology for web application testing |
+| [NIST SP 800-115](nist.md) | Technical guide to information security testing and assessment |
+| [SANS](sans.md) | SANS penetration testing framework and resources |
+
+## How I Use It
+
+I pick the framework that fits the engagement: ATT&CK to plan and report technique coverage, the OWASP Testing Guide for web app work, and PTES as the overall spine from scoping through reporting. The framework keeps the work organized; the technique pages in the other sections are how each phase gets executed.

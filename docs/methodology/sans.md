@@ -1,29 +1,31 @@
 # SANS
 
-The SANS Penetration Testing Framework is a structured methodology for conducting comprehensive and consistent penetration testing.
+The SANS penetration testing framework: a structured, widely taught methodology for conducting an engagement end to end.
 
-* [Background](sans.md#background)
-* [Steps](sans.md#steps)
-* [Resources](sans.md#resources)
+## Why It Matters
 
-## Background
+The SANS framework covers the same ground as PTES with an explicit cleanup phase at the end, which is a useful reminder that an engagement is not finished until tools and artifacts are removed and the environment is restored.
 
-The SANS Penetration Testing Framework was developed by the [SANS Institute](https://www.sans.org/), a leading provider of cybersecurity education and training. The framework was designed to provide a comprehensive and standardized approach to penetration testing that can be used by organizations of all sizes and industries. It draws upon the collective knowledge and experience of SANS instructors and practitioners in the field of cybersecurity.
+## Reference
 
-## Steps
+### Phases
 
-The SANS Penetration Testing Framework includes the following steps:
+| Phase | What Happens |
+| :--- | :--- |
+| Pre-engagement | Define scope, goals, and rules of engagement |
+| Intelligence Gathering | Collect information about the target environment |
+| Threat Modeling | Identify likely attack vectors and scenarios |
+| Vulnerability Analysis | Assess the environment for vulnerabilities |
+| Exploitation | Exploit identified vulnerabilities to gain access |
+| Post-Exploitation | Maintain access and escalate privileges |
+| Reporting | Document findings and recommend remediation |
+| Cleanup | Remove tools and artifacts, restore the environment |
 
-1. Pre-engagement: Define scope, goals, and rules of engagement for the testing.
-2. Intelligence gathering: Gather information about the target environment to identify potential vulnerabilities.
-3. Threat modeling: Analyze the information gathered to identify the most likely attack vectors and potential attack scenarios.
-4. Vulnerability analysis: Conduct a detailed assessment of the target environment to identify potential vulnerabilities.
-5. Exploitation: Attempt to exploit identified vulnerabilities to gain access to target systems.
-6. Post-exploitation: Maintain access to the target environment and escalate privileges.
-7. Reporting: Document the findings of the testing process and provide recommendations for remediation.
-8. Cleanup: Remove any tools or artifacts left behind during the testing process and restore the environment to its original state.
+## How I Use It
+
+I use the SANS phases much like PTES, and I keep the cleanup phase explicit on my own checklist: every tool dropped, account created, or change made during the test gets recorded so it can be removed and reported.
 
 ## Resources
 
 * [SANS Penetration Testing White Papers](https://www.sans.org/white-papers/?focus-area=pen-testing-red-teaming)
-  * Available online here: [https://sansorg.egnyte.com/dl/CqDcmgwKE3](https://sansorg.egnyte.com/dl/CqDcmgwKE3)
+* [SANS Penetration Testing Resources](https://www.sans.org/cyberaces/)

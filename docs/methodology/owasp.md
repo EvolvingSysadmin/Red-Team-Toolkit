@@ -1,32 +1,30 @@
 # OWASP
 
-The [Open Web Application Security Project (OWASP)](https://owasp.org/) provides resources, tools, and guidelines to help build and test secure applications.
+The Open Web Application Security Project: resources and guidelines for testing web application security, and the standard methodology for web app engagements.
 
-* [Background](#background)
-* [OWASP Top 10](#owasp-top-10)
-* [Resources](#resources)
+## Why It Matters
 
-## Background
+For any web application work, the OWASP Web Security Testing Guide is the reference methodology, and the Top 10 is the shared vocabulary clients already know. Framing web findings in OWASP terms makes them easy for a development team to understand and act on.
 
-[OWASP (Open Web Application Security Project)](https://owasp.org/) is a non-profit organization that aims to improve the security of software and web applications by providing resources, tools, and best practices for developers, security professionals, and organizations. OWASP provides resources including the OWASP Top 10 and the OWASP Web Security Testing Guide.
+## Reference
 
-## OWASP Top 10
+### Key Resources
 
-The [OWASP Top 10](https://owasp.org/www-project-top-ten/) is a list of the 10 most critical web application security risks, based on widespread exploitation, prevalence, and impact. This list is updated every few years.
+| Resource | Use |
+| :--- | :--- |
+| [OWASP Top 10](https://owasp.org/www-project-top-ten/) | The most critical web application risks; a shared language for findings |
+| [Web Security Testing Guide (WSTG)](https://owasp.org/www-project-web-security-testing-guide/) | The step-by-step methodology for testing a web app |
+| [Cheat Sheet Series](https://cheatsheetseries.owasp.org/) | Focused guidance per topic |
+| [Juice Shop](https://owasp.org/www-project-juice-shop/) | Deliberately vulnerable app for practice |
+| [ZAP](owasp-zap.md) | OWASP's web app scanner and proxy |
 
-## OWASP Web Security Testing Guide
+## How I Use It
 
-The [OWASP Web Security Testing Guide](https://owasp.org/www-project-web-security-testing-guide) is a comprehensive open source guideline that provides techniques for testing the security of web applications.
-
-[This is the repository](https://github.com/OWASP/wstg) of the guide and [this is the latest content](https://owasp.org/www-project-web-security-testing-guide/latest/).
+I follow the WSTG as the checklist for web app testing so coverage is consistent, and I report findings against the Top 10 categories so developers can map them to guidance they already use. Juice Shop is where I practice techniques before using them on a live target.
 
 ## Resources
 
-* [OWASP Organization Website](https://owasp.org)
-* [OWASP Top Ten](https://owasp.org/www-project-top-ten)
-* [OWASP Web Security Testing Guide](https://owasp.org/www-project-web-security-testing-guide)
-* [OWASP Web Security Testing Guide Repository](https://github.com/OWASP/wstg)
-* [Latest Version of OWASP Testing Guide Content](https://owasp.org/www-project-web-security-testing-guide/latest)
-* [OWASP Vulnerable Training Website - Juice Shop](https://owasp.org/www-project-juice-shop)
-* [OWASP Zed Attack Proxy Security Tool](https://owasp.org/www-project-zap/)
-* [OWASP Cheat Sheets](https://cheatsheetseries.owasp.org)
+* [OWASP](https://owasp.org/)
+* [OWASP Top 10](https://owasp.org/www-project-top-ten/)
+* [Web Security Testing Guide](https://owasp.org/www-project-web-security-testing-guide/) ([repository](https://github.com/OWASP/wstg), [latest content](https://owasp.org/www-project-web-security-testing-guide/latest/))
+* [OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/)

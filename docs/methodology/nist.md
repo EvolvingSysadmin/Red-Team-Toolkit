@@ -1,33 +1,30 @@
-# NIST
+# NIST SP 800-115
 
-NIST [SP 800-115 Technical Guide to Information Security Testing and Assessment](https://www.nist.gov/privacy-framework/nist-sp-800-115) offers guidance on conducting security assessments from the [NIST Computer Security Resource Center](https://csrc.nist.gov/).
+NIST's Technical Guide to Information Security Testing and Assessment: guidance on planning and carrying out security assessments, including penetration testing.
 
-* [Background](#background)
-* [Key Points](#key-points)
-* [Resources](#resources)
+## Why It Matters
 
-## Background
+SP 800-115 is the recognized government reference for how security testing should be planned, executed, and reported. It is useful for framing an engagement in terms a compliance or GRC audience accepts, and it connects penetration testing to the wider assessment process.
 
-NIST's Computer Security Resource Center (CSRC) distributes NIST Special Publication 800-115 titled "Technical Guide to Information Security Testing and Assessment." NIST SP 800-115 provides guidance on selecting and implementing security testing techniques, including penetration testing.
+## Reference
 
-## Key Points
+### Assessment Techniques and Phases
 
-* Review Techniques: passively examine systems, applications, networks, policies, and procedures to discover security vulnerabilities using techniques such as documentation, log, ruleset, and system configuration review; network sniffing; and file integrity checking.
+| Area | Covers |
+| :--- | :--- |
+| Review Techniques | Passive examination: documentation, log, ruleset, and configuration review; network sniffing; file integrity checking |
+| Target Identification and Analysis | Network discovery, port and service identification, vulnerability scanning, wireless scanning |
+| Target Vulnerability Validation | Confirming vulnerabilities through password cracking, penetration testing, and social engineering |
+| Assessment Planning | Assessment policy, prioritization and scheduling, approach selection, logistics |
+| Assessment Execution | Carrying out the techniques identified in the plan |
+| Post-Testing Activities | Turning findings into mitigation recommendations, reporting, and remediation |
 
-* Target Identification and Analysis Techniques: focuses on identifying active devices and their associated ports and services, and analyzing them for potential vulnerabilities. The identification and analysis techniques used include network discovery, network port and service identification, vulnerability scanning, and wireless scanning.
+## How I Use It
 
-* Target Vulnerability Validation Techniques: uses information produced from target identification and analysis to further explore the existence of potential vulnerabilities using techniques such as password cracking, penetration testing, and social engineering.
-
-* Security Assessment Planning: provides guidance on creating an assessment policy, prioritizing and scheduling assessments, selecting the appropriate assessment approach, and addressing logistical considerations.
-
-* Security Assessment Execution: vulnerabilities are identified by the methods and techniques decided upon in the planning phase and identified in the assessment plan. The purpose of this section is to
-highlight key points for assessors to consider throughout the execution phase.
-
-* Post-Testing Activities: This section presents ways that organizations can translate their findings into actions that will improve security including through mitigation recommendations, reporting, and remediation.
+When an engagement needs to line up with a formal assessment or compliance program, I frame scope and reporting in SP 800-115 terms. Its split between review, identification, and validation techniques is a useful check that an assessment is not relying on a single method.
 
 ## Resources
 
-* [SP 800-115 Documentation](https://csrc.nist.gov/publications/detail/sp/800-115/final)
-* [SP 800-115 Online](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-115.pdf)
-* [NIST Computer Security Resource Center (CRSC)](https://csrc.nist.gov/)
-* [All NIST CRSC Publications](https://csrc.nist.gov/publications)
+* [SP 800-115 (final)](https://csrc.nist.gov/publications/detail/sp/800-115/final)
+* [SP 800-115 PDF](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-115.pdf)
+* [NIST Computer Security Resource Center](https://csrc.nist.gov/)

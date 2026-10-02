@@ -1,26 +1,30 @@
-# Penetration Testing Execution Standard (PTES)
+# PTES
 
-PTES is a set of guidelines and procedures for performing consistent and comprehensive penetration testing
+The Penetration Testing Execution Standard: a set of guidelines covering an engagement end to end, from scoping to reporting.
 
-* [Background](#background)
-* [Steps](#steps)
-* [Resources](#resources)
+## Why It Matters
 
-## Background
+PTES is the most complete description of what a full penetration test covers. It is useful as the spine of an engagement, making sure the work does not jump straight to exploitation and skip scoping, threat modeling, or the reporting that actually delivers value to the client.
 
-[PTES](http://www.pentest-standard.org/) was created by a group of experienced security professionals in response to the lack of a standardized approach to penetration testing. The standard has since become widely adopted and recognized as a valuable resource for organizations and security professionals alike.
+## Reference
 
-## Steps
+### Phases
 
-1. Pre-engagement Interactions: preparation phase including approvals and tools needed for the test
-2. Intelligence gathering: information about the target system are gathered from external sources like social media websites, official record, using OSINT and other techniques
-3. Threat Modelling: procedure for optimizing network security by identifying objectives and vulnerabilities
-4. Vulnerability Analysis: discover and validate vulnerabilities
-5. Exploitation: breach the security of the target system using the vulnerabilities previously identified
-6. Post Exploitation: maintain control over target system and collect
-7. Reporting: Dodocumentcuments entire process in a form understandable to the client
+| Phase | What Happens |
+| :--- | :--- |
+| Pre-engagement Interactions | Scope, goals, approvals, rules of engagement, and tooling |
+| Intelligence Gathering | OSINT and other recon to understand the target |
+| Threat Modeling | Identify likely attack paths and high-value assets |
+| Vulnerability Analysis | Discover and validate vulnerabilities |
+| Exploitation | Breach the target using the validated vulnerabilities |
+| Post Exploitation | Maintain access, escalate, and assess impact |
+| Reporting | Document the process and findings for the client |
+
+## How I Use It
+
+I treat the phases as the backbone of the engagement and slot the technique pages in this toolkit into the matching phase. The pre-engagement and reporting phases are the ones least worth cutting under time pressure, because they are what make the test authorized and useful.
 
 ## Resources
 
-* [PTES Website](http://www.pentest-standard.org)
+* [PTES Website](http://www.pentest-standard.org/)
 * [PTES Technical Guidelines](http://www.pentest-standard.org/index.php/PTES_Technical_Guidelines)
