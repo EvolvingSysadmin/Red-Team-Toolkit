@@ -36,7 +36,7 @@ Burp Suite is a comprehensive platform for web application security testing. It 
 ## Resources
 
 * [Burp Suite Documentation](https://portswigger.net/burp/documentation)
-* [Sans Burp Suite Cheat Sheet](https://github.com/EvolvingSysadmin/Red-Team-Toolkit/blob/master/resources/sans-burp-suite.pdf)
+* [Burp Suite Documentation](https://portswigger.net/burp/documentation)
 * [Burp Suite for Pentesters](https://github.com/Ignitetechnologies/BurpSuite-For-Pentester)
 * [https://github.com/xl7dev/BurpSuite/blob/master/CheatSheet.md](https://github.com/xl7dev/BurpSuite/blob/master/CheatSheet.md)
 

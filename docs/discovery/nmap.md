@@ -220,8 +220,8 @@ Nmap is a popular security tool that can be used as a network exploration and po
 * [NMAP Firewall Evasion Techniques](https://nmap.org/book/man-bypass-firewalls-ids.html)
 * [Kali Nmap Guide](https://www.kali.org/tools/nmap/)
 * [Common Ports](https://web.mit.edu/rhel-doc/4/RH-DOCS/rhel-sg-en-4/ch-ports.html)
-* [Nmap Cheat Sheet](https://github.com/EvolvingSysadmin/Red-Team-Toolkit/blob/master/resources/nmap-cheat-sheet.pdf)
-* [SANS Nmap Cheat Sheet](https://github.com/EvolvingSysadmin/Red-Team-Toolkit/blob/master/resources/sans-nmap.pdf)
+* [Nmap Reference Guide](https://nmap.org/book/man.html)
+* [SANS Posters and Cheat Sheets](https://www.sans.org/posters/)
 * Additional Scanning Tools:
   * [arp-scan](https://www.kali.org/tools/arp-scan/)
   * [masscan](https://github.com/robertdavidgraham/masscan)

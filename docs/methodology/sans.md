@@ -25,5 +25,5 @@ The SANS Penetration Testing Framework includes the following steps:
 
 ## Resources
 
-* [SANS Conducting a Penetration Test White Paper](https://github.com/EvolvingSysadmin/Red-Team-Toolkit/blob/master/resources/sans-conducting-penetration-test.pdf)
+* [SANS Penetration Testing White Papers](https://www.sans.org/white-papers/?focus-area=pen-testing-red-teaming)
   * Available online here: [https://sansorg.egnyte.com/dl/CqDcmgwKE3](https://sansorg.egnyte.com/dl/CqDcmgwKE3)

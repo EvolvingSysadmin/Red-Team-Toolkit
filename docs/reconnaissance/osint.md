@@ -100,8 +100,8 @@ The following tools can be used to gather OSINT, including Google Dorks, Malteo,
 * Resources
   * [Exploit-DB Google Hacking Database](https://www.exploit-db.com/google-hacking-database): This is a comprehensive database of Google Dorks, maintained by Offensive Security.
   * [Google Dorking Tool](https://pentest-tools.com/information-gathering/google-hacking): A free online tool that generates Google Dorks based on keywords and search parameters.
-  * [Google Hacking for Penetration Testers PDF](https://github.com/EvolvingSysadmin/Red-Team-Toolkit/blob/master/resources/Google-Hacking-for-Penetration-Testers.pdf)
-  * [SANS Google Cheat Sheet](https://github.com/EvolvingSysadmin/Red-Team-Toolkit/blob/master/resources/SANS-Google-Cheat-Sheet.pdf)
+  * [Google Hacking Database (GHDB)](https://www.exploit-db.com/google-hacking-database)
+  * [SANS Posters and Cheat Sheets](https://www.sans.org/posters/)
   * [Google Dork List](https://www.boxpiper.com/posts/google-dork-list)
   * [Advanced Google Search Operators](https://ahrefs.com/blog/google-advanced-search-operators/)
 
