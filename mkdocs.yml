@@ -1,0 +1,106 @@
+site_name: Red Team Toolkit
+site_url: https://redteam.ryanheavican.com/
+site_description: "Field reference for penetration testing: recon, initial access, privilege escalation, and movement"
+site_author: Ryan Heavican
+repo_url: https://github.com/EvolvingSysadmin/Red-Team-Toolkit
+repo_name: EvolvingSysadmin/Red-Team-Toolkit
+edit_uri: edit/master/docs/
+copyright: Copyright &copy; Ryan Heavican
+
+theme:
+  name: material
+  logo: assets/logo.svg
+  favicon: assets/logo.svg
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.details
+
+nav:
+  - Home: index.md
+  - Methodology:
+      - methodology/index.md
+      - MITRE ATT&CK: methodology/mitre.md
+      - PTES: methodology/ptes.md
+      - OWASP: methodology/owasp.md
+      - NIST: methodology/nist.md
+      - SANS: methodology/sans.md
+  - Reconnaissance:
+      - reconnaissance/index.md
+      - OSINT: reconnaissance/osint.md
+      - DNS Recon: reconnaissance/dns-recon.md
+      - Web Application Recon: reconnaissance/web-application-recon.md
+  - Initial Access:
+      - initial-access/index.md
+      - Phishing: initial-access/phishing.md
+      - Web Authentication Bypass: initial-access/web-authentication-bypass.md
+      - SQL Injection: initial-access/sql-injection.md
+      - XSS: initial-access/xss.md
+      - Network Services Attacks: initial-access/network-services-attacks.md
+      - Breaching Active Directory: initial-access/breaching-active-directory.md
+      - Windows Exploits: initial-access/windows-exploits.md
+      - Linux Exploits: initial-access/linux-exploits.md
+      - Burp Suite: initial-access/burp-suite.md
+      - OWASP ZAP: initial-access/owasp-zap.md
+      - Hydra: initial-access/hydra.md
+      - Metasploit: initial-access/metasploit.md
+      - Nessus: initial-access/nessus.md
+      - Wordlists: initial-access/wordlists.md
+  - Discovery:
+      - discovery/index.md
+      - Nmap: discovery/nmap.md
+      - Other Scanning Methods: discovery/other-scanning-methods.md
+      - Active Directory Enumeration: discovery/active-directory-enumeration.md
+      - PowerView: discovery/powerview.md
+      - Windows Post-Exploitation Discovery: discovery/windows-post-exploitation-discovery.md
+      - Linux Post-Exploitation Discovery: discovery/linux-post-exploitation-discovery.md
+  - Privilege Escalation:
+      - privilege-escalation/index.md
+      - Local Windows Privilege Escalation: privilege-escalation/local-windows-privilege-escalation.md
+      - AD Privilege Escalation: privilege-escalation/ad-privilege-escalation.md
+      - Linux Privilege Escalation: privilege-escalation/linux-privilege-escalation.md
+      - Password Cracking: privilege-escalation/password-cracking.md
+      - Mimikatz: privilege-escalation/mimikatz.md
+  - Movement:
+      - movement/index.md
+      - Lateral Movement: movement/movement.md
+      - Evasion: movement/evasion.md
+  - Collection:
+      - collection/index.md
+      - Persistence: collection/persistence.md
+      - Exfiltration: collection/exfiltration.md
+  - Other:
+      - other/index.md
+      - OpSec: other/opsec.md
+      - Bookmarks: other/bookmarks.md

@@ -1,9 +1,18 @@
-# 👊 Welcome!
+# Red Team Toolkit
 
-Note: this repo is extremely out of date and will be updated later this year
+The Red Team Toolkit is a field reference for offensive security work: methodology, reconnaissance, initial access, discovery, privilege escalation, lateral movement, and collection. It is maintained by [@EvolvingSysadmin](https://github.com/EvolvingSysadmin).
 
-The Red Team Toolkit provides tools and techniques for penetration testing. The Red Team Toolkit was made by [@EvolvingSysadmin](https://github.com/evolvingsysadmin). The information is gathered primarily from courses such as those from [TryHackMe](https://tryhackme.com/). ChatGPT was also used to create and edit content where possible.
+It is intended for authorized penetration testing, security education, and capture-the-flag practice. Only test systems you own or have explicit written permission to assess.
 
-In addition to [GitHub](https://github.com/EvolvingSysadmin/Red-Team-Toolkit), the Blue Team Toolkit can be viewed as a [GitBook](https://evolvingsysadmin.gitbook.io/red-team-toolkit).
+Read it at [redteam.ryanheavican.com](https://redteam.ryanheavican.com) or browse the Markdown in [docs/](docs/index.md).
 
-![Happy Hacking!](assets/images/logo.svg)
+## Build locally
+
+```
+pip install -r requirements.txt
+mkdocs serve
+```
+
+Then open <http://127.0.0.1:8000>.
+
+![Happy Hacking!](docs/assets/logo.svg)
